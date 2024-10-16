@@ -1,0 +1,127 @@
+server:
+  port: 8088
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAQLSIVZXOK4QIEDFE
+      secret-key: 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
+    region:
+      static: ap-southeast-2
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: shopappimages
+
+spring:
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  #    #      use-redis-cache: false
+  flyway:
+    locations: classpath:/dev/db/migration
+    #phiên bản baseline sẽ = 0 và không thực hiện bất kì thay đổi nào trong DB
+    baseline-on-migrate: true
+    baseline-version: 11
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+#    url: jdbc:mysql://localhost:3306/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ${MYSQL_ROOT_PASSWORD:}
+#      ${MYSQL_ROOT_PASSWORD:}
+#    kafka:
+#      client:
+#        dns:
+#          lookup: use_dns_cache
+#        bootstrap-servers: ${KAFKA_BROKER_SERVER:localhost}:${KAFKA_BROKER_PORT:9092}
+#      producer:
+#        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#      properties:
+#        "[spring.json.type.mapping]": category:com.project.shopapp.models.Category
+#      consumer:
+#        value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+#    data:
+
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: none
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+          format_sql: true
+    servlet:
+      multipart:
+        max-file-size: 10MB
+        max-request-size: 10MB
+    messages:
+      basename: i18n/messages
+      encoding: UTF-8
+      default-locale: en
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: alosinl048@gmail.com
+    password: vmlmioywbzuyymyd
+    shopApp: "VNA Fruit"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true # This forces STARTTLS
+          ssl:
+            trust: smtp.gmail.com
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+
+
+api:
+  prefix: /api/v1
+jwt:
+  shortExpiration: 600 #5 phút
+  longExpiration: 2592000 #30days = 30 * 24 * 60 * 60
+  expiration-refresh-token: 5184000 #60days = 60 * 24 * 60 * 60
+  secretKey: U6v+iCW7VBBAG+UjzNjFxI7yB5mkRb6MRUiwxxPz6kE=
+
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    name: shopapp/src/main/resources/logs/logfile.log
+  level:
+    org.springframework.security: TRACE
+#    org.springframework.security.web: debug
+#    org.springframework.security.authentication: debug
+#    org.springframework.security.access: debug
+
+#swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+  show-actuator: true
+
+#health check
+management:
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+
+  endpoints:
+    web:
+      base-path: /api/v1/actuator
+      exposure:
+        include: "health,info"
+
+
