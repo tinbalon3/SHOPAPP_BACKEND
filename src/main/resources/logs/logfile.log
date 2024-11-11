@@ -1,0 +1,2689 @@
+2024-11-11 10:25:33 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-11 10:25:34 INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.2.1 with PID 23328 (D:\ideaIU\Work\ShopApp\shopapp-backend\target\classes started by Admin in D:\ideaIU\Work\ShopApp\shopapp-backend)
+2024-11-11 10:25:34 INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-11 10:25:37 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-11 10:25:37 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-11 10:25:37 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-11 10:25:37 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-11 10:25:38 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/ShopApp (MySQL 5.5)
+2024-11-11 10:25:38 INFO  o.f.core.internal.command.DbValidate - Successfully validated 13 migrations (execution time 00:00.069s)
+2024-11-11 10:25:38 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: 14
+2024-11-11 10:25:38 INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-11 10:25:38 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-11 10:25:38 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-11 10:25:38 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-11 10:25:39 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-11-11 10:25:40 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-11 10:25:41 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-11 10:25:42 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Found 2 UserDetailsService beans, with names [customerUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2024-11-11 10:25:43 INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2024-11-11 10:25:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295543847
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2024-11-11 10:25:44 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:44 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:44 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:44 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-sendOrderEmail-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = sendOrderEmail
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544406
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Subscribed to topic(s): order-updated-success
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry5mListener-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry5mListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544427
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Subscribed to topic(s): retry_5m_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry5mListener-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry5mListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544442
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Subscribed to topic(s): retry_5m_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry5mListener-4
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry5mListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544454
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Subscribed to topic(s): retry_5m_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-orderPaymentsSuccess-5
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = orderPaymentsSuccess
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544464
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Subscribed to topic(s): order-payments-success
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-orderPaymentsFail-6
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = orderPaymentsFail
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544475
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Subscribed to topic(s): order-payments-fail
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-insertCategory-7
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = insertCategory
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544485
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Subscribed to topic(s): insert-a-category
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry1hListener-8
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry1hListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544507
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Subscribed to topic(s): retry_1h_topic
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry1hListener-9
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry1hListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544521
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Subscribed to topic(s): retry_1h_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry1hListener-10
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry1hListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Request joining group due to: need to re-join with the given member-id: consumer-sendOrderEmail-1-3def63bc-8a90-4522-9d53-0269d4d59ca4
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry5mListener-2-31ec1f0f-596d-414e-92c4-66d091775481
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Request joining group due to: need to re-join with the given member-id: consumer-orderPaymentsSuccess-5-8feab5bc-a4ab-4785-91f5-320f56f8b6e6
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry5mListener-3-14c71d20-4496-417a-ae3d-08741129b110
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry5mListener-4-908bb730-a379-4d80-9b91-504b0ac6e76b
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544535
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Subscribed to topic(s): retry_1h_topic
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry30mListener-11
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry30mListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Request joining group due to: need to re-join with the given member-id: consumer-retry1hListener-8-b7f88441-e2f6-4f5a-9502-0e1f1bff7863
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Request joining group due to: need to re-join with the given member-id: consumer-insertCategory-7-ad1f3e3f-3934-457b-889e-f0831c2ad7c5
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Request joining group due to: need to re-join with the given member-id: consumer-orderPaymentsFail-6-9025af32-393c-482c-9e71-6ac8c0c75664
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544547
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Subscribed to topic(s): retry_30m_topic
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry30mListener-12
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry30mListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Request joining group due to: need to re-join with the given member-id: consumer-retry1hListener-9-065bb7ed-1904-4a51-8f6b-6d8252582b33
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544556
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Subscribed to topic(s): retry_30m_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Request joining group due to: need to re-join with the given member-id: consumer-retry1hListener-10-9998151c-2dca-4a24-83cc-e48d84dd24d2
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry30mListener-13
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry30mListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544565
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Subscribed to topic(s): retry_30m_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry30mListener-11-add130b1-b072-45e9-9d12-f1b00900370b
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-getAllCategory-14
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = getAllCategory
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544574
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry30mListener-12-b489f4ff-083c-41e4-b13b-c91dd466eabb
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Subscribed to topic(s): get-all-categories
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-notifyEmail-15
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = notifyEmail
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544581
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry30mListener-13-276ba5e1-ad9f-4a8a-b632-3035a4bb526c
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Subscribed to topic(s): failed_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-notifyEmail-16
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = notifyEmail
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544587
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Request joining group due to: need to re-join with the given member-id: consumer-getAllCategory-14-77029e13-8cd5-48d0-9853-e58ebfed0374
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] (Re-)joining group
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Subscribed to topic(s): failed_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-notifyEmail-17
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = notifyEmail
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544592
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Request joining group due to: need to re-join with the given member-id: consumer-notifyEmail-15-bd6b180e-d950-4bef-95d4-8e98079095d5
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] (Re-)joining group
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Subscribed to topic(s): failed_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-email-consumer-group-18
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = email-consumer-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Request joining group due to: need to re-join with the given member-id: consumer-notifyEmail-16-cde34d5d-7a57-4fb4-8f12-c008a6858bfb
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544601
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Subscribed to topic(s): user_register_otp_email_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-email-consumer-group-19
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = email-consumer-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Request joining group due to: need to re-join with the given member-id: consumer-notifyEmail-17-1bdc2ace-1b1b-4324-a407-e7b1fcb40415
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544610
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Subscribed to topic(s): user_register_otp_email_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-email-consumer-group-20
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = email-consumer-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-11 10:25:44 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.0
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 84caaa6e9da06435
+2024-11-11 10:25:44 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1731295544617
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Request joining group due to: need to re-join with the given member-id: consumer-email-consumer-group-18-2f5a3db8-7c9a-4618-b241-c4ad3ceb5ac6
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] (Re-)joining group
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Subscribed to topic(s): user_register_otp_email_topic
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Request joining group due to: need to re-join with the given member-id: consumer-email-consumer-group-19-517ddc0d-6c6e-4d27-a1dd-27de1ae5b240
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] (Re-)joining group
+2024-11-11 10:25:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Cluster ID: oKqnwCtoSB-nKSj6oF1I5g
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] (Re-)joining group
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Request joining group due to: need to re-join with the given member-id: consumer-email-consumer-group-20-f3004492-7444-4c04-be21-8ef89c0794fa
+2024-11-11 10:25:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] (Re-)joining group
+2024-11-11 10:25:44 INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 11.549 seconds (process running for 12.314)
+2024-11-11 10:25:45 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Successfully joined group with generation Generation{generationId=175, memberId='consumer-retry5mListener-2-31ec1f0f-596d-414e-92c4-66d091775481', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Successfully joined group with generation Generation{generationId=175, memberId='consumer-retry5mListener-3-14c71d20-4496-417a-ae3d-08741129b110', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Successfully joined group with generation Generation{generationId=175, memberId='consumer-retry5mListener-4-908bb730-a379-4d80-9b91-504b0ac6e76b', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Successfully joined group with generation Generation{generationId=13, memberId='consumer-sendOrderEmail-1-3def63bc-8a90-4522-9d53-0269d4d59ca4', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Successfully joined group with generation Generation{generationId=113, memberId='consumer-orderPaymentsSuccess-5-8feab5bc-a4ab-4785-91f5-320f56f8b6e6', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Finished assignment for group at generation 13: {consumer-sendOrderEmail-1-3def63bc-8a90-4522-9d53-0269d4d59ca4=Assignment(partitions=[order-updated-success-0])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Finished assignment for group at generation 113: {consumer-orderPaymentsSuccess-5-8feab5bc-a4ab-4785-91f5-320f56f8b6e6=Assignment(partitions=[order-payments-success-0, order-payments-success-1, order-payments-success-2, order-payments-success-3, order-payments-success-4, order-payments-success-5])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Finished assignment for group at generation 175: {consumer-retry5mListener-3-14c71d20-4496-417a-ae3d-08741129b110=Assignment(partitions=[retry_5m_topic-2, retry_5m_topic-3]), consumer-retry5mListener-2-31ec1f0f-596d-414e-92c4-66d091775481=Assignment(partitions=[retry_5m_topic-0, retry_5m_topic-1]), consumer-retry5mListener-4-908bb730-a379-4d80-9b91-504b0ac6e76b=Assignment(partitions=[retry_5m_topic-4, retry_5m_topic-5])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Successfully joined group with generation Generation{generationId=173, memberId='consumer-insertCategory-7-ad1f3e3f-3934-457b-889e-f0831c2ad7c5', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Finished assignment for group at generation 173: {consumer-insertCategory-7-ad1f3e3f-3934-457b-889e-f0831c2ad7c5=Assignment(partitions=[insert-a-category-0, insert-a-category-1, insert-a-category-2, insert-a-category-3, insert-a-category-4, insert-a-category-5])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Successfully joined group with generation Generation{generationId=174, memberId='consumer-retry1hListener-9-065bb7ed-1904-4a51-8f6b-6d8252582b33', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Successfully joined group with generation Generation{generationId=174, memberId='consumer-retry1hListener-10-9998151c-2dca-4a24-83cc-e48d84dd24d2', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Successfully joined group with generation Generation{generationId=111, memberId='consumer-orderPaymentsFail-6-9025af32-393c-482c-9e71-6ac8c0c75664', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Successfully joined group with generation Generation{generationId=174, memberId='consumer-retry1hListener-8-b7f88441-e2f6-4f5a-9502-0e1f1bff7863', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Finished assignment for group at generation 111: {consumer-orderPaymentsFail-6-9025af32-393c-482c-9e71-6ac8c0c75664=Assignment(partitions=[order-payments-fail-0, order-payments-fail-1, order-payments-fail-2, order-payments-fail-3, order-payments-fail-4, order-payments-fail-5])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Finished assignment for group at generation 174: {consumer-retry1hListener-9-065bb7ed-1904-4a51-8f6b-6d8252582b33=Assignment(partitions=[retry_1h_topic-4, retry_1h_topic-5]), consumer-retry1hListener-10-9998151c-2dca-4a24-83cc-e48d84dd24d2=Assignment(partitions=[retry_1h_topic-0, retry_1h_topic-1]), consumer-retry1hListener-8-b7f88441-e2f6-4f5a-9502-0e1f1bff7863=Assignment(partitions=[retry_1h_topic-2, retry_1h_topic-3])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Successfully joined group with generation Generation{generationId=173, memberId='consumer-retry30mListener-12-b489f4ff-083c-41e4-b13b-c91dd466eabb', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Successfully joined group with generation Generation{generationId=173, memberId='consumer-retry30mListener-13-276ba5e1-ad9f-4a8a-b632-3035a4bb526c', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Successfully joined group with generation Generation{generationId=173, memberId='consumer-retry30mListener-11-add130b1-b072-45e9-9d12-f1b00900370b', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Finished assignment for group at generation 173: {consumer-retry30mListener-12-b489f4ff-083c-41e4-b13b-c91dd466eabb=Assignment(partitions=[retry_30m_topic-2, retry_30m_topic-3]), consumer-retry30mListener-13-276ba5e1-ad9f-4a8a-b632-3035a4bb526c=Assignment(partitions=[retry_30m_topic-4, retry_30m_topic-5]), consumer-retry30mListener-11-add130b1-b072-45e9-9d12-f1b00900370b=Assignment(partitions=[retry_30m_topic-0, retry_30m_topic-1])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Successfully synced group in generation Generation{generationId=174, memberId='consumer-retry1hListener-9-065bb7ed-1904-4a51-8f6b-6d8252582b33', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Successfully synced group in generation Generation{generationId=174, memberId='consumer-retry1hListener-8-b7f88441-e2f6-4f5a-9502-0e1f1bff7863', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Notifying assignor about the new Assignment(partitions=[retry_1h_topic-4, retry_1h_topic-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Notifying assignor about the new Assignment(partitions=[retry_1h_topic-2, retry_1h_topic-3])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Successfully synced group in generation Generation{generationId=174, memberId='consumer-retry1hListener-10-9998151c-2dca-4a24-83cc-e48d84dd24d2', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Notifying assignor about the new Assignment(partitions=[retry_1h_topic-0, retry_1h_topic-1])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Adding newly assigned partitions: retry_1h_topic-0, retry_1h_topic-1
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Adding newly assigned partitions: retry_1h_topic-2, retry_1h_topic-3
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Adding newly assigned partitions: retry_1h_topic-4, retry_1h_topic-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Successfully synced group in generation Generation{generationId=173, memberId='consumer-insertCategory-7-ad1f3e3f-3934-457b-889e-f0831c2ad7c5', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Notifying assignor about the new Assignment(partitions=[insert-a-category-0, insert-a-category-1, insert-a-category-2, insert-a-category-3, insert-a-category-4, insert-a-category-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Adding newly assigned partitions: insert-a-category-0, insert-a-category-1, insert-a-category-2, insert-a-category-3, insert-a-category-4, insert-a-category-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Successfully synced group in generation Generation{generationId=173, memberId='consumer-retry30mListener-12-b489f4ff-083c-41e4-b13b-c91dd466eabb', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Notifying assignor about the new Assignment(partitions=[retry_30m_topic-2, retry_30m_topic-3])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Successfully synced group in generation Generation{generationId=173, memberId='consumer-retry30mListener-13-276ba5e1-ad9f-4a8a-b632-3035a4bb526c', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Adding newly assigned partitions: retry_30m_topic-2, retry_30m_topic-3
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Notifying assignor about the new Assignment(partitions=[retry_30m_topic-4, retry_30m_topic-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Adding newly assigned partitions: retry_30m_topic-4, retry_30m_topic-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Successfully synced group in generation Generation{generationId=13, memberId='consumer-sendOrderEmail-1-3def63bc-8a90-4522-9d53-0269d4d59ca4', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Notifying assignor about the new Assignment(partitions=[order-updated-success-0])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Adding newly assigned partitions: order-updated-success-0
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Successfully synced group in generation Generation{generationId=173, memberId='consumer-retry30mListener-11-add130b1-b072-45e9-9d12-f1b00900370b', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Notifying assignor about the new Assignment(partitions=[retry_30m_topic-0, retry_30m_topic-1])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Successfully synced group in generation Generation{generationId=113, memberId='consumer-orderPaymentsSuccess-5-8feab5bc-a4ab-4785-91f5-320f56f8b6e6', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Adding newly assigned partitions: retry_30m_topic-0, retry_30m_topic-1
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Successfully synced group in generation Generation{generationId=175, memberId='consumer-retry5mListener-2-31ec1f0f-596d-414e-92c4-66d091775481', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Notifying assignor about the new Assignment(partitions=[order-payments-success-0, order-payments-success-1, order-payments-success-2, order-payments-success-3, order-payments-success-4, order-payments-success-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Successfully synced group in generation Generation{generationId=175, memberId='consumer-retry5mListener-4-908bb730-a379-4d80-9b91-504b0ac6e76b', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Notifying assignor about the new Assignment(partitions=[retry_5m_topic-0, retry_5m_topic-1])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Adding newly assigned partitions: order-payments-success-0, order-payments-success-1, order-payments-success-2, order-payments-success-3, order-payments-success-4, order-payments-success-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Adding newly assigned partitions: retry_5m_topic-0, retry_5m_topic-1
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Notifying assignor about the new Assignment(partitions=[retry_5m_topic-4, retry_5m_topic-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Adding newly assigned partitions: retry_5m_topic-4, retry_5m_topic-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Successfully synced group in generation Generation{generationId=175, memberId='consumer-retry5mListener-3-14c71d20-4496-417a-ae3d-08741129b110', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Notifying assignor about the new Assignment(partitions=[retry_5m_topic-2, retry_5m_topic-3])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Adding newly assigned partitions: retry_5m_topic-2, retry_5m_topic-3
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Successfully joined group with generation Generation{generationId=173, memberId='consumer-getAllCategory-14-77029e13-8cd5-48d0-9853-e58ebfed0374', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Successfully joined group with generation Generation{generationId=113, memberId='consumer-notifyEmail-17-1bdc2ace-1b1b-4324-a407-e7b1fcb40415', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Successfully joined group with generation Generation{generationId=113, memberId='consumer-notifyEmail-15-bd6b180e-d950-4bef-95d4-8e98079095d5', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Finished assignment for group at generation 173: {consumer-getAllCategory-14-77029e13-8cd5-48d0-9853-e58ebfed0374=Assignment(partitions=[get-all-categories-0, get-all-categories-1, get-all-categories-2, get-all-categories-3, get-all-categories-4, get-all-categories-5])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Finished assignment for group at generation 113: {consumer-notifyEmail-17-1bdc2ace-1b1b-4324-a407-e7b1fcb40415=Assignment(partitions=[failed_topic-4, failed_topic-5]), consumer-notifyEmail-16-cde34d5d-7a57-4fb4-8f12-c008a6858bfb=Assignment(partitions=[failed_topic-2, failed_topic-3]), consumer-notifyEmail-15-bd6b180e-d950-4bef-95d4-8e98079095d5=Assignment(partitions=[failed_topic-0, failed_topic-1])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Successfully synced group in generation Generation{generationId=111, memberId='consumer-orderPaymentsFail-6-9025af32-393c-482c-9e71-6ac8c0c75664', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Successfully joined group with generation Generation{generationId=113, memberId='consumer-notifyEmail-16-cde34d5d-7a57-4fb4-8f12-c008a6858bfb', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Notifying assignor about the new Assignment(partitions=[order-payments-fail-0, order-payments-fail-1, order-payments-fail-2, order-payments-fail-3, order-payments-fail-4, order-payments-fail-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Adding newly assigned partitions: order-payments-fail-0, order-payments-fail-1, order-payments-fail-2, order-payments-fail-3, order-payments-fail-4, order-payments-fail-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Successfully synced group in generation Generation{generationId=173, memberId='consumer-getAllCategory-14-77029e13-8cd5-48d0-9853-e58ebfed0374', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Successfully synced group in generation Generation{generationId=113, memberId='consumer-notifyEmail-17-1bdc2ace-1b1b-4324-a407-e7b1fcb40415', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Notifying assignor about the new Assignment(partitions=[failed_topic-4, failed_topic-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Notifying assignor about the new Assignment(partitions=[get-all-categories-0, get-all-categories-1, get-all-categories-2, get-all-categories-3, get-all-categories-4, get-all-categories-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Adding newly assigned partitions: failed_topic-4, failed_topic-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Adding newly assigned partitions: get-all-categories-0, get-all-categories-1, get-all-categories-2, get-all-categories-3, get-all-categories-4, get-all-categories-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Successfully synced group in generation Generation{generationId=113, memberId='consumer-notifyEmail-15-bd6b180e-d950-4bef-95d4-8e98079095d5', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Notifying assignor about the new Assignment(partitions=[failed_topic-0, failed_topic-1])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Adding newly assigned partitions: failed_topic-0, failed_topic-1
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Successfully synced group in generation Generation{generationId=113, memberId='consumer-notifyEmail-16-cde34d5d-7a57-4fb4-8f12-c008a6858bfb', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Notifying assignor about the new Assignment(partitions=[failed_topic-2, failed_topic-3])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Adding newly assigned partitions: failed_topic-2, failed_topic-3
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Successfully joined group with generation Generation{generationId=162, memberId='consumer-email-consumer-group-19-517ddc0d-6c6e-4d27-a1dd-27de1ae5b240', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Successfully joined group with generation Generation{generationId=162, memberId='consumer-email-consumer-group-20-f3004492-7444-4c04-be21-8ef89c0794fa', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Successfully joined group with generation Generation{generationId=162, memberId='consumer-email-consumer-group-18-2f5a3db8-7c9a-4618-b241-c4ad3ceb5ac6', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Finished assignment for group at generation 162: {consumer-email-consumer-group-19-517ddc0d-6c6e-4d27-a1dd-27de1ae5b240=Assignment(partitions=[user_register_otp_email_topic-2, user_register_otp_email_topic-3]), consumer-email-consumer-group-20-f3004492-7444-4c04-be21-8ef89c0794fa=Assignment(partitions=[user_register_otp_email_topic-4, user_register_otp_email_topic-5]), consumer-email-consumer-group-18-2f5a3db8-7c9a-4618-b241-c4ad3ceb5ac6=Assignment(partitions=[user_register_otp_email_topic-0, user_register_otp_email_topic-1])}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-success-3 to the committed offset FetchPosition{offset=2, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=12}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-updated-success-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-success-2 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=4}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-fail-5 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=12}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-success-1 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=12}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-fail-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=4}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-success-0 to the committed offset FetchPosition{offset=2, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=4}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition insert-a-category-3 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition insert-a-category-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-fail-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=12}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition failed_topic-4 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-success-5 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=12}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition failed_topic-5 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-fail-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=4}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition insert-a-category-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-success-4 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=4}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-fail-3 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=12}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition insert-a-category-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition order-payments-fail-4 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=4}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition insert-a-category-5 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition insert-a-category-4 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition get-all-categories-3 to the committed offset FetchPosition{offset=80, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition get-all-categories-4 to the committed offset FetchPosition{offset=30, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition get-all-categories-1 to the committed offset FetchPosition{offset=19, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition get-all-categories-2 to the committed offset FetchPosition{offset=27, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition get-all-categories-0 to the committed offset FetchPosition{offset=4, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition get-all-categories-5 to the committed offset FetchPosition{offset=68, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition failed_topic-3 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition failed_topic-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_1h_topic-3 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_1h_topic-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_1h_topic-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_1h_topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition failed_topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition failed_topic-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_1h_topic-5 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_1h_topic-4 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_30m_topic-4 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_30m_topic-5 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_30m_topic-3 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_30m_topic-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_30m_topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_5m_topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_30m_topic-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_5m_topic-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_5m_topic-3 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_5m_topic-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_5m_topic-4 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Successfully synced group in generation Generation{generationId=162, memberId='consumer-email-consumer-group-19-517ddc0d-6c6e-4d27-a1dd-27de1ae5b240', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_5m_topic-5 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Notifying assignor about the new Assignment(partitions=[user_register_otp_email_topic-2, user_register_otp_email_topic-3])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Adding newly assigned partitions: user_register_otp_email_topic-2, user_register_otp_email_topic-3
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Successfully synced group in generation Generation{generationId=162, memberId='consumer-email-consumer-group-18-2f5a3db8-7c9a-4618-b241-c4ad3ceb5ac6', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Notifying assignor about the new Assignment(partitions=[user_register_otp_email_topic-0, user_register_otp_email_topic-1])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Adding newly assigned partitions: user_register_otp_email_topic-0, user_register_otp_email_topic-1
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Successfully synced group in generation Generation{generationId=162, memberId='consumer-email-consumer-group-20-f3004492-7444-4c04-be21-8ef89c0794fa', protocol='range'}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Notifying assignor about the new Assignment(partitions=[user_register_otp_email_topic-4, user_register_otp_email_topic-5])
+2024-11-11 10:25:47 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Adding newly assigned partitions: user_register_otp_email_topic-4, user_register_otp_email_topic-5
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition user_register_otp_email_topic-4 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition user_register_otp_email_topic-0 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition user_register_otp_email_topic-5 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition user_register_otp_email_topic-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition user_register_otp_email_topic-2 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=6}}
+2024-11-11 10:25:47 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition user_register_otp_email_topic-3 to the committed offset FetchPosition{offset=4, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=18}}
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Revoke previously assigned partitions order-updated-success-0
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Member consumer-sendOrderEmail-1-3def63bc-8a90-4522-9d53-0269d4d59ca4 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Revoke previously assigned partitions user_register_otp_email_topic-2, user_register_otp_email_topic-3
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Member consumer-email-consumer-group-19-517ddc0d-6c6e-4d27-a1dd-27de1ae5b240 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Revoke previously assigned partitions failed_topic-2, failed_topic-3
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Member consumer-notifyEmail-16-cde34d5d-7a57-4fb4-8f12-c008a6858bfb sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-19, groupId=email-consumer-group] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-sendOrderEmail-1, groupId=sendOrderEmail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-16, groupId=notifyEmail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Revoke previously assigned partitions user_register_otp_email_topic-0, user_register_otp_email_topic-1
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Member consumer-email-consumer-group-18-2f5a3db8-7c9a-4618-b241-c4ad3ceb5ac6 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-18, groupId=email-consumer-group] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Revoke previously assigned partitions user_register_otp_email_topic-4, user_register_otp_email_topic-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Member consumer-email-consumer-group-20-f3004492-7444-4c04-be21-8ef89c0794fa sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-email-consumer-group-20, groupId=email-consumer-group] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Revoke previously assigned partitions get-all-categories-0, get-all-categories-1, get-all-categories-2, get-all-categories-3, get-all-categories-4, get-all-categories-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Member consumer-getAllCategory-14-77029e13-8cd5-48d0-9853-e58ebfed0374 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-getAllCategory-14, groupId=getAllCategory] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Revoke previously assigned partitions failed_topic-4, failed_topic-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Member consumer-notifyEmail-17-1bdc2ace-1b1b-4324-a407-e7b1fcb40415 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-17, groupId=notifyEmail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Revoke previously assigned partitions failed_topic-0, failed_topic-1
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Member consumer-notifyEmail-15-bd6b180e-d950-4bef-95d4-8e98079095d5 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-notifyEmail-15, groupId=notifyEmail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Revoke previously assigned partitions retry_30m_topic-0, retry_30m_topic-1
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Member consumer-retry30mListener-11-add130b1-b072-45e9-9d12-f1b00900370b sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-11, groupId=retry30mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Revoke previously assigned partitions retry_30m_topic-4, retry_30m_topic-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Member consumer-retry30mListener-13-276ba5e1-ad9f-4a8a-b632-3035a4bb526c sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-13, groupId=retry30mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Revoke previously assigned partitions retry_30m_topic-2, retry_30m_topic-3
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Member consumer-retry30mListener-12-b489f4ff-083c-41e4-b13b-c91dd466eabb sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-12, groupId=retry30mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Revoke previously assigned partitions retry_1h_topic-0, retry_1h_topic-1
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Member consumer-retry1hListener-10-9998151c-2dca-4a24-83cc-e48d84dd24d2 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-10, groupId=retry1hListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Revoke previously assigned partitions retry_1h_topic-4, retry_1h_topic-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Member consumer-retry1hListener-9-065bb7ed-1904-4a51-8f6b-6d8252582b33 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-9, groupId=retry1hListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Revoke previously assigned partitions retry_1h_topic-2, retry_1h_topic-3
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Member consumer-retry1hListener-8-b7f88441-e2f6-4f5a-9502-0e1f1bff7863 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-8, groupId=retry1hListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Revoke previously assigned partitions insert-a-category-0, insert-a-category-1, insert-a-category-2, insert-a-category-3, insert-a-category-4, insert-a-category-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Member consumer-insertCategory-7-ad1f3e3f-3934-457b-889e-f0831c2ad7c5 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-insertCategory-7, groupId=insertCategory] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Revoke previously assigned partitions order-payments-success-0, order-payments-success-1, order-payments-success-2, order-payments-success-3, order-payments-success-4, order-payments-success-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Member consumer-orderPaymentsSuccess-5-8feab5bc-a4ab-4785-91f5-320f56f8b6e6 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsSuccess-5, groupId=orderPaymentsSuccess] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Revoke previously assigned partitions order-payments-fail-0, order-payments-fail-1, order-payments-fail-2, order-payments-fail-3, order-payments-fail-4, order-payments-fail-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Member consumer-orderPaymentsFail-6-9025af32-393c-482c-9e71-6ac8c0c75664 sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-orderPaymentsFail-6, groupId=orderPaymentsFail] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Revoke previously assigned partitions retry_5m_topic-2, retry_5m_topic-3
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Member consumer-retry5mListener-3-14c71d20-4496-417a-ae3d-08741129b110 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-3, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Revoke previously assigned partitions retry_5m_topic-0, retry_5m_topic-1
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Member consumer-retry5mListener-2-31ec1f0f-596d-414e-92c4-66d091775481 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-2, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Revoke previously assigned partitions retry_5m_topic-4, retry_5m_topic-5
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Member consumer-retry5mListener-4-908bb730-a379-4d80-9b91-504b0ac6e76b sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-11 10:25:56 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-4, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-11 10:25:57 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-notifyEmail-17 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry1hListener-10 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-sendOrderEmail-1 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-notifyEmail-16 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-email-consumer-group-18 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry30mListener-11 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry1hListener-8 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-orderPaymentsFail-6 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry30mListener-13 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-getAllCategory-14 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-email-consumer-group-19 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry30mListener-12 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry5mListener-2 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry1hListener-9 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-orderPaymentsSuccess-5 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-insertCategory-7 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-notifyEmail-15 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry5mListener-3 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry5mListener-4 unregistered
+2024-11-11 10:25:57 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-email-consumer-group-20 unregistered
