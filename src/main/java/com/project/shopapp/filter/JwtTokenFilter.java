@@ -55,10 +55,10 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             }
 
                 final String token = authHeader.substring(7);
-                final String phoneNumber = jwtTokenUtils.extractPhoneNumber(token);
+                final String email = jwtTokenUtils.extractEmail(token);
 
-                if(phoneNumber != null && SecurityContextHolder.getContext() != null){
-                    UserDetails userDetails = customerUserDetailsService.loadUserByUsername(phoneNumber);
+                if(email != null && SecurityContextHolder.getContext() != null){
+                    UserDetails userDetails = customerUserDetailsService.loadUserByUsername(email);
                     if(jwtTokenUtils.validateToken(token, (User) userDetails)){
                         UsernamePasswordAuthenticationToken authenticationToken =
                                 new UsernamePasswordAuthenticationToken(
@@ -79,8 +79,9 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     }
     private boolean isBypassToken(@NonNull HttpServletRequest request){
         final List<Pair<String,String>> bypassTokens = Arrays.asList(
+                Pair.of(String.format("%s/users/auth/callback",apiPrefix),"GET"),
                 //vnpay
-                Pair.of(String.format("%s/vnpay/submitOrder",apiPrefix),"POST"),
+
                 Pair.of(String.format("%s/vnpay/getPaymentInfo",apiPrefix),"GET"),
                 //coupon
                 Pair.of(String.format("%s/coupons/calculate",apiPrefix),"GET"),
@@ -95,6 +96,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 Pair.of(String.format("%s/order_details/**",apiPrefix),"GET"),
                 Pair.of(String.format("%s/users/register",apiPrefix),"POST"),
                 Pair.of(String.format("%s/users/login",apiPrefix),"POST"),
+
                 Pair.of(String.format("%s/users/refreshToken",apiPrefix),"POST"),
                 Pair.of(String.format("%s/users/revoke-token",apiPrefix),"POST"),
                 Pair.of(String.format("%s/refreshToken/**",apiPrefix),"GET"),

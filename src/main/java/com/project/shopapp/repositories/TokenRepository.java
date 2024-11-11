@@ -17,8 +17,6 @@ public interface TokenRepository extends JpaRepository<Token,Long> {
     Token findByToken(String token);
     Optional<Token> findByRefreshToken(String refreshToken);
 
-
-
     void deleteByExpirationDateBefore(Date date);
     @Query("SELECT u.refreshExpirationDate FROM Token u WHERE u.refreshToken = :token")
     Optional<LocalDateTime> findRefreshExpirationDateByToken(String token);

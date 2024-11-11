@@ -2,7 +2,7 @@ package com.project.shopapp.service.impl;
 
 import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.dto.OrderDetailDTO;
-import com.project.shopapp.exception.DataNotFoundException;
+import com.project.shopapp.exceptions.DataNotFoundException;
 import com.project.shopapp.mapper.OrderDetailMapper;
 import com.project.shopapp.models.Order;
 import com.project.shopapp.models.OrderDetail;
@@ -16,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.DateTimeException;
 import java.util.List;
 @RequiredArgsConstructor
 @Service

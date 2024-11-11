@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface ICartRedisService extends IBaseRedisService {
     void addProductToCart(Long customerId, List<CartItemRequest> list) throws JsonProcessingException;
-    Map<Long, CartItemRequest> getCartItems(Long customerId) throws JsonProcessingException;
+    List<CartItemRequest> getCartItems(Long customerId) throws JsonProcessingException;
     void removeProductFromCart(Long customerId, Long productId);
     void clearCart(Long customerId);
     CartItemRequest updateItems(Long customerId, Long productId, int quantity) throws JsonProcessingException;

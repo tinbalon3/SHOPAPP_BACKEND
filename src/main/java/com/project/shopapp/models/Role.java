@@ -11,6 +11,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Role {
+    public Role(String name) {
+        this.name = name;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,4 +23,6 @@ public class Role {
 
     public static String ADMIN = "ADMIN";
     public static String USER = "USER";
+
+
 }

@@ -14,8 +14,11 @@ public interface OrderMapper {
 
     OrderDTO mapToOrderDTO(Order order);
 
-    Order mapToOrder(PurchaseRequest purchaseRequest);
+
     OrderResponseDTO mapToOrderResponseDTO(Order order);
 
-    void updateOrderFromDto(PurchaseRequest purchaseRequest, @MappingTarget Order order);
+
+
+
+
 }

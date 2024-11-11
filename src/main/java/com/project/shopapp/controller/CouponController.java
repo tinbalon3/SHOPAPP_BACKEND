@@ -1,9 +1,11 @@
 package com.project.shopapp.controller;
 
+import com.project.shopapp.response.ResponseObject;
 import com.project.shopapp.response.coupon.CouponCalculationResponse;
 import com.project.shopapp.service.ICouponService;
 import com.project.shopapp.service.impl.CouponServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,23 +20,17 @@ public class CouponController {
     private final ICouponService iCouponService;
 
     @GetMapping("/calculate")
-    public ResponseEntity<CouponCalculationResponse> calculateCouponValue(@RequestParam("couponCode") String couponCode,
-                                                                          @RequestParam("totalAmount") double totalAmount) {
-       try {
+    public ResponseEntity<ResponseObject> calculateCouponValue(@RequestParam("couponCode") String couponCode,
+                                                               @RequestParam("totalAmount") double totalAmount){
+
            double finalAmount = iCouponService.calculateCouponValue(couponCode,totalAmount);
            return ResponseEntity.ok().body(
-                   CouponCalculationResponse.builder()
-                           .result(finalAmount)
-                           .errorMessage("")
-                   .build());
-       }catch (Exception e){
-           return ResponseEntity.badRequest().body(
-                   CouponCalculationResponse.builder()
-                           .result(totalAmount)
-                           .errorMessage(e.getMessage())
+                   ResponseObject.builder()
+                           .data(finalAmount)
+                           .status(HttpStatus.OK)
+                           .message("Tính toán coupon giảm giá thành công")
                    .build());
 
-       }
 
     }
 }

@@ -14,8 +14,28 @@ cloud:
 application:
   bucket:
     name: shopappimages
-
+google:
+  app:
+    id: 368175433889-feredabg3d7orcvdokr6nsm841fpv9ro.apps.googleusercontent.com
+    secret: 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
+  redirect:
+    uri: http://localhost:4200
+  link:
+    get:
+      token: https://accounts.google.com/o/oauth2/token
+      user_info: https://www.googleapis.com/oauth2/v1/userinfo?access_token=
 spring:
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 368175433889-feredabg3d7orcvdokr6nsm841fpv9ro.apps.googleusercontent.com
+            client-secret: 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
+            scope: email,phone,profile
+            redirect-uri: http://localhost:4200
+
   data:
     redis:
       host: ${REDIS_HOST:localhost}
@@ -25,7 +45,7 @@ spring:
     locations: classpath:/dev/db/migration
     #phiên bản baseline sẽ = 0 và không thực hiện bất kì thay đổi nào trong DB
     baseline-on-migrate: true
-    baseline-version: 11
+    baseline-version: 15
 
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
@@ -34,18 +54,20 @@ spring:
     username: root
     password: ${MYSQL_ROOT_PASSWORD:}
 #      ${MYSQL_ROOT_PASSWORD:}
-#    kafka:
-#      client:
-#        dns:
-#          lookup: use_dns_cache
-#        bootstrap-servers: ${KAFKA_BROKER_SERVER:localhost}:${KAFKA_BROKER_PORT:9092}
-#      producer:
-#        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-#      properties:
-#        "[spring.json.type.mapping]": category:com.project.shopapp.models.Category
-#      consumer:
-#        value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
-#    data:
+  kafka:
+    client:
+      dns:
+        lookup: use_dns_cache
+      bootstrap-servers: ${KAFKA_BROKER_SERVER:localhost}:${KAFKA_BROKER_PORT:9092}
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+
+    #    data:
 
     jpa:
       show-sql: true
@@ -63,6 +85,7 @@ spring:
       basename: i18n/messages
       encoding: UTF-8
       default-locale: en
+
 
   mail:
     host: smtp.gmail.com
@@ -97,7 +120,7 @@ logging:
   config: classpath:logback-spring.xml
   file:
     name: shopapp/src/main/resources/logs/logfile.log
-  level:
+#  level:
     org.springframework.security: TRACE
 #    org.springframework.security.web: debug
 #    org.springframework.security.authentication: debug

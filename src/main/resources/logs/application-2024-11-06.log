@@ -1,0 +1,1426 @@
+2024-11-06 10:05:12 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-06 10:05:12 INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.2.1 with PID 13900 (D:\ideaIU\Work\ShopApp\shopapp-backend\target\classes started by Admin in D:\ideaIU\Work\ShopApp\shopapp-backend)
+2024-11-06 10:05:12 INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-06 10:05:17 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/ShopApp (MySQL 5.5)
+2024-11-06 10:05:17 INFO  o.f.core.internal.command.DbValidate - Successfully validated 12 migrations (execution time 00:00.170s)
+2024-11-06 10:05:17 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: 13
+2024-11-06 10:05:17 INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-06 10:05:17 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06 10:05:17 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-06 10:05:17 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-06 10:05:17 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-11-06 10:05:18 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06 10:05:20 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06 10:05:21 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Found 2 UserDetailsService beans, with names [customerUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2024-11-06 10:05:22 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: topics, topicPattern, or topicPartitions must be provided
+2024-11-06 10:13:09 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-06 10:13:09 INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.2.1 with PID 2272 (D:\ideaIU\Work\ShopApp\shopapp-backend\target\classes started by Admin in D:\ideaIU\Work\ShopApp\shopapp-backend)
+2024-11-06 10:13:09 INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-06 10:13:20 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:13:20 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-06 10:13:20 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-06 10:13:20 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-06 10:13:20 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/ShopApp (MySQL 5.5)
+2024-11-06 10:13:20 INFO  o.f.core.internal.command.DbValidate - Successfully validated 12 migrations (execution time 00:00.028s)
+2024-11-06 10:13:20 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: 13
+2024-11-06 10:13:20 INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-06 10:13:21 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06 10:13:21 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-06 10:13:21 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-06 10:13:21 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-11-06 10:13:22 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06 10:13:24 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06 10:13:25 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Found 2 UserDetailsService beans, with names [customerUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2024-11-06 10:13:27 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: topics, topicPattern, or topicPartitions must be provided
+2024-11-06 10:13:27 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-11-06 10:13:27 ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: topics, topicPattern, or topicPartitions must be provided
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.<init>(AbstractMessageListenerContainer.java:170)
+	at org.springframework.kafka.listener.ConcurrentMessageListenerContainer.<init>(ConcurrentMessageListenerContainer.java:86)
+	at org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory.createContainerInstance(ConcurrentKafkaListenerContainerFactory.java:75)
+	at org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory.createContainerInstance(ConcurrentKafkaListenerContainerFactory.java:46)
+	at org.springframework.kafka.config.AbstractKafkaListenerContainerFactory.createListenerContainer(AbstractKafkaListenerContainerFactory.java:354)
+	at org.springframework.kafka.config.AbstractKafkaListenerContainerFactory.createListenerContainer(AbstractKafkaListenerContainerFactory.java:66)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.createListenerContainer(KafkaListenerEndpointRegistry.java:340)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.registerListenerContainer(KafkaListenerEndpointRegistry.java:268)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.registerListenerContainer(KafkaListenerEndpointRegistry.java:240)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistrar.registerAllEndpoints(KafkaListenerEndpointRegistrar.java:197)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistrar.afterPropertiesSet(KafkaListenerEndpointRegistrar.java:187)
+	at org.springframework.kafka.annotation.KafkaListenerAnnotationBeanPostProcessor.afterSingletonsInstantiated(KafkaListenerAnnotationBeanPostProcessor.java:340)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:986)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.project.shopapp.ShopappApplication.main(ShopappApplication.java:12)
+2024-11-06 10:15:06 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-06 10:15:06 INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.2.1 with PID 15972 (D:\ideaIU\Work\ShopApp\shopapp-backend\target\classes started by Admin in D:\ideaIU\Work\ShopApp\shopapp-backend)
+2024-11-06 10:15:06 INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-06 10:15:08 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:15:08 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-06 10:15:08 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-06 10:15:08 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-06 10:15:09 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/ShopApp (MySQL 5.5)
+2024-11-06 10:15:09 INFO  o.f.core.internal.command.DbValidate - Successfully validated 12 migrations (execution time 00:00.027s)
+2024-11-06 10:15:09 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: 13
+2024-11-06 10:15:09 INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-06 10:15:09 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06 10:15:09 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-06 10:15:09 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-06 10:15:09 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-11-06 10:15:10 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06 10:15:12 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06 10:15:13 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Found 2 UserDetailsService beans, with names [customerUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2024-11-06 10:15:15 INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2024-11-06 10:15:15 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:15:15 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:15:15 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730862915225
+2024-11-06 10:15:15 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:15 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:15 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:15 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:15 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:15 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:15 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:15 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:16 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:16 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:16 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:16 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:17 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:17 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:19 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:19 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:20 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:20 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:21 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:21 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:22 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:22 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:23 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:23 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:24 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:24 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:25 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:25 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:25 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:25 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:27 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:27 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:28 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:28 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:29 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:29 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:30 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:30 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 0 due to node -1 being disconnected (elapsed time since creation: 550ms, elapsed time since send: 550ms, request timeout: 3600000ms)
+2024-11-06 10:15:31 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:31 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 1 due to node -1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, request timeout: 3600000ms)
+2024-11-06 10:15:32 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:32 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 2 due to node -1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 3600000ms)
+2024-11-06 10:15:33 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:33 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 3 due to node -1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 3600000ms)
+2024-11-06 10:15:34 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:34 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 4 due to node -1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 3600000ms)
+2024-11-06 10:15:35 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:35 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 5 due to node -1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 3600000ms)
+2024-11-06 10:15:36 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:36 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 6 due to node -1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 3600000ms)
+2024-11-06 10:15:37 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:37 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 7 due to node -1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 3600000ms)
+2024-11-06 10:15:38 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:38 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 8 due to node -1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, request timeout: 3600000ms)
+2024-11-06 10:15:39 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:39 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:40 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:40 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:41 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:41 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 9 due to node -1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, request timeout: 3600000ms)
+2024-11-06 10:15:42 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:42 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 10 due to node -1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 3600000ms)
+2024-11-06 10:15:43 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:43 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 11 due to node -1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 3600000ms)
+2024-11-06 10:15:44 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:44 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 12 due to node -1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 3600000ms)
+2024-11-06 10:15:45 INFO  o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=adminclient-1] Metadata update failed
+org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: fetchMetadata
+2024-11-06 10:15:45 ERROR o.s.kafka.core.KafkaAdmin - Could not configure topics
+org.springframework.kafka.KafkaException: Timed out waiting to get existing topics
+	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$13(KafkaAdmin.java:539)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.springframework.kafka.core.KafkaAdmin.checkPartitions(KafkaAdmin.java:518)
+	at org.springframework.kafka.core.KafkaAdmin.addOrModifyTopicsIfNeeded(KafkaAdmin.java:411)
+	at org.springframework.kafka.core.KafkaAdmin.initialize(KafkaAdmin.java:263)
+	at org.springframework.kafka.core.KafkaAdmin.afterSingletonsInstantiated(KafkaAdmin.java:227)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:986)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.project.shopapp.ShopappApplication.main(ShopappApplication.java:12)
+Caused by: java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:180)
+	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$13(KafkaAdmin.java:521)
+	... 15 common frames omitted
+2024-11-06 10:15:45 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:45 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 13 due to node -1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 3600000ms)
+2024-11-06 10:15:46 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:46 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 14 due to node -1 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 3600000ms)
+2024-11-06 10:15:47 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:47 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 15 due to node -1 being disconnected (elapsed time since creation: 1ms, elapsed time since send: 1ms, request timeout: 3600000ms)
+2024-11-06 10:15:48 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:48 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Cancelled in-flight API_VERSIONS request with correlation id 16 due to node -1 being disconnected (elapsed time since creation: 3ms, elapsed time since send: 3ms, request timeout: 3600000ms)
+2024-11-06 10:15:49 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:49 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:50 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:50 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:51 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:51 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:52 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:52 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:53 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:53 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:54 INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2024-11-06 10:15:54 WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2024-11-06 10:15:55 INFO  o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=adminclient-1] Forcing a hard I/O thread shutdown. Requests in progress will be aborted.
+2024-11-06 10:15:55 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2024-11-06 10:15:55 INFO  o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=adminclient-1] Metadata update failed
+org.apache.kafka.common.errors.TimeoutException: The AdminClient thread has exited. Call: fetchMetadata
+2024-11-06 10:15:55 INFO  o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=adminclient-1] Timed out 2 remaining operation(s) during close.
+2024-11-06 10:15:55 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-06 10:15:55 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-06 10:15:55 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-06 10:15:55 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:15:55 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:15:55 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'
+2024-11-06 10:15:55 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:288)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:469)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:257)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:981)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.project.shopapp.ShopappApplication.main(ShopappApplication.java:12)
+Caused by: java.lang.IllegalStateException: No group.id found in consumer config, container properties, or @KafkaListener annotation; a group.id is required when group management is used.
+	at org.springframework.util.Assert.state(Assert.java:76)
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.checkGroupId(AbstractMessageListenerContainer.java:584)
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:506)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.startIfNecessary(KafkaListenerEndpointRegistry.java:436)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.start(KafkaListenerEndpointRegistry.java:382)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:285)
+	... 13 common frames omitted
+2024-11-06 10:16:07 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-06 10:16:07 INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.2.1 with PID 21224 (D:\ideaIU\Work\ShopApp\shopapp-backend\target\classes started by Admin in D:\ideaIU\Work\ShopApp\shopapp-backend)
+2024-11-06 10:16:07 INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-06 10:16:10 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:16:10 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-06 10:16:10 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-06 10:16:10 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-06 10:16:11 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/ShopApp (MySQL 5.5)
+2024-11-06 10:16:11 INFO  o.f.core.internal.command.DbValidate - Successfully validated 12 migrations (execution time 00:00.028s)
+2024-11-06 10:16:11 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: 13
+2024-11-06 10:16:11 INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-06 10:16:11 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06 10:16:11 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-06 10:16:11 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-06 10:16:11 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-11-06 10:16:12 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06 10:16:14 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06 10:16:15 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Found 2 UserDetailsService beans, with names [customerUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2024-11-06 10:16:16 INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2024-11-06 10:16:16 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:16:16 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:16:16 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730862976859
+2024-11-06 10:16:17 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2024-11-06 10:16:17 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-06 10:16:17 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-06 10:16:17 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-06 10:16:17 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:16:17 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:16:17 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'
+2024-11-06 10:16:17 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:288)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:469)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:257)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:981)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.project.shopapp.ShopappApplication.main(ShopappApplication.java:12)
+Caused by: java.lang.IllegalStateException: No group.id found in consumer config, container properties, or @KafkaListener annotation; a group.id is required when group management is used.
+	at org.springframework.util.Assert.state(Assert.java:76)
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.checkGroupId(AbstractMessageListenerContainer.java:584)
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:506)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.startIfNecessary(KafkaListenerEndpointRegistry.java:436)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.start(KafkaListenerEndpointRegistry.java:382)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:285)
+	... 13 common frames omitted
+2024-11-06 10:16:56 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-06 10:16:56 INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.2.1 with PID 22584 (D:\ideaIU\Work\ShopApp\shopapp-backend\target\classes started by Admin in D:\ideaIU\Work\ShopApp\shopapp-backend)
+2024-11-06 10:16:56 INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-06 10:16:58 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:16:58 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-06 10:16:58 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-06 10:16:58 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-06 10:16:59 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/ShopApp (MySQL 5.5)
+2024-11-06 10:16:59 INFO  o.f.core.internal.command.DbValidate - Successfully validated 12 migrations (execution time 00:00.080s)
+2024-11-06 10:16:59 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: 13
+2024-11-06 10:16:59 INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-06 10:16:59 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06 10:16:59 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-06 10:16:59 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-06 10:16:59 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-11-06 10:17:01 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06 10:17:02 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06 10:17:03 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Found 2 UserDetailsService beans, with names [customerUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2024-11-06 10:17:05 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: topics, topicPattern, or topicPartitions must be provided
+2024-11-06 10:17:05 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-11-06 10:17:05 ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: topics, topicPattern, or topicPartitions must be provided
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.<init>(AbstractMessageListenerContainer.java:170)
+	at org.springframework.kafka.listener.ConcurrentMessageListenerContainer.<init>(ConcurrentMessageListenerContainer.java:86)
+	at org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory.createContainerInstance(ConcurrentKafkaListenerContainerFactory.java:75)
+	at org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory.createContainerInstance(ConcurrentKafkaListenerContainerFactory.java:46)
+	at org.springframework.kafka.config.AbstractKafkaListenerContainerFactory.createListenerContainer(AbstractKafkaListenerContainerFactory.java:354)
+	at org.springframework.kafka.config.AbstractKafkaListenerContainerFactory.createListenerContainer(AbstractKafkaListenerContainerFactory.java:66)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.createListenerContainer(KafkaListenerEndpointRegistry.java:340)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.registerListenerContainer(KafkaListenerEndpointRegistry.java:268)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.registerListenerContainer(KafkaListenerEndpointRegistry.java:240)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistrar.registerAllEndpoints(KafkaListenerEndpointRegistrar.java:197)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistrar.afterPropertiesSet(KafkaListenerEndpointRegistrar.java:187)
+	at org.springframework.kafka.annotation.KafkaListenerAnnotationBeanPostProcessor.afterSingletonsInstantiated(KafkaListenerAnnotationBeanPostProcessor.java:340)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:986)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.project.shopapp.ShopappApplication.main(ShopappApplication.java:12)
+2024-11-06 10:18:35 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-06 10:18:35 INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.2.1 with PID 14836 (D:\ideaIU\Work\ShopApp\shopapp-backend\target\classes started by Admin in D:\ideaIU\Work\ShopApp\shopapp-backend)
+2024-11-06 10:18:35 INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-06 10:18:37 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:18:37 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-06 10:18:37 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-06 10:18:37 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-06 10:18:38 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/ShopApp (MySQL 5.5)
+2024-11-06 10:18:38 INFO  o.f.core.internal.command.DbValidate - Successfully validated 12 migrations (execution time 00:00.026s)
+2024-11-06 10:18:38 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: 13
+2024-11-06 10:18:38 INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-06 10:18:38 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06 10:18:38 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-06 10:18:38 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-06 10:18:38 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-11-06 10:18:39 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06 10:18:41 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06 10:18:42 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Found 2 UserDetailsService beans, with names [customerUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2024-11-06 10:18:43 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: topics, topicPattern, or topicPartitions must be provided
+2024-11-06 10:18:43 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-11-06 10:18:43 ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: topics, topicPattern, or topicPartitions must be provided
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.<init>(AbstractMessageListenerContainer.java:170)
+	at org.springframework.kafka.listener.ConcurrentMessageListenerContainer.<init>(ConcurrentMessageListenerContainer.java:86)
+	at org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory.createContainerInstance(ConcurrentKafkaListenerContainerFactory.java:75)
+	at org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory.createContainerInstance(ConcurrentKafkaListenerContainerFactory.java:46)
+	at org.springframework.kafka.config.AbstractKafkaListenerContainerFactory.createListenerContainer(AbstractKafkaListenerContainerFactory.java:354)
+	at org.springframework.kafka.config.AbstractKafkaListenerContainerFactory.createListenerContainer(AbstractKafkaListenerContainerFactory.java:66)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.createListenerContainer(KafkaListenerEndpointRegistry.java:340)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.registerListenerContainer(KafkaListenerEndpointRegistry.java:268)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.registerListenerContainer(KafkaListenerEndpointRegistry.java:240)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistrar.registerAllEndpoints(KafkaListenerEndpointRegistrar.java:197)
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistrar.afterPropertiesSet(KafkaListenerEndpointRegistrar.java:187)
+	at org.springframework.kafka.annotation.KafkaListenerAnnotationBeanPostProcessor.afterSingletonsInstantiated(KafkaListenerAnnotationBeanPostProcessor.java:340)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:986)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.project.shopapp.ShopappApplication.main(ShopappApplication.java:12)
+2024-11-06 10:21:10 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-06 10:21:10 INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.2.1 with PID 9988 (D:\ideaIU\Work\ShopApp\shopapp-backend\target\classes started by Admin in D:\ideaIU\Work\ShopApp\shopapp-backend)
+2024-11-06 10:21:10 INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-06 10:21:13 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:21:13 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-06 10:21:13 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-06 10:21:13 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-06 10:21:14 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/ShopApp (MySQL 5.5)
+2024-11-06 10:21:14 INFO  o.f.core.internal.command.DbValidate - Successfully validated 12 migrations (execution time 00:00.037s)
+2024-11-06 10:21:14 INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: 13
+2024-11-06 10:21:14 INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-06 10:21:14 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-06 10:21:14 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-06 10:21:14 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-06 10:21:15 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-11-06 10:21:16 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-06 10:21:18 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-06 10:21:19 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Found 2 UserDetailsService beans, with names [customerUserDetailsService, userDetailsService]. Global Authentication Manager will not use a UserDetailsService for username/password login. Consider publishing a single UserDetailsService bean.
+2024-11-06 10:21:20 INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730863281012
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2024-11-06 10:21:21 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-06 10:21:21 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-06 10:21:21 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-06 10:21:21 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-11-06 10:21:21 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry5mListener-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry5mListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-06 10:21:21 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730863281678
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Subscribed to topic(s): retry_5m_topic
+2024-11-06 10:21:21 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry30mListener-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry30mListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-06 10:21:21 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730863281734
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Subscribed to topic(s): retry_30m_topic
+2024-11-06 10:21:21 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-retry1hListener-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = retry1hListener
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-06 10:21:21 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730863281759
+2024-11-06 10:21:21 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Cluster ID: xoTV-ZF6RSOhKlfP0SPydA
+2024-11-06 10:21:21 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Cluster ID: xoTV-ZF6RSOhKlfP0SPydA
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Subscribed to topic(s): retry_1h_topic
+2024-11-06 10:21:21 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-groupA-4
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = groupA
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-06 10:21:21 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730863281780
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-06 10:21:21 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Cluster ID: xoTV-ZF6RSOhKlfP0SPydA
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Discovered group coordinator 127.0.0.1:9093 (id: 2147483645 rack: null)
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-groupA-4, groupId=groupA] Subscribed to topic(s): get-all-categories, insert-a-category
+2024-11-06 10:21:21 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-UserRegister-5
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = UserRegister
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2024-11-06 10:21:21 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:21:21 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730863281793
+2024-11-06 10:21:21 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-groupA-4, groupId=groupA] Cluster ID: xoTV-ZF6RSOhKlfP0SPydA
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Subscribed to topic(s): email-order-successfully
+2024-11-06 10:21:21 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Cluster ID: xoTV-ZF6RSOhKlfP0SPydA
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Request joining group due to: need to re-join with the given member-id: consumer-UserRegister-5-7e304121-113e-4af4-91e5-ed16d8dd2a28
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry30mListener-2-5f356e95-9174-4c69-a4a6-1f92f3037508
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Request joining group due to: need to re-join with the given member-id: consumer-groupA-4-46d72780-bff9-454a-8d8d-d3e98749c8bc
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry5mListener-1-b2d8f8f9-fb48-4859-af91-d9ac218a8c86
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] (Re-)joining group
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Request joining group due to: need to re-join with the given member-id: consumer-retry1hListener-3-af70f720-c155-4281-b707-a5a37749248b
+2024-11-06 10:21:21 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] (Re-)joining group
+2024-11-06 10:21:22 INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 12.08 seconds (process running for 13.179)
+2024-11-06 10:21:22 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Successfully joined group with generation Generation{generationId=60, memberId='consumer-groupA-4-46d72780-bff9-454a-8d8d-d3e98749c8bc', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Successfully joined group with generation Generation{generationId=1, memberId='consumer-retry1hListener-3-af70f720-c155-4281-b707-a5a37749248b', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Successfully joined group with generation Generation{generationId=1, memberId='consumer-retry5mListener-1-b2d8f8f9-fb48-4859-af91-d9ac218a8c86', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Successfully joined group with generation Generation{generationId=1, memberId='consumer-retry30mListener-2-5f356e95-9174-4c69-a4a6-1f92f3037508', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Successfully joined group with generation Generation{generationId=62, memberId='consumer-UserRegister-5-7e304121-113e-4af4-91e5-ed16d8dd2a28', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Finished assignment for group at generation 60: {consumer-groupA-4-46d72780-bff9-454a-8d8d-d3e98749c8bc=Assignment(partitions=[get-all-categories-0, insert-a-category-0])}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Finished assignment for group at generation 62: {consumer-UserRegister-5-7e304121-113e-4af4-91e5-ed16d8dd2a28=Assignment(partitions=[email-order-successfully-0])}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Finished assignment for group at generation 1: {consumer-retry5mListener-1-b2d8f8f9-fb48-4859-af91-d9ac218a8c86=Assignment(partitions=[retry_5m_topic-0, retry_5m_topic-1])}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Finished assignment for group at generation 1: {consumer-retry30mListener-2-5f356e95-9174-4c69-a4a6-1f92f3037508=Assignment(partitions=[retry_30m_topic-0, retry_30m_topic-1])}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Finished assignment for group at generation 1: {consumer-retry1hListener-3-af70f720-c155-4281-b707-a5a37749248b=Assignment(partitions=[retry_1h_topic-0, retry_1h_topic-1])}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Successfully synced group in generation Generation{generationId=60, memberId='consumer-groupA-4-46d72780-bff9-454a-8d8d-d3e98749c8bc', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Successfully synced group in generation Generation{generationId=1, memberId='consumer-retry5mListener-1-b2d8f8f9-fb48-4859-af91-d9ac218a8c86', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Successfully synced group in generation Generation{generationId=1, memberId='consumer-retry30mListener-2-5f356e95-9174-4c69-a4a6-1f92f3037508', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Notifying assignor about the new Assignment(partitions=[retry_5m_topic-0, retry_5m_topic-1])
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Notifying assignor about the new Assignment(partitions=[get-all-categories-0, insert-a-category-0])
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Notifying assignor about the new Assignment(partitions=[retry_30m_topic-0, retry_30m_topic-1])
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Successfully synced group in generation Generation{generationId=62, memberId='consumer-UserRegister-5-7e304121-113e-4af4-91e5-ed16d8dd2a28', protocol='range'}
+2024-11-06 10:21:24 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Notifying assignor about the new Assignment(partitions=[email-order-successfully-0])
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-groupA-4, groupId=groupA] Adding newly assigned partitions: get-all-categories-0, insert-a-category-0
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Adding newly assigned partitions: retry_30m_topic-0, retry_30m_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Adding newly assigned partitions: email-order-successfully-0
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Adding newly assigned partitions: retry_5m_topic-0, retry_5m_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Found no committed offset for partition retry_5m_topic-0
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Found no committed offset for partition retry_5m_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Found no committed offset for partition retry_30m_topic-0
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Found no committed offset for partition retry_30m_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Successfully synced group in generation Generation{generationId=1, memberId='consumer-retry1hListener-3-af70f720-c155-4281-b707-a5a37749248b', protocol='range'}
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Notifying assignor about the new Assignment(partitions=[retry_1h_topic-0, retry_1h_topic-1])
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Adding newly assigned partitions: retry_1h_topic-0, retry_1h_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Found no committed offset for partition retry_30m_topic-0
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Found no committed offset for partition retry_5m_topic-0
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Found no committed offset for partition retry_30m_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Found no committed offset for partition retry_5m_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition get-all-categories-0 to the committed offset FetchPosition{offset=15, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}
+2024-11-06 10:21:25 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition email-order-successfully-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=2}}
+2024-11-06 10:21:25 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition insert-a-category-0 to the committed offset FetchPosition{offset=11, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=4}}
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Found no committed offset for partition retry_1h_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Found no committed offset for partition retry_1h_topic-0
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Resetting offset for partition retry_5m_topic-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}.
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Resetting offset for partition retry_30m_topic-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}.
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Resetting offset for partition retry_30m_topic-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=0}}.
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Resetting offset for partition retry_5m_topic-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=0}}.
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Found no committed offset for partition retry_1h_topic-1
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Found no committed offset for partition retry_1h_topic-0
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Resetting offset for partition retry_1h_topic-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}.
+2024-11-06 10:21:25 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Resetting offset for partition retry_1h_topic-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=0}}.
+2024-11-06 10:21:28 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:28] Method - getAllRoles, Args - [], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:28 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: getAllRoles, executionTime:57
+2024-11-06 10:21:33 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:33] Method - getAllCategories, Args - [], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:33 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:33] Method - callback, Args - [4/0AVG7fiSUjocxsF5nAIWB6CtreVzjppCvqYPnz7exbJapdgJyjGLy_96tKC_oUYdrBzyDdQ, SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@56bd96f1], ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:33 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:33] Method - getAllProducts, Args - [, 0, 10000.0, 100000.0, 0, 0, 9, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:33 INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2024-11-06 10:21:33 INFO  o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2024-11-06 10:21:34 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2024-11-06 10:21:34 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+2024-11-06 10:21:34 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+2024-11-06 10:21:34 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1730863294026
+2024-11-06 10:21:34 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: xoTV-ZF6RSOhKlfP0SPydA
+2024-11-06 10:21:34 INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 2000 with epoch 0
+2024-11-06 10:21:34 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: getAllCategories, executionTime:145
+2024-11-06 10:21:34 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: getAllProducts, executionTime:175
+2024-11-06 10:21:41 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:41] Method - viewImage, Args - [hop_cherry_1_kg_4e85cc5b0291421497bbb0ce1d765f02_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:41 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:41] Method - viewImage, Args - [hop_qua_cherry_my_2kg__2__b45bd6865bc84608a44e8eb32f86c653_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:41 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:41] Method - viewImage, Args - [hop_am_duong_4143b9f357894400854564fdf8a2e180_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: callback, executionTime:8105
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:42] Method - getRefreshExpirationDate, Args - [c42b8819-ee50-45d2-a651-7da661c97246, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: getRefreshExpirationDate, executionTime:6
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:42] Method - getUserDetails, Args - [Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjM5LCJlbWFpbCI6ImFsb3NpbmwwNDhAZ21haWwuY29tIiwic3ViIjoiYWxvc2lubDA0OEBnbWFpbC5jb20iLCJleHAiOjE3MzA4NjM5MDF9.HTUaY8m5MwqpFiT0aLM3cSPNmmw-aw5KDkpFFnstq_Y, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:42] Method - viewImage, Args - [hop_qua_cherry_2kg_3566e441b65e4824aeffd34fef5a8375_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:42] Method - viewImage, Args - [hop_nam_cham_886285ba09604c44907e7dcb318e7aaf_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: getUserDetails, executionTime:9
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:42] Method - viewImage, Args - [hop_qua_cherry_3kg_001_f9f07bbc16ff4e9bb2d0df134be7955f_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:922
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:42] Method - viewImage, Args - [hop_qua_cherry_1kg_367df3323d65421390e6254805afae3b_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:1244
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:42] Method - viewImage, Args - [cherry_do_my_size_8_5_-_200g_hop__i0004739___2__5f978842286046c2b5c62ca4364b60cb_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:1384
+2024-11-06 10:21:42 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:42] Method - viewImage, Args - [cherry_do_canada_size_10_5__4__851f8b05b7f14977a29b0ee9e1181758_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:43 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:43] Method - getProductDetail, Args - [1, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:43 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: getProductDetail, executionTime:39
+2024-11-06 10:21:43 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:1080
+2024-11-06 10:21:43 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:43] Method - viewImage, Args - [hop_qua_cherry_my_2kg__3__1c79aa20174c4b6c836605f4f395b924_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:43 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:1203
+2024-11-06 10:21:43 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:43] Method - viewImage, Args - [hop_qua_cherry_my_2kg__4__a84fdf351c294b0b97baffab72fc73ce_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:43 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:1348
+2024-11-06 10:21:43 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:43] Method - viewImage, Args - [hop_qua_cherry_my_2kg__2__b45bd6865bc84608a44e8eb32f86c653_1024x1024.png, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:44 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:695
+2024-11-06 10:21:44 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:1451
+2024-11-06 10:21:44 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:740
+2024-11-06 10:21:44 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:1570
+2024-11-06 10:21:45 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:45] Method - getCart, Args - [39, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:45 INFO  c.p.s.controller.ProductController - (getCartItems): customerId = 39
+2024-11-06 10:21:45 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: getCart, executionTime:4
+2024-11-06 10:21:45 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:3309
+2024-11-06 10:21:48 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: viewImage, executionTime:5972
+2024-11-06 10:21:50 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:21:50] Method - submitOrder, Args - [com.project.shopapp.request.PurchaseRequest@23458633, SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@5738ddee], ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:21:53 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: submitOrder, executionTime:3343
+2024-11-06 10:22:13 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:22:13] Method - getPaymentInfo, Args - [SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@59e16829], org.springframework.web.context.request.async.StandardServletAsyncWebRequest$LifecycleHttpServletResponse@52fffc23, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:22:17 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: getPaymentInfo, executionTime:3377
+2024-11-06 10:22:29 INFO  c.p.s.c.aspect.LoggingAspect - User logging: [2024-11-06 10:22:29] Method - clearCart, Args - [39, ], IP address - 0:0:0:0:0:0:0:1
+2024-11-06 10:22:29 INFO  c.p.s.controller.ProductController - (clearProductToCart): customerId: 39
+2024-11-06 10:22:29 INFO  c.p.s.controller.ProductController - Cart cleared for customer 39
+2024-11-06 10:22:29 INFO  c.p.s.c.aspect.LoggingAspect - User activity finished: clearCart, executionTime:6
+2024-11-06 10:27:32 WARN  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] consumer poll timeout has expired. This means the time between subsequent calls to poll() was longer than the configured max.poll.interval.ms, which typically implies that the poll loop is spending too much time processing messages. You can address this either by increasing max.poll.interval.ms or by reducing the maximum size of batches returned in poll() with max.poll.records.
+2024-11-06 10:27:32 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Member consumer-retry5mListener-1-b2d8f8f9-fb48-4859-af91-d9ac218a8c86 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to consumer poll timeout has expired.
+2024-11-06 10:27:32 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:27:32 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:27:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Failing OffsetCommit request since the consumer is not part of an active group
+2024-11-06 10:27:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Giving away all assigned partitions as lost since generation/memberID has been reset,indicating that consumer is in old state or no longer part of the group
+2024-11-06 10:27:38 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Lost previously assigned partitions retry_5m_topic-0, retry_5m_topic-1
+2024-11-06 10:27:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] (Re-)joining group
+2024-11-06 10:27:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Request joining group due to: need to re-join with the given member-id: consumer-retry5mListener-1-5943d100-5764-4084-bcd5-139d81b4ff7d
+2024-11-06 10:27:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] (Re-)joining group
+2024-11-06 10:27:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Successfully joined group with generation Generation{generationId=3, memberId='consumer-retry5mListener-1-5943d100-5764-4084-bcd5-139d81b4ff7d', protocol='range'}
+2024-11-06 10:27:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Finished assignment for group at generation 3: {consumer-retry5mListener-1-5943d100-5764-4084-bcd5-139d81b4ff7d=Assignment(partitions=[retry_5m_topic-0, retry_5m_topic-1])}
+2024-11-06 10:27:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Successfully synced group in generation Generation{generationId=3, memberId='consumer-retry5mListener-1-5943d100-5764-4084-bcd5-139d81b4ff7d', protocol='range'}
+2024-11-06 10:27:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Notifying assignor about the new Assignment(partitions=[retry_5m_topic-0, retry_5m_topic-1])
+2024-11-06 10:27:48 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Adding newly assigned partitions: retry_5m_topic-0, retry_5m_topic-1
+2024-11-06 10:27:48 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_5m_topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9093 (id: 2 rack: null)], epoch=0}}
+2024-11-06 10:27:48 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition retry_5m_topic-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}
+2024-11-06 10:30:21 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Node -1 disconnected.
+2024-11-06 10:30:21 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Node -1 disconnected.
+2024-11-06 10:30:22 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Node -1 disconnected.
+2024-11-06 10:30:22 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Node -1 disconnected.
+2024-11-06 10:30:22 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-groupA-4, groupId=groupA] Node -1 disconnected.
+2024-11-06 10:30:56 INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
+2024-11-06 10:32:38 WARN  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] consumer poll timeout has expired. This means the time between subsequent calls to poll() was longer than the configured max.poll.interval.ms, which typically implies that the poll loop is spending too much time processing messages. You can address this either by increasing max.poll.interval.ms or by reducing the maximum size of batches returned in poll() with max.poll.records.
+2024-11-06 10:32:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Member consumer-retry30mListener-2-5f356e95-9174-4c69-a4a6-1f92f3037508 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to consumer poll timeout has expired.
+2024-11-06 10:32:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:32:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry30mListener-2, groupId=retry30mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Revoke previously assigned partitions email-order-successfully-0
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Revoke previously assigned partitions retry_1h_topic-0, retry_1h_topic-1
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-groupA-4, groupId=groupA] Revoke previously assigned partitions get-all-categories-0, insert-a-category-0
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Revoke previously assigned partitions retry_5m_topic-0, retry_5m_topic-1
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Member consumer-retry1hListener-3-af70f720-c155-4281-b707-a5a37749248b sending LeaveGroup request to coordinator 127.0.0.1:9093 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Member consumer-UserRegister-5-7e304121-113e-4af4-91e5-ed16d8dd2a28 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Member consumer-groupA-4-46d72780-bff9-454a-8d8d-d3e98749c8bc sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Member consumer-retry5mListener-1-5943d100-5764-4084-bcd5-139d81b4ff7d sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-groupA-4, groupId=groupA] Unsubscribed all topics or patterns and assigned partitions
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Unsubscribed all topics or patterns and assigned partitions
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Unsubscribed all topics or patterns and assigned partitions
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-UserRegister-5, groupId=UserRegister] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry1hListener-3, groupId=retry1hListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-groupA-4, groupId=groupA] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-retry5mListener-1, groupId=retry5mListener] Request joining group due to: consumer pro-actively leaving the group
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-06 10:33:07 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-UserRegister-5 unregistered
+2024-11-06 10:33:07 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-groupA-4 unregistered
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-06 10:33:07 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry1hListener-3 unregistered
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-11-06 10:33:07 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-11-06 10:33:07 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-retry5mListener-1 unregistered

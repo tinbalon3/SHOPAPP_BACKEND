@@ -1,31 +1,20 @@
 package com.project.shopapp.config;
 
+import com.project.shopapp.filter.CustomOAuth2UserService;
 import com.project.shopapp.filter.JwtTokenFilter;
-import com.project.shopapp.models.Role;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.util.Pair;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.CorsConfigurer;
+
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
-import java.util.Arrays;
-import java.util.List;
 
 import static org.springframework.http.HttpMethod.*;
 
@@ -39,6 +28,10 @@ public class WebSecurityConfig {
 
     @Value("${api.prefix}")
     private String apiPrefix;
+
+    private final CustomOAuth2UserService oauthUserService;
+
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -56,11 +49,12 @@ public class WebSecurityConfig {
                                 .requestMatchers(
                                         String.format("%s/users/register", apiPrefix),
                                         String.format("%s/users/login", apiPrefix)
+
                                 ).permitAll()
                                 .requestMatchers(POST,
                                         String.format("%s/users/refreshToken", apiPrefix),
-                                        String.format("%s/users/revoke-token", apiPrefix),
-                                        String.format("%s/vnpay/submitOrder", apiPrefix)
+                                        String.format("%s/users/revoke-token", apiPrefix)
+
                                 ).permitAll()
                                 .requestMatchers(GET,
                                         String.format("%s/actuator/health", apiPrefix),
@@ -85,12 +79,14 @@ public class WebSecurityConfig {
                                         String.format("%s/users/verify", apiPrefix),
                                         String.format("%s/rating", apiPrefix),
                                         String.format("%s/coupons/calculate", apiPrefix),
-                                        String.format("%s/vnpay/getPaymentInfo", apiPrefix)
+                                        String.format("%s/vnpay/getPaymentInfo", apiPrefix),
+                                        String.format("%s/rating/stats/*", apiPrefix),
+                                        String.format("%s/users/auth/callback", apiPrefix)
                                 ).permitAll()
                                 .requestMatchers(POST,
                                         String.format("%s/orders", apiPrefix),
-                                        String.format("%s/cart/add/*", apiPrefix)
-
+                                        String.format("%s/cart/add/*", apiPrefix),
+                                        String.format("%s/vnpay/submitOrder", apiPrefix)
                                 ).hasRole("USER")
 
                                 .requestMatchers(PUT,
@@ -118,6 +114,13 @@ public class WebSecurityConfig {
                                 ).hasRole("USER")
 
                                 .anyRequest().authenticated()
+                )
+                .oauth2Login(oauth2Login ->
+                        oauth2Login
+                                .userInfoEndpoint(userInfo ->
+                                        userInfo.userService(oauthUserService))
+
+
                 );
 
         return http.build();

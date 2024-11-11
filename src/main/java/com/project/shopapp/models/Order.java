@@ -2,12 +2,16 @@ package com.project.shopapp.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import net.minidev.json.annotate.JsonIgnore;
+import org.hibernate.Transaction;
 import org.hibernate.annotations.CreationTimestamp;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -18,7 +22,8 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+
+public class Order  implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +42,6 @@ public class Order {
     @Column(name = "phone_number",nullable = false,length = 100)
     private String phone_number;
 
-
-
     @Column(name = "note",length = 100)
     private String note;
 
@@ -46,8 +49,9 @@ public class Order {
     @Column(name = "order_date")
     private Date orderDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private String status;
+    private OrderStatus status;
 
     @Column(name = "total_money")
     private Float totalMoney;
@@ -82,4 +86,9 @@ public class Order {
     private Coupon coupon;
 
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    @JoinColumn(name = "transaction_id", referencedColumnName = "id")
+    private Transactions transaction;
 }
+

@@ -55,13 +55,17 @@ public class CartRedisServiceImpl extends BaseRedisServiceImpl implements ICartR
 
 
     @Override
-    public Map<Long, CartItemRequest> getCartItems(Long customerId) throws JsonProcessingException {
-        logger.info("(getCartItems): customerId = "+ customerId);
+    public List<CartItemRequest> getCartItems(Long customerId) throws JsonProcessingException {
+        logger.info("(getCartItems): customerId = " + customerId);
         String cartKey = CART_KEY_PREFIX + customerId;
+
         // Lấy danh sách sản phẩm từ Redis
         Map<Long, CartItemRequest> existingCartItems = (Map<Long, CartItemRequest>) getMap(cartKey, Long.class, CartItemRequest.class);
-        return existingCartItems ;
+
+        // Chuyển đổi từ Map values sang List
+        return existingCartItems != null ? new ArrayList<>(existingCartItems.values()) : new ArrayList<>();
     }
+
     @Override
     public void removeProductFromCart(Long customerId, Long productId) {
         logger.info("(removeProductToCart): customerId: " + customerId + " productID: " + productId);

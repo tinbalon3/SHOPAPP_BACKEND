@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 
-public class PurchaseRequest {
+public class PurchaseRequest implements Serializable {
     @JsonProperty("customer")
     private CustomerDTO customer;
     @JsonProperty("shipping_address")

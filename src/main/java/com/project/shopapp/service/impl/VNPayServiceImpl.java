@@ -1,9 +1,14 @@
 package com.project.shopapp.service.impl;
 
 import com.project.shopapp.config.VnPayConfig;
+import com.project.shopapp.models.Order;
+import com.project.shopapp.models.OrderStatus;
+import com.project.shopapp.repositories.OrderRepository;
 import com.project.shopapp.repositories.TransactionRepository;
+import com.project.shopapp.request.PurchaseRequest;
 import com.project.shopapp.service.IVNPayService;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,18 +22,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
+@RequiredArgsConstructor
 public class VNPayServiceImpl  implements IVNPayService {
-    @Autowired
-    private TransactionRepository transactionRepository;
+
+    private final TransactionRepository transactionRepository;
+    private final OrderServiceImpl orderService;
+    private final OrderRepository orderRepository;
     @Transactional
-    public String createOrder(float total, String orderInfor, String urlReturn, String ipAddr) {
+    public String createOrder(Long orderId,float total, String orderInfor, String urlReturn, String ipAddr) throws Exception {
         String vnp_Version = "2.1.0";
         String vnp_Command = "pay";
-        String vnp_TxnRef = VnPayConfig.getRandomNumber(8);
+        String vnp_TxnRef = orderId.toString();
 
-        if(transactionRepository.findByTransNo(vnp_TxnRef) != null){
-            vnp_TxnRef = VnPayConfig.getRandomNumber(8);
-        }
+
 
 //        String vnp_IpAddr = "127.0.0.1";
         String vnp_TmnCode = VnPayConfig.vnp_TmnCode;
@@ -91,8 +97,9 @@ public class VNPayServiceImpl  implements IVNPayService {
         String queryUrl = query.toString();
         String vnp_SecureHash = VnPayConfig.hmacSHA512(VnPayConfig.vnp_HashSecret, hashData.toString());
         queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
+
         String paymentUrl = VnPayConfig.vnp_PayUrl + "?" + queryUrl;
-//        return "http://localhost:4200/checkout-successfully/123";
+
         return paymentUrl;
     }
 

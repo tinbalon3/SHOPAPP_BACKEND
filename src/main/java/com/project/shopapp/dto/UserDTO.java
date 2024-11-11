@@ -13,6 +13,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class UserDTO {
     @JsonProperty("fullname")
     private String fullName;
@@ -44,4 +45,8 @@ public class UserDTO {
     @NotNull(message = "Role ID is required")
     @JsonProperty("role_id")
     private Long role;
+
+    @JsonProperty("auth_provider")
+    private String authProvider;
+
 }

@@ -1,62 +1,76 @@
 package com.project.shopapp.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.project.shopapp.components.JwtTokenUtils;
 import com.project.shopapp.components.LocalizationUtils;
+
+import com.project.shopapp.components.converters.RegisterObjectMessageConverter;
 import com.project.shopapp.dto.*;
-import com.project.shopapp.exception.DataAlreadyExistsException;
-import com.project.shopapp.exception.DataNotFoundException;
-import com.project.shopapp.exception.ExpiredTokenException;
-import com.project.shopapp.exception.InvalidRefreshToken;
-import com.project.shopapp.models.Role;
-import com.project.shopapp.models.Token;
-import com.project.shopapp.models.User;
+import com.project.shopapp.exceptions.DataAlreadyExistsException;
+import com.project.shopapp.exceptions.DataNotFoundException;
+import com.project.shopapp.exceptions.ExpiredTokenException;
+import com.project.shopapp.exceptions.InvalidRefreshToken;
+import com.project.shopapp.models.*;
 import com.project.shopapp.repositories.RoleRepository;
 import com.project.shopapp.repositories.TokenRepository;
 import com.project.shopapp.repositories.UserRepository;
+import com.project.shopapp.request.CartItemRequest;
 import com.project.shopapp.service.IUserService;
 import com.project.shopapp.untils.MessageKeys;
+import com.project.shopapp.untils.ValidationUtils;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-import lombok.RequiredArgsConstructor;
+
+import jakarta.persistence.Id;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.*;
 
 @Service
-@RequiredArgsConstructor
-public class UserServiceImpl implements IUserService {
 
-    private final UserRepository userRepository;
+public class UserServiceImpl extends BaseRedisServiceImpl implements IUserService {
+    @Autowired
+    private  UserRepository userRepository;
+    @Autowired
+    private  RoleRepository roleRepository;
+    @Autowired
+    private  PasswordEncoder passwordEncoder;
+    @Autowired
+    private  JwtTokenUtils jwtTokenUtils;
+    @Autowired
+    private  TokenRepository tokenRepository;
+    @Autowired
+    private  AuthenticationManager authenticationManager;
+    @Autowired
+    private  LocalizationUtils localizationUtils;
+    @Autowired
+    private  JavaMailSender mailSender;
+    @Autowired
+    private  KafkaTemplate<String, Object> kafkaTemplate;
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    private final static int TIME_WINDOW = 1;
+    private final static int LIMIT = 10;
 
-    private final RoleRepository roleRepository;
-
-    private final PasswordEncoder passwordEncoder;
-
-    private final JwtTokenUtils jwtTokenUtils;
-
-    private final TokenRepository tokenRepository;
-
-    private final AuthenticationManager authenticationManager;
-
-    private final LocalizationUtils localizationUtils;
-
-    private final JavaMailSender mailSender;
 
     @Value("${spring.mail.username}")
     private String fromAddress;
@@ -64,9 +78,13 @@ public class UserServiceImpl implements IUserService {
     @Value("${spring.mail.shopApp}")
     private String nameShopp;
 
+    public UserServiceImpl(RedisTemplate<String, Object> redisTemplate) {
+        super(redisTemplate);
+    }
+
     @Override
     @Transactional
-    public User createUser(UserDTO userDTO) throws DataAlreadyExistsException,DataNotFoundException,  MessagingException, UnsupportedEncodingException {
+    public User createUser(UserDTO userDTO) throws DataAlreadyExistsException, DataNotFoundException, MessagingException, UnsupportedEncodingException, JsonProcessingException {
         String phoneNumber = userDTO.getPhoneNumber();
         if(userRepository.existsByPhoneNumber(phoneNumber)){
             throw new DataAlreadyExistsException("Phone number already exists");
@@ -83,27 +101,83 @@ public class UserServiceImpl implements IUserService {
                 .address(userDTO.getAddress())
                 .phoneNumber(userDTO.getPhoneNumber())
                 .email(userDTO.getEmail())
+                .provider(Provider.valueOf(userDTO.getAuthProvider()))
                 .dateOfBirth(userDTO.getDateOfBirth())
-                .facebookAccountId(userDTO.getFacebookAccountId())
-                .googleAccountId(userDTO.getGoogleAccountId())
                 .active(true)
                 .build();
+
         Optional<Role> role = roleRepository.findById(userDTO.getRole());
         if(role.isEmpty()){
             throw new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.ROLE_DOES_NOT_EXISTS));
         }
         newUser.setRole(role.get());
-        if(userDTO.getFacebookAccountId() == 0 && userDTO.getGoogleAccountId() == 0){
+        if(userDTO.getAuthProvider().equals("LOCAL")){
             String password = userDTO.getPassword();
             String encodedPassword = passwordEncoder.encode(password);
             newUser.setPassword(encodedPassword);
         }
-        String verificationCode = generateVerificationCode(6);
-        newUser.setVerificationCode(verificationCode);
-        newUser.setEnabled(false);
-        sendVerificationEmail(newUser);
+
+        //Nếu đã đăng nhập bằng google thì không cần xác minh qua gmail nữa
+        if (newUser.getProvider() != Provider.GOOGLE) {
+            String verificationCode = generateVerificationCode(6);
+
+            RegisterObject registerObject = RegisterObject.builder()
+                    .email(newUser.getEmail())
+                    .verificationCode(verificationCode)
+                    .build();
+            this.kafkaTemplate.setMessageConverter(new RegisterObjectMessageConverter());
+            this.kafkaTemplate.send("user_register_otp_email_topic", registerObject);
+//            Lưu mã OTP vào redis
+            String user_OTP_Key = "User_OTP:" + newUser.getEmail();
+            Map<String, String> userOTP = new HashMap<>();
+            userOTP.put(user_OTP_Key,verificationCode);
+            saveMap(user_OTP_Key,userOTP);
+            setTimeToLive(user_OTP_Key,60);
+//            Lưu thông tin user vào redis
+            String user_INFO_Key = "User_INFO:" + newUser.getEmail();
+            Map<String, User> userINFO = new HashMap<>();
+            userINFO.put(user_INFO_Key,newUser);
+            saveMap(user_INFO_Key,userINFO);
+            setTimeToLive(user_INFO_Key,60);
+            newUser.setEnabled(false);
+        }
+
+        return newUser;
+    }
+
+    @Override
+    public User createAdmin(String adminName, String password_admin, Role role) {
+
+        User newUser = User.builder()
+                .fullName("admin")
+                .password(password_admin)
+                .address("")
+                .phoneNumber("")
+                .email(adminName)
+                .provider(Provider.LOCAL)
+                .dateOfBirth(new Date())
+                .active(true)
+                .build();
+
+
+        newUser.setRole(role);
+
+        String password = password_admin;
+        String encodedPassword = passwordEncoder.encode(password);
+        newUser.setPassword(encodedPassword);
+
+
+        newUser.setEnabled(true);
+
+
         return userRepository.save(newUser);
     }
+
+    @Override
+    public boolean adminExists() {
+        return userRepository.existsByRoleId(Long.parseLong("2"));
+    }
+
     private String generateVerificationCode(int longCode){
         String randomCode = RandomStringUtils.randomNumeric(longCode);
         return randomCode;
@@ -117,30 +191,36 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User getUserDetails(String token) throws DataNotFoundException {
-            String phoneNumber = jwtTokenUtils.extractPhoneNumber(token);
-            User user = userRepository.findByPhoneNumber(phoneNumber).orElseThrow(
+            String phoneNumber = jwtTokenUtils.extractEmail(token);
+            User user = userRepository.findByEmail(phoneNumber).orElseThrow(
                     ()-> new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_USER))
             );
             return user;
     }
     @Override
+    @Transactional
     public String login(UserLoginDTO userLoginDTO) throws Exception {
        Optional<User> optionalUser = Optional.empty();
        String subject = null;
-       if(userLoginDTO.getPhoneNumber() != null && !userLoginDTO.getPhoneNumber().isBlank()){
-           optionalUser = userRepository.findByPhoneNumber(userLoginDTO.getPhoneNumber());
-           subject = userLoginDTO.getPhoneNumber();
-       }
-       if(optionalUser.isEmpty() && userLoginDTO.getEmail() != null){
-           optionalUser = userRepository.findByEmail(userLoginDTO.getEmail());
-           subject = userLoginDTO.getEmail();
+        //kiểm tra tên đăng nhập có rỗng hay không
+       if(optionalUser.isEmpty() && userLoginDTO.getUser_name() != null){
+           //kiểm tra người dùng sử dụng email hay số điện thoại để tiến hành đăng nhập
+           if(ValidationUtils.validateEmail(userLoginDTO.getUser_name())) {
+               optionalUser = userRepository.findByEmail(userLoginDTO.getUser_name());
+               subject = userLoginDTO.getUser_name();
+           }
+           else if(ValidationUtils.validatePhoneNumber(userLoginDTO.getUser_name())) {
+               optionalUser = userRepository.findByPhoneNumber(userLoginDTO.getUser_name());
+               subject = userLoginDTO.getUser_name();
+           }
+
        }
        if(optionalUser.isEmpty()){
            throw new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.WRONG_PHONE_PASSWORD));
        }
        User existingUser = optionalUser.get();
-       //check password
-        if(existingUser.getFacebookAccountId() == 0 && existingUser.getGoogleAccountId() == 0){
+
+        if(existingUser.getProvider().equals(Provider.LOCAL)){
             if(!passwordEncoder.matches(userLoginDTO.getPassword(),existingUser.getPassword())){
                 throw new BadCredentialsException(localizationUtils.getLocalizeMessage(MessageKeys.WRONG_PHONE_PASSWORD));
             }
@@ -163,6 +243,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public void updateEmail(Long id, EmailDTO emailDTO) throws Exception {
         User existingUser = userRepository.findById(id).orElseThrow(
                 () -> new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_USER))
@@ -174,6 +255,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public void updatePassword(Long id, PasswordDTO passwordDTO) throws Exception {
         User existingUser = userRepository.findById(id).orElseThrow(
                 () -> new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_USER))
@@ -202,6 +284,8 @@ public class UserServiceImpl implements IUserService {
             existingUser.setAddress(updateUserDTO.getAddress());
         if(updateUserDTO.getDateOfBirth() != null)
             existingUser.setDateOfBirth(updateUserDTO.getDateOfBirth());
+        if(updateUserDTO.getPhoneNumber() != null)
+            existingUser.setPhoneNumber(updateUserDTO.getPhoneNumber());
 //        if(updateUserDTO.getGoogleAccountId() > 0)
 //            existingUser.setGoogleAccountId(updateUserDTO.getGoogleAccountId());
 //        if(updateUserDTO.getFacebookAccountId() > 0)
@@ -232,7 +316,7 @@ public class UserServiceImpl implements IUserService {
         if(jwtTokenUtils.isTokenExpired(token)){
             throw new ExpiredTokenException("Token is expired");
         }
-        String phoneNumber = jwtTokenUtils.extractPhoneNumber(token);
+        String phoneNumber = jwtTokenUtils.extractEmail(token);
         Optional<User> user = userRepository.findByPhoneNumber(phoneNumber);
 
         if(user.isPresent()){
@@ -244,7 +328,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     @Transactional
-    public void resetPassword(Long userId) throws DataNotFoundException, MessagingException, UnsupportedEncodingException {
+    public void resetPassword(Long userId) throws DataNotFoundException {
         User existingUser = userRepository.findById(userId)
                 .orElseThrow(() -> new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_USER,userId)));
         String newPassword = UUID.randomUUID().toString().substring(0,5);
@@ -259,16 +343,12 @@ public class UserServiceImpl implements IUserService {
         String toAddress = existingUser.getEmail();
         String subject = "Mật khẩu của bạn đã được làm mới";
         String content = "Kính chào [[name]],<br>"
-                + "Vui lòng nhấp vào đường dẫn bên dưới để đăng nhập với mật khẩu mới: [[newpassword]]<br>"
-                + "<h3><a href=\"[[URL]]\" target=\"_self\">Đăng nhập</a></h3>"
+                + "Vui lòng đăng nhập với mật khẩu mới: [[newpassword]]<br>"
                 + "Cảm ơn,<br>"
                 + "VNA Fruit.";
 
         content = content.replace("[[name]]", existingUser.getFullName())
                 .replace("[[newpassword]]", newPassword);
-
-        String verifyURL = "https://7fa0-42-116-205-114.ngrok-free.app/login";
-        content = content.replace("[[URL]]", verifyURL);
 
         try{
             sendEmail(toAddress, subject, content, nameShopp);
@@ -277,6 +357,71 @@ public class UserServiceImpl implements IUserService {
         }
 
 
+    }
+    @Override
+    @Transactional
+    public void sendMailOrderSuccessfully(OrderDTO order) throws DataNotFoundException {
+
+
+        String toAddress = order.getEmail();
+
+        String subject = "Đơn hàng của bạn đã được thanh toán thành công!";
+        User user = userRepository.findById(order.getUser_id()).orElseThrow(
+                () -> new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_USER))
+        );
+        // Định dạng ngày tháng
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String formattedOrderDate = dateFormat.format(order.getOrderDate()); // Đảm bảo order.getOrderDate() là kiểu Date
+
+        // Sử dụng StringBuilder để tạo nội dung email
+        StringBuilder contentBuilder = new StringBuilder();
+        contentBuilder.append("Kính chào ").append(user.getFullName()).append(",<br><br>")
+                .append("Chúng tôi xin thông báo rằng đơn hàng của bạn với mã theo dõi <strong>")
+                .append(order.getTrackingNumber()).append("</strong> đã được thanh toán thành công vào ngày <strong>")
+                .append(formattedOrderDate).append("</strong>.<br>")
+                .append("Cảm ơn bạn đã mua hàng từ chúng tôi! Chúng tôi rất vui khi được phục vụ bạn.<br><br>")
+                .append("Nếu bạn có bất kỳ câu hỏi nào về đơn hàng, vui lòng liên hệ với chúng tôi qua email này hoặc truy cập trang hỗ trợ của chúng tôi.<br><br>")
+                .append("Trân trọng,<br>")
+                .append("Đội ngũ VNA Fruit");
+
+        String content = contentBuilder.toString();
+
+        try {
+            sendEmail(toAddress, subject, content, nameShopp);
+        } catch (Exception e) {
+            throw new DataNotFoundException("Không tìm thấy email của người dùng hoặc đã xảy ra lỗi khi gửi email.");
+        }
+    }
+    @Override
+    @Transactional
+    public void sendErrorMailOnInvalidEmail(OrderDTO order) throws DataNotFoundException {
+        // Địa chỉ email người nhận (ví dụ: email hỗ trợ)
+        String toAddress = order.getEmail(); // Gửi đến email hỗ trợ để kiểm tra vấn đề
+        String subject = "Lỗi khi gửi email thông báo thanh toán cho đơn hàng";
+        User user = userRepository.findById(order.getUser_id()).orElseThrow(
+                () -> new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_USER))
+        );
+        // Tạo nội dung email thông báo lỗi
+        StringBuilder contentBuilder = new StringBuilder();
+        contentBuilder.append("Kính chào Đội ngũ hỗ trợ,<br><br>")
+                .append("Đơn hàng với mã theo dõi <strong>")
+                .append(order.getTrackingNumber()).append("</strong> không thể gửi email thông báo thanh toán thành công đến người dùng. ")
+                .append("Lý do có thể là email của người dùng không hợp lệ: <strong>").append(order.getEmail()).append("</strong>.<br><br>")
+                .append("Vui lòng kiểm tra và hỗ trợ người dùng nếu cần thiết. Dưới đây là thông tin chi tiết về đơn hàng:<br><br>")
+                .append("<strong>Mã theo dõi:</strong> ").append(order.getTrackingNumber()).append("<br>")
+                .append("<strong>Tên người dùng:</strong> ").append(user.getFullName()).append("<br>")
+                .append("<strong>Địa chỉ email của người dùng:</strong> ").append(order.getEmail()).append("<br><br>")
+                .append("Trân trọng,<br>")
+                .append("Đội ngũ VNA Fruit");
+
+        String content = contentBuilder.toString();
+
+        // Gửi email thông báo lỗi về việc email sai
+        try {
+            sendEmail(toAddress, subject, content, nameShopp);
+        } catch (Exception e) {
+            throw new DataNotFoundException("Không thể gửi email thông báo lỗi về địa chỉ email sai. Vui lòng thử lại.");
+        }
     }
 
     @Override
@@ -291,7 +436,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public Optional<User> getUserById(Long userId) {
+    public Optional<User> getUserById(Long userId) throws DataNotFoundException {
         return userRepository.findById(userId);
     }
     private void sendEmail(String toAddress, String subject, String content, String senderName)
@@ -307,6 +452,7 @@ public class UserServiceImpl implements IUserService {
         mailSender.send(message);
     }
     @Override
+    @Transactional
     public void sendPasswordResetCodeEmail(User user) throws MessagingException, UnsupportedEncodingException {
         String toAddress = user.getEmail();
         String subject = "Xác nhận yêu cầu đổi mật khẩu của bạn";
@@ -321,15 +467,16 @@ public class UserServiceImpl implements IUserService {
         String code = generateVerificationCode(6);
         content = content.replace("[[name]]", user.getFullName())
         .replace("[[code]]",code);
-        user.setVerificationCode(code);
+//        user.setVerificationCode(code);
         userRepository.save(user);
         sendEmail(toAddress, subject, content, nameShopp);
 
     }
     @Override
-    public void sendVerificationEmail(User user) throws MessagingException, UnsupportedEncodingException {
+    @Transactional
+    public void sendVerificationEmail(String email,String VerificationCode) throws MessagingException, UnsupportedEncodingException {
 
-            String toAddress = user.getEmail();
+            String toAddress = email;
             String subject = "Vui lòng xác nhận đăng ký của bạn";
 
             // Nội dung email với mã xác nhận
@@ -340,10 +487,10 @@ public class UserServiceImpl implements IUserService {
                     + "VNA Fruit.";
 
             // Thay thế tên người dùng
-            content = content.replace("[[name]]", user.getFullName());
+            content = content.replace("[[name]]", "khách hàng thân mến");
 
             // Thay thế mã xác nhận
-            String verificationCode = user.getVerificationCode();
+            String verificationCode = VerificationCode;
             content = content.replace("[[verificationCode]]", verificationCode);
 
             // Gửi email
@@ -352,7 +499,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void sendChangeEmailCode(EmailDTO emailDTO,User user) throws MessagingException, UnsupportedEncodingException {
+    @Transactional
+    public void sendChangeEmailCode(EmailDTO emailDTO,User user) throws MessagingException, UnsupportedEncodingException, JsonProcessingException {
         String toAddress = emailDTO.getEmail();
         String subject = "Xác nhận yêu cầu đổi mật email của bạn";
 
@@ -366,29 +514,57 @@ public class UserServiceImpl implements IUserService {
         String code = generateVerificationCode(6);
         content = content.replace("[[name]]", user.getFullName())
                 .replace("[[code]]",code);
-        user.setVerificationCode(code);
+        String userKey = "User_OTP:" + user.getEmail();
+//        user.setVerificationCode(code);
+        Map<String, String> map = new HashMap<>();
+        map.put(userKey,code);
+        saveMap(userKey,map);
+        setTimeToLive(userKey,60);
         userRepository.save(user);
+
         sendEmail(toAddress, subject, content, nameShopp);
     }
 
+    @Override
+    public boolean isAllowed(String userId) {
+        String key = "rate:limit:" + userId;
+        Long currentCount = increment(key);
+        logger.info("Current count: {}", currentCount);
+        if (currentCount == 1) {
+            // Đặt thời gian hết hạn của khóa thành 1 giây
+            setExpired(key, TIME_WINDOW);
+        }
 
-    public boolean verify(String verificationCode) {
-        User user = userRepository.findByVerificationCode(verificationCode);
+        // vượt quá giới hạn
+        // check controller forgot
+        return currentCount <= LIMIT;
+    }
 
-        if (user == null || !user.isEnabled()) {
+
+    @Override
+    public boolean verify(String verificationCode,String email) throws JsonProcessingException, DataNotFoundException {
+        String user_OTP_Key = "User_OTP:" + email;
+        String user_INFO_Key = "User_INFO:" + email;
+
+        Map<String, String> user_OTP = (Map<String, String>) getMap(user_OTP_Key, String.class, String.class);
+        Map<String, User> user_INFO = (Map<String, User>) getMap(user_INFO_Key, String.class, User.class);
+
+        if (user_OTP.isEmpty() || user_INFO.get(user_INFO_Key) == null || !user_INFO.get(user_INFO_Key).isEnabled()) {
             return false;
-        } else {
-            user.setVerificationCode(null);
-            user.setEnabled(true);
-            userRepository.save(user);
+        }
+        else {
+           String code = user_OTP.get(user_OTP_Key);
+           if(code.equals(verificationCode)) {
+               User user = user_INFO.get(user_INFO_Key);
+               user.setEnabled(true);
+               userRepository.save(user);
+               return true;
+           }
+           return false;
 
-            return true;
         }
 
     }
 
-    @Override
-    public void saveUserToDB(User user) {
-        userRepository.save(user);
-    }
+
 }

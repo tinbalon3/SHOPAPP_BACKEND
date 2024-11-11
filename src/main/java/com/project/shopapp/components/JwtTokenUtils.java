@@ -37,7 +37,8 @@ public class JwtTokenUtils {
     public String generateToken(User user){
         // Properties => Claims
         Map<String, Object> claims = new HashMap<>();
-        claims.put("phoneNumber", user.getPhoneNumber());
+
+        claims.put("email",user.getEmail());
         claims.put("userId", user.getId());
 
         try {
@@ -45,7 +46,7 @@ public class JwtTokenUtils {
 
             return Jwts.builder()
                     .setClaims(claims)
-                    .setSubject(user.getPhoneNumber())
+                    .setSubject(user.getEmail())
                     .setExpiration(expirationDate) // Thay đổi thời gian hết hạn
                     .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                     .compact();
@@ -74,12 +75,10 @@ public class JwtTokenUtils {
                 .parseClaimsJws(token)
                 .getBody();
     }
-    public String extractPhoneNumber(String token){
+    public String extractEmail(String token){
         return extractClaims(token,Claims::getSubject);
     }
-    public Long extractUserId(String token){
-        return extractClaims(token, claims -> claims.get("userId", Long.class));
-    }
+
     public <T> T extractClaims(String token, Function<Claims,T> claimsResolver){
         final Claims claims = this.extractAllClaims(token);
         return claimsResolver.apply(claims);
@@ -91,11 +90,11 @@ public class JwtTokenUtils {
     }
 
     public boolean validateToken(String token, User userDetails){
-        String phoneNumber = extractPhoneNumber(token);
+        String email = extractEmail(token);
         Token existingToken = tokenRepository.findByToken(token);
         if(existingToken == null || existingToken.isRevoked() == true || !userDetails.isActive()){
             return false;
         }
-        return (phoneNumber.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        return (email.equals(userDetails.getEmail()) && !isTokenExpired(token));
     }
 }

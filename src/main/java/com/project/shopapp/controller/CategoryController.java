@@ -1,14 +1,18 @@
 package com.project.shopapp.controller;
 
 import com.project.shopapp.components.LocalizationUtils;
+import com.project.shopapp.components.converters.CategoryMessageConverter;
 import com.project.shopapp.dto.CategoryDTO;
 import com.project.shopapp.models.Category;
+import com.project.shopapp.response.ResponseObject;
 import com.project.shopapp.response.category.CategoryResponse;
 import com.project.shopapp.service.ICategoryService;
 import com.project.shopapp.untils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -22,60 +26,63 @@ public class CategoryController {
 
     private final ICategoryService iCategoryService;
     private final LocalizationUtils localizationUtils;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("")
-    public ResponseEntity<?> createCategory(@Valid @RequestBody CategoryDTO categoryDTO,
+    public ResponseEntity<ResponseObject> createCategory(@Valid @RequestBody CategoryDTO categoryDTO,
                                             BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             List<String> errorMessage = bindingResult.getFieldErrors().stream()
                     .map(fieldError -> fieldError.getDefaultMessage()).toList();
-            return ResponseEntity.badRequest().body(errorMessage);
+            return ResponseEntity.badRequest().body(ResponseObject.builder()
+                            .message(String.join(";", errorMessage))
+                            .status(HttpStatus.BAD_REQUEST)
+                    .build());
         }
-        return ResponseEntity.ok(CategoryResponse.builder()
+        Category category = iCategoryService.createCategory(categoryDTO);
+//        this.kafkaTemplate.send("insert-a-category",category);//producer
+//        this.kafkaTemplate.setMessageConverter(new CategoryMessageConverter());
+
+
+
+        return ResponseEntity.ok(ResponseObject.builder()
                         .message(localizationUtils.getLocalizeMessage(MessageKeys.INSERT_CATEGORY_SUCCESSFULLY))
-                        .category(iCategoryService.createCategory(categoryDTO))
+                        .status(HttpStatus.OK)
+                        .data(category)
                 .build());
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Category>> getAllCategories(){
+    public ResponseEntity<ResponseObject> getAllCategories() throws Exception{
         List<Category> categories = iCategoryService.getAllCategory();
-        return ResponseEntity.ok(categories);
+        this.kafkaTemplate.send("get-all-categories",categories);
+        return ResponseEntity.ok(ResponseObject.builder()
+                        .status(HttpStatus.OK)
+                        .message("Lấy danh sách danh mục thành công")
+                        .data(categories)
+                .build());
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryResponse> updateCategory(@PathVariable Long id,@Valid @RequestBody CategoryDTO categoryDTO){
-        try{
-            return ResponseEntity.ok(CategoryResponse.builder()
-                    .message(localizationUtils.getLocalizeMessage(MessageKeys.UPDATE_CATEGORY_SUCCESSFULLY))
-                    .category(iCategoryService.updateCategory(id,categoryDTO))
-                    .build());
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(CategoryResponse.builder()
-                    .message(e.getMessage())
-                    .category(null)
-                    .build());
-        }
+    public ResponseEntity<ResponseObject> updateCategory(@PathVariable Long id,@Valid @RequestBody CategoryDTO categoryDTO) throws Exception{
+        return ResponseEntity.ok(ResponseObject.builder()
+                .data(iCategoryService.updateCategory(id,categoryDTO))
+                .status(HttpStatus.OK)
+                .message(localizationUtils.getLocalizeMessage(MessageKeys.UPDATE_CATEGORY_SUCCESSFULLY))
+                .build());
+
 
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/{id}")
-    public ResponseEntity<CategoryResponse> deleteCategory(@PathVariable Long id){
-        try {
+    public ResponseEntity<ResponseObject> deleteCategory(@PathVariable Long id) throws Exception{
             iCategoryService.deleteCategory(id);
-            return ResponseEntity.ok(CategoryResponse.builder()
+            return ResponseEntity.ok(ResponseObject.builder()
                     .message(localizationUtils.getLocalizeMessage(MessageKeys.DELETE_CATEGORY_SUCCESSFULLY,id))
-                    .category(null)
+                    .status(HttpStatus.OK)
                     .build());
-        }catch (Exception e){
-            return ResponseEntity.ok(CategoryResponse.builder()
-                    .message(e.getMessage())
-                    .category(null)
-                    .build());
-        }
-
     }
 }

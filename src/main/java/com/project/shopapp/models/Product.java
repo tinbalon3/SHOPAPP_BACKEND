@@ -35,6 +35,7 @@ public class Product extends BaseEntity{
     @JoinColumn(name="category_id")
     private Category category;
 
+    private int stock;
 
     @OneToMany(mappedBy = "product",
     cascade = CascadeType.ALL,
@@ -60,7 +61,7 @@ public class Product extends BaseEntity{
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-
+                ", quantity=" + stock +
                 ", numberOfRating=" + numberOfRating +
                 ", sumOfRating=" + sumOfRating +
                 '}';

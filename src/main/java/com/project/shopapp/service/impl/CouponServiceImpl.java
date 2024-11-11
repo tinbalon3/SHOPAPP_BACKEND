@@ -20,9 +20,9 @@ public class CouponServiceImpl implements ICouponService {
     @Override
     public double calculateCouponValue(String couponCode, double totalAmount) {
         Coupon coupon = couponRepository.findByCode(couponCode)
-                .orElseThrow(() -> new IllegalArgumentException("Coupon not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy coupon."));
         if(!coupon.isActive()) {
-            throw new IllegalArgumentException("Coupon is not active");
+            throw new IllegalArgumentException("Coupon không còn hiệu lực.");
         }
         double discount = calculateDiscount(coupon,totalAmount);
         double finalAmount = totalAmount - discount;

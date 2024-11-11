@@ -11,11 +11,10 @@ import lombok.*;
 @NoArgsConstructor
 public class UserLoginDTO {
 
-    @JsonProperty("phone_number")
-    private String phoneNumber;
 
-    @JsonProperty("email")
-    private String email;
+
+    @JsonProperty("user_name")
+    private String user_name;
 
     @NotBlank(message = "Password cannot be blank")
     private String password;

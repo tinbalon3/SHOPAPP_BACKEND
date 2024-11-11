@@ -1,7 +1,7 @@
 package com.project.shopapp.service.impl;
 
 import com.project.shopapp.dto.RatingDTO;
-import com.project.shopapp.exception.DataNotFoundException;
+import com.project.shopapp.exceptions.DataNotFoundException;
 import com.project.shopapp.mapper.RatingMapper;
 import com.project.shopapp.models.Rating;
 import com.project.shopapp.models.Product;
@@ -65,5 +65,15 @@ public class RatingService implements IRatingService {
         return ratings.stream()
                 .map(rating -> RatingResponse.fromRating(rating))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<RatingDTO> getStatRatingProduct(Long productID) {
+        List<Rating> ratings = ratingRepository.findByProductId(productID);
+        List<RatingDTO> ratingDTOS = ratings.stream().map(rating -> {
+            RatingDTO ratingDTO = RatingMapper.MAPPER.mapToRatingDTO(rating);
+            return ratingDTO;
+        }).collect(Collectors.toList());
+        return ratingDTOS;
     }
 }

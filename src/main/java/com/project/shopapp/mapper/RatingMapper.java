@@ -13,4 +13,6 @@ public interface RatingMapper {
 
     RateResponse mapToRatingResponse(Rating rating);
 
+    RatingDTO mapToRatingDTO(Rating rating);
+
 }

@@ -6,8 +6,8 @@ import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.dto.ProductDTO;
 import com.project.shopapp.dto.ProductDetailDTO;
 import com.project.shopapp.dto.ProductImageDTO;
-import com.project.shopapp.exception.DataNotFoundException;
-import com.project.shopapp.exception.InvalidParamException;
+import com.project.shopapp.exceptions.DataNotFoundException;
+import com.project.shopapp.exceptions.InvalidParamException;
 import com.project.shopapp.mapper.ProductImageMapper;
 import com.project.shopapp.mapper.ProductMapper;
 import com.project.shopapp.models.Category;
@@ -67,7 +67,7 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
         return productRepository.save(newProduct);
     }
     @Override
-    public Product getProductById(long productId) throws Exception {
+    public Product getProductById(long productId) throws DataNotFoundException {
         return productRepository.findById(productId).
                 orElseThrow(()-> new DataNotFoundException(
                         localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_PRODUCT,productId)));
@@ -92,30 +92,35 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
         productDetailDTO.setProduct_images(productImages);
         return productDetailDTO;
     }
-    @Override
-    public List<ProductImage> findAllProductImages(List<Long> ids) throws DataNotFoundException {
-        List<ProductImage> productImage = productImageRepository.findAllById(ids);
-        return productImage;
-    }
+
     @Override
     @Transactional
     public void deleteProductImage(Long id){
         productImageRepository.deleteById(id);
     }
+
+    @Override
+    public List<Product> getAllProduct() {
+        return productRepository.findAll();
+    }
+
     @Override
     public Page<ProductDTO> getAllProduct(
             String keyWord,
             Long categoryId,
+            Float minPrice,
+            Float maxPrice,
+            int rateStar,
             PageRequest pageRequest) {
         //lay danh sach san pham theo page va limit
-        return productRepository.searchProducts(categoryId,keyWord,pageRequest).map(product -> {
+        return productRepository.searchProducts(categoryId,keyWord,minPrice,maxPrice,rateStar,pageRequest).map(product -> {
             ProductDTO productEntity = ProductMapper.MAPPER.mapToProductDTO(product);
             productEntity.setCategoryId(product.getCategory().getId());
             productEntity.setId(product.getId());
             return productEntity;
         });
     }
-    private String getKeyFrom(String keyword, Long categoryId, Pageable pageable) {
+    private String getKeyFrom(String keyword, Long categoryId,Float minPrice, Float maxPrice, Pageable pageable) {
         int pageNumber = pageable.getPageNumber();
         int pageSize = pageable.getPageSize();
         Sort sort = pageable.getSort();
@@ -130,9 +135,11 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
         String categoryPart = categoryId != null ? categoryId.toString() : "all";
 
         // Tạo chuỗi key với keyword, categoryId, pageNumber, pageSize và sortDirection
-        String key = String.format("ALL_PRODUCTS:%s:%s:%d:%d:%s",
+        String key = String.format("ALL_PRODUCTS:%s:%s:%f:%f:%d:%d:%s",
                 normalizedKeyword,
                 categoryPart,
+                minPrice,
+                maxPrice,
                 pageNumber,
                 pageSize,
                 sortDirection);
@@ -141,8 +148,8 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
     }
 
     @Override
-    public List<?> getAllProduct(String keyword, Long categoryId, Pageable pageable, Class<?> clazz) throws JsonProcessingException {
-        String key = this.getKeyFrom(keyword,categoryId,pageable);
+    public List<?> getAllProduct(String keyword, Long categoryId, Float minPrice, Float maxPrice,int rateStar ,Pageable pageable, Class<?> clazz) throws JsonProcessingException {
+        String key = this.getKeyFrom(keyword,categoryId,minPrice,maxPrice,pageable);
         String json = (String) redisTemplate.opsForValue().get(key);
         if (json != null) {
             ObjectMapper redisObjectMapper = new ObjectMapper();
@@ -191,10 +198,7 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
         optionalProduct.ifPresent(productRepository::delete);
     }
 
-    @Override
-    public boolean existsByName(String name) {
-        return productRepository.existsByName(name);
-    }
+
     @Override
     @Transactional
     public ProductImage createProductImages(Long productId, ProductImageDTO productImageDTO) throws DataNotFoundException, InvalidParamException {

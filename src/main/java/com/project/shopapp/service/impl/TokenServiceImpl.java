@@ -2,7 +2,7 @@ package com.project.shopapp.service.impl;
 
 import com.amazonaws.services.kms.model.NotFoundException;
 import com.project.shopapp.components.JwtTokenUtils;
-import com.project.shopapp.exception.DataNotFoundException;
+import com.project.shopapp.exceptions.DataNotFoundException;
 import com.project.shopapp.models.Token;
 import com.project.shopapp.models.User;
 import com.project.shopapp.repositories.TokenRepository;
@@ -13,8 +13,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.DateTimeException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -120,7 +118,7 @@ public class TokenServiceImpl implements ITokenService {
     @Override
     public void revokeToken(String refreshToken) throws DataNotFoundException {
         Token existingToken = tokenRepository.findByRefreshToken(refreshToken).orElseThrow(
-                () -> new DataNotFoundException("Not found refresh token")
+                () -> new DataNotFoundException("Not found token")
         );
         existingToken.setRevoked(true);
         tokenRepository.save(existingToken);

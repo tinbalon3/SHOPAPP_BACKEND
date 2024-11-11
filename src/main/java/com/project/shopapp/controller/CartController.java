@@ -3,6 +3,7 @@ package com.project.shopapp.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.request.CartItemRequest;
+import com.project.shopapp.response.ResponseObject;
 import com.project.shopapp.service.impl.CartRedisServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,30 +23,31 @@ public class CartController {
 
 
     @PostMapping("/add/{customerId}")
-    public ResponseEntity<?> addProductToCart(@RequestBody List<CartItemRequest> items, @PathVariable Long customerId)  {
-        try {
+    public ResponseEntity<?> addProductToCart(@RequestBody List<CartItemRequest> items, @PathVariable Long customerId) throws Exception{
+
             cartRedisService.addProductToCart(customerId,items);
             return ResponseEntity.ok().build();
-        } catch (JsonProcessingException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
 
     }
 
-
     @GetMapping("/get/{customerId}")
-    public  ResponseEntity<?> getCart(@PathVariable Long customerId)  {
-        try {
-            return ResponseEntity.ok(cartRedisService.getCartItems(customerId));
-        } catch (JsonProcessingException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public  ResponseEntity<ResponseObject> getCart(@PathVariable Long customerId) throws Exception {
+            return ResponseEntity.ok(ResponseObject.builder()
+                            .data(cartRedisService.getCartItems(customerId))
+                            .status(HttpStatus.OK)
+                            .message("Lấy sản phẩm giỏ hàng thành công")
+                    .build());
     }
 
     @DeleteMapping("/remove/{customerId}/{productId}")
-    public ResponseEntity<?> removeProductFromCart(@PathVariable Long customerId, @PathVariable Long productId) {
+    public ResponseEntity<ResponseObject> removeProductFromCart(@PathVariable Long customerId, @PathVariable Long productId) {
         cartRedisService.removeProductFromCart(customerId, productId);
-        return ResponseEntity.ok("Products remove to cart successfully");
+        return ResponseEntity.ok(ResponseObject.builder()
+                        .message("Xóa sản phẩm khỏi giỏ hàng thành công")
+                        .status(HttpStatus.OK)
+
+                .build());
+
     }
 
 
@@ -57,8 +59,12 @@ public class CartController {
 
 
     @DeleteMapping ("/update/{customerId}/{productId}/{quantity}")
-    public ResponseEntity<?> updateCart(@PathVariable Long customerId,@PathVariable Long productId, @PathVariable Integer quantity) throws JsonProcessingException {
+    public ResponseEntity<ResponseObject> updateCart(@PathVariable Long customerId,@PathVariable Long productId, @PathVariable Integer quantity) throws JsonProcessingException {
         CartItemRequest cartItemRequest = cartRedisService.updateItems(customerId,productId,quantity);
-        return ResponseEntity.ok(cartItemRequest);
+        return ResponseEntity.ok(ResponseObject.builder()
+                        .status(HttpStatus.OK)
+                        .message("Cập nhật giỏ hàng thành công")
+                        .data(cartItemRequest)
+                .build());
     }
 }

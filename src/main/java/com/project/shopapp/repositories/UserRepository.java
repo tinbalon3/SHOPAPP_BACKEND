@@ -14,6 +14,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
     boolean existsByPhoneNumber(String phoneNumber);
 
     boolean existsByEmail(String email);
+    @Query("SELECT COUNT(u) > 0 FROM User u WHERE u.role.id = :id")
+    boolean existsByRoleId(@Param("id") Long id);
 
     @Query("SELECT u FROM User u join fetch u.role WHERE u.phoneNumber = :phoneNumber")
     Optional<User> findByPhoneNumber(String phoneNumber);
@@ -26,8 +28,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
             "AND lower(o.role.name) = 'user'")
     Page<User> findAll(@Param("keyword") String keyword, Pageable pageable);
 
-    @Query("SELECT u FROM User u WHERE u.verificationCode = ?1")
-    User findByVerificationCode(String code);
+//    @Query("SELECT u FROM User u WHERE u.verificationCode = ?1")
+//    User findByVerificationCode(String code);
 
 
 }

@@ -41,4 +41,5 @@ public interface OrderRepository extends JpaRepository<Order,Long> {
     Page<OrderDetailHistoryDTO> getOrderDetailHistory(@Param("status") String status,@Param("userId") Long userId, Pageable pageable);
 
 
+    Order findByTransactionId(String transactionId);
 }

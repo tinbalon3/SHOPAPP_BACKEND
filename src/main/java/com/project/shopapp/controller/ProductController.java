@@ -6,13 +6,13 @@ import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.dto.ProductDTO;
 import com.project.shopapp.dto.ProductDetailDTO;
 import com.project.shopapp.dto.ProductImageDTO;
-import com.project.shopapp.exception.DataNotFoundException;
-import com.project.shopapp.exception.InvalidParamException;
+import com.project.shopapp.exceptions.DataNotFoundException;
+import com.project.shopapp.exceptions.InvalidParamException;
 import com.project.shopapp.mapper.ProductMapper;
 import com.project.shopapp.models.Product;
 import com.project.shopapp.models.ProductImage;
 import com.project.shopapp.request.ProductRequest;
-import com.project.shopapp.response.product.ProductDetailsResponse;
+import com.project.shopapp.response.ResponseObject;
 
 import com.project.shopapp.response.product.ProductListResponse;
 import com.project.shopapp.response.product.ProductResponse;
@@ -74,64 +74,65 @@ public class ProductController {
         }
 
     }
-    @PreAuthorize("true")
+
     @GetMapping("")
-    public ResponseEntity<?> getAllProducts(
+    public ResponseEntity<ResponseObject> getAllProducts(
             @RequestParam(defaultValue = "") String keyword,
             @RequestParam(defaultValue = "0",name = "category_id") Long categoryId,
+            @RequestParam(defaultValue = "10000",name = "minPrice") Float minPrice,
+            @RequestParam(defaultValue = "100000",name = "maxPrice") Float maxPrice,
+            @RequestParam(defaultValue = "0",name = "rateStar") int rateStar,
             @RequestParam(defaultValue = "0",name="page") int page,
             @RequestParam(defaultValue = "10",name="limit") int limit) throws JsonProcessingException {
-        //tao pageable tu thong tin trang va gioi han
+
         int totalPage = 0;
         long totalElements = 0;
         PageRequest pageRequest = PageRequest.of(page,limit, Sort.by("id").ascending());
-        logger.info(String.format("keyword = %s, category_id = %d, page = %d, limit = %d", keyword, categoryId, page, limit));
+
         String key = "ALL_PRODUCTS";
-        List<?> products = productService.getAllProduct(keyword,categoryId,pageRequest,ProductDTO.class);
+        List<?> products = productService.getAllProduct(keyword,categoryId,minPrice,maxPrice,rateStar,pageRequest,ProductDTO.class);
         if(products.size() == 0){
-            Page<ProductDTO> productPage = productService.getAllProduct(keyword,categoryId,pageRequest);
+            Page<ProductDTO> productPage = productService.getAllProduct(keyword,categoryId,minPrice,maxPrice,rateStar,pageRequest);
             totalPage = productPage.getTotalPages();
             totalElements = productPage.getTotalElements();
             products = productPage.getContent();
             productService.saveList(key,products);
         }
-
-        return ResponseEntity.ok(ProductListResponse.builder()
+        ProductListResponse productListResponse = ProductListResponse.builder()
                 .products((List<ProductDTO>) products)
                 .totalElements(totalElements)
                 .totalPages(totalPage)
+                .build();
+        return ResponseEntity.ok(ResponseObject.builder()
+                .data(productListResponse)
+                .message(localizationUtils.getLocalizeMessage(MessageKeys.GET_PRODUCT_SUCCESSFULLY))
+                .status(HttpStatus.OK)
                 .build());
     };
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getProductDetail(
-            @PathVariable("id") Long productId){
-        try {
+    public ResponseEntity<ResponseObject> getProductDetail(@PathVariable("id") Long productId) throws DataNotFoundException {
+
             ProductDetailDTO productDetailDTO = productService.getProductDetail(productId);
-            return ResponseEntity.ok(ProductDetailsResponse.builder()
-                            .message(localizationUtils.getLocalizeMessage(MessageKeys.GET_PRODUCT_SUCCESSFULLY))
-                            .productDetailDTO(productDetailDTO)
+            return ResponseEntity.ok(ResponseObject.builder()
+                    .message(localizationUtils.getLocalizeMessage(MessageKeys.GET_PRODUCT_SUCCESSFULLY))
+                    .data(productDetailDTO)
+                    .status(HttpStatus.OK)
                     .build());
-        }catch (Exception e)
-        {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteProduct(@PathVariable Long id){
-        try{
+    public ResponseEntity<ResponseObject> deleteProduct(@PathVariable Long id){
+
             productService.deleteProduct(id);
-            return ResponseEntity.ok(
-                    ProductResponse.builder()
-                            .message(localizationUtils.getLocalizeMessage(MessageKeys.DELETE_PRODUCT_SUCCESSFULLY,id))
-                            .product(null)
-                            .build()
+            return ResponseEntity.ok(ResponseObject.builder()
+                    .message(localizationUtils.getLocalizeMessage(MessageKeys.DELETE_PRODUCT_SUCCESSFULLY,id))
+                    .status(HttpStatus.OK)
+                    .build()
                    );
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+
     }
     private String checkImage(MultipartFile file){
         if(file.getSize() == 0){
@@ -144,7 +145,7 @@ public class ProductController {
         }
         return null;
     }
-    private List<ProductImage> storeToDB(String filename,Product existingProduct,List<ProductImage> productImages) throws InvalidParamException, DataNotFoundException {
+    private List<ProductImage> storeToDB(String filename,Product existingProduct,List<ProductImage> productImages) throws Exception {
         ProductImageDTO productImageDTO = new ProductImageDTO();
         productImageDTO.setImageUrl(filename);
         ProductImage productImageCreate = productService.createProductImages(existingProduct.getId(), productImageDTO);
@@ -157,17 +158,9 @@ public class ProductController {
     public ResponseEntity<?> updateImages(@PathVariable("id") Long id,
                                           @RequestParam("images") List<MultipartFile> files,
                                           @RequestParam(name="imageIds",required = false) List<Long> imageIds,
-                                          @RequestParam("updateImages") List<String> updateImage) throws IOException,Exception {
-        try {
-            Product existingProduct = productService.getProductById(id);
-            files = files == null ? new ArrayList<MultipartFile>() : files;
-            if(files.size() > ProductImage.MAXIMUM_IMAGES_PER_PRODUCT){
-                return ResponseEntity.badRequest().body(
-                        ProductResponse.builder()
-                                .message(localizationUtils.getLocalizeMessage(MessageKeys.UPLOAD_IMAGES_FILE_LARGE))
-                                .product(null)
-                );
-            }
+                                          @RequestParam("updateImages") List<String> updateImage) throws Exception {
+
+            Product existingProduct = checkMaximumImages(id,files);
             int i = 0;
             List<ProductImage> productImages = new ArrayList<>();
             for (MultipartFile file : files){
@@ -188,79 +181,82 @@ public class ProductController {
 
             }
             return ResponseEntity.ok().body(productImages);
-        } catch (DataNotFoundException | InvalidParamException e) {
-            return  ResponseEntity.badRequest().body(e.getMessage());
-        }
+
     }
-//    private void deleteFile(String filename) throws IOException {
-//        Path uploadDir = Paths.get("uploads");
-//        Path fileToDelete = uploadDir.resolve(filename);
-//        if (Files.exists(fileToDelete)) {
-//            // Xóa file
-//            logger.info("xoa anh thanh` cong : " + filename);
-//            Files.delete(fileToDelete);
-//
-//        } else {
-//            throw new IOException("File not found: " + filename);
-//
-//        }
-//    }
+    private Product checkMaximumImages(Long productId, List<MultipartFile> files) throws Exception {
+        Product existingProduct = productService.getProductById(productId);
+
+        // Kiểm tra nếu files là null thì khởi tạo danh sách rỗng
+        files = files == null ? new ArrayList<MultipartFile>() : files;
+
+        // Kiểm tra số lượng hình ảnh
+        if (files.size() > ProductImage.MAXIMUM_IMAGES_PER_PRODUCT) {
+            throw new Exception(localizationUtils.getLocalizeMessage(MessageKeys.UPLOAD_IMAGES_FILE_LARGE));
+        }
+
+        // Trả về existingProduct nếu số lượng hình ảnh hợp lệ
+        return existingProduct;
+    }
+
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(value = "/upload/{id}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> uploadImages(@ModelAttribute("files") List<MultipartFile> files, @PathVariable Long id) throws IOException,Exception {
-        try {
-            Product existingProduct = productService.getProductById(id);
-            files = files == null ? new ArrayList<MultipartFile>() : files;
-            if(files.size() > ProductImage.MAXIMUM_IMAGES_PER_PRODUCT){
-                return ResponseEntity.badRequest().body(
-                        ProductResponse.builder()
-                                        .message(localizationUtils.getLocalizeMessage(MessageKeys.UPLOAD_IMAGES_FILE_LARGE))
-                                .product(null)
-                        );
-            }
+    public ResponseEntity<ResponseObject> uploadImages(@ModelAttribute("files") List<MultipartFile> files, @PathVariable Long id) throws IOException,Exception {
+
+            Product existingProduct = checkMaximumImages(id,files);
             List<ProductImage> productImages = new ArrayList<>();
             for (MultipartFile file : files){
                 String checkImage = checkImage(file);
                 if(checkImage != null){
-                    return ResponseEntity.badRequest().body(checkImage);
+                    return ResponseEntity.badRequest().body(ResponseObject.builder()
+                                    .status(HttpStatus.BAD_REQUEST)
+                                    .data(checkImage)
+                                    .message(localizationUtils.getLocalizeMessage(MessageKeys.UPLOAD_IMAGES_FILE_MUST_BE_IMAGE))
+                            .build());
                 }
                 String filename = storageService.uploadFile(file);
 
                 //Luu vao doi tuong ProductImages trong DB
                storeToDB(filename,existingProduct,productImages);
             }
-            return ResponseEntity.ok().body(productImages);
-        } catch (DataNotFoundException | InvalidParamException e) {
-            return  ResponseEntity.badRequest().body(e.getMessage());
-        }
+            return ResponseEntity.ok().body(ResponseObject.builder()
+                            .message("Up load ảnh thành công")
+                            .status(HttpStatus.OK)
+                    .build());
+
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/images/{fileName}")
-    public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
-        return new ResponseEntity<>(storageService.deleteFile(fileName), HttpStatus.OK);
+    public ResponseEntity<ResponseObject> deleteFile(@PathVariable String fileName) {
+        return ResponseEntity.ok(ResponseObject.builder()
+                .status(HttpStatus.OK)
+                .data(storageService.deleteFile(fileName))
+                .message(localizationUtils.getLocalizeMessage(MessageKeys.DELETE_IMAGES_SUCCESSFULLY))
+                .build());
     }
 
     @GetMapping("/images/{fileName}")
-    public ResponseEntity<?> viewImage(@PathVariable String fileName){
-        try {
+    public ResponseEntity<?> viewImage(@PathVariable String fileName) throws IOException {
+
             byte[] image = storageService.viewImage(fileName);
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.IMAGE_JPEG); // Set the content type based on your image type
             return new ResponseEntity<>(image, headers, HttpStatus.OK);
-        } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
     }
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateProduct(@PathVariable Long id, @RequestBody ProductRequest productRequest){
-        try {
-            return ResponseEntity.ok().body(productService.updateProduct(id,productRequest));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<ResponseObject> updateProduct(@PathVariable Long id, @RequestBody ProductRequest productRequest) throws Exception {
+
+            return ResponseEntity.ok().body(ResponseObject.builder()
+                    .data(productService.updateProduct(id,productRequest))
+                    .message("Cập nhật sản phẩm thành công")
+                    .status(HttpStatus.OK)
+                    .build()
+
+            );
+
     }
 
 //    @GetMapping("/images/{imageName}")

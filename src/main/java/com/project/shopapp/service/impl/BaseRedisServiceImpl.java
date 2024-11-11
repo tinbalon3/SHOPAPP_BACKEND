@@ -2,14 +2,16 @@ package com.project.shopapp.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.shopapp.request.PurchaseRequest;
 import com.project.shopapp.service.IBaseRedisService;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 @Service
@@ -29,8 +31,37 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
     public void saveList(String key, List<?> list) throws JsonProcessingException {
         ObjectMapper redisObjectMapper = new ObjectMapper();
         String json = redisObjectMapper.writeValueAsString(list);
-        this.set(key,json);
+        this.setString(key,json);
     }
+    @Override
+    public void saveMap(String key, Map<?, ?> map) throws JsonProcessingException {
+        ObjectMapper redisObjectMapper = new ObjectMapper();
+        String json = redisObjectMapper.writeValueAsString(map);
+        this.setString(key, json);
+    }
+    @Override
+    public void saveObject(String key, Object aClass) throws JsonProcessingException {
+        // Tạo một ObjectMapper để chuyển đổi đối tượng thành JSON
+        ObjectMapper redisObjectMapper = new ObjectMapper();
+        String json = redisObjectMapper.writeValueAsString(aClass);
+
+        // Lưu vào Redis bằng phương thức set
+        this.setString(key, json);
+    }
+    @Override
+    public <T> T getObject(String key, Class<T> clazz) throws JsonProcessingException {
+        // Lấy chuỗi JSON từ Redis
+        String json = (String) redisTemplate.opsForValue().get(key);
+
+        if (json == null) {
+            return null;  // Trường hợp không có giá trị trong Redis
+        }
+
+        // Chuyển đổi chuỗi JSON thành đối tượng
+        ObjectMapper redisObjectMapper = new ObjectMapper();
+        return redisObjectMapper.readValue(json, clazz);
+    }
+
     @Override
     public List<?> getList(String key, Class<?> clazz) throws JsonProcessingException {
         String json = (String) redisTemplate.opsForValue().get(key);
@@ -41,12 +72,7 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
         return  Collections.emptyList();
     }
 
-    @Override
-    public void saveMap(String key, Map<?, ?> map) throws JsonProcessingException {
-        ObjectMapper redisObjectMapper = new ObjectMapper();
-        String json = redisObjectMapper.writeValueAsString(map);
-        this.set(key, json);
-    }
+
 
 
     @Override
@@ -60,13 +86,22 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
     }
 
     @Override
-    public void set(String key, String value) {
+    public void setString(String key, String value) {
+        redisTemplate.opsForValue().set(key, value);
+    }
+    @Override
+    public void setInt(String key, int value) {
         redisTemplate.opsForValue().set(key, value);
     }
 
     @Override
-    public void setTimeToLive(String key, long timeoutInDays) {
-        redisTemplate.expire(key, timeoutInDays, TimeUnit.DAYS);
+    public void setLong(String key, Long value) {
+        redisTemplate.opsForValue().set(key, value);
+    }
+
+    @Override
+    public void setTimeToLive(String key, long timeoutInSeconds) {
+        redisTemplate.expire(key, timeoutInSeconds, TimeUnit.SECONDS);
     }
 
 
@@ -83,6 +118,26 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
     @Override
     public Object get(String key) {
         return redisTemplate.opsForValue().get(key);
+    }
+    @Override
+    public Long increment(String key) {
+        return redisTemplate.opsForValue().increment(key);
+    }
+    @Override
+    public Long decrement(String key) {
+        return redisTemplate.opsForValue().decrement(key);
+    }
+    @Override
+    public Long incrementBy(String key,int value) {
+        return redisTemplate.opsForValue().increment(key,value);
+    }
+    @Override
+    public Long decrementBy(String key,int value) {
+        return redisTemplate.opsForValue().decrement(key,value);
+    }
+    @Override
+    public void setExpired(String key, long timeInSeconds) {
+        redisTemplate.expire(key, Duration.ofSeconds(timeInSeconds));
     }
 
     @Override

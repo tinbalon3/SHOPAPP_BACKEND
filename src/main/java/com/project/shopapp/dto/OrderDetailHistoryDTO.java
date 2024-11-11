@@ -1,6 +1,7 @@
 package com.project.shopapp.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.project.shopapp.models.OrderStatus;
 import com.project.shopapp.models.Product;
 import jakarta.persistence.Column;
 import lombok.*;
@@ -29,13 +30,13 @@ public class OrderDetailHistoryDTO {
     @JsonProperty( "total_money")
     private Float totalMoney;
 
-    private String status;
+    private OrderStatus status;
 
     private String thumbnail;
 
     private String name;
     private Date orderDate;
-    public OrderDetailHistoryDTO(Long id, Long productId, Float price, int numberOfProduct, Float totalMoney,String name,String thumbnail, String status,Date orderDate ) {
+    public OrderDetailHistoryDTO(Long id, Long productId, Float price, int numberOfProduct, Float totalMoney,String name,String thumbnail, OrderStatus status,Date orderDate ) {
         this.id = id;
         this.productId = productId;
         this.price = price;
