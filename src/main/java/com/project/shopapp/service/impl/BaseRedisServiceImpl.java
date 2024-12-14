@@ -3,6 +3,7 @@ package com.project.shopapp.service.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.shopapp.service.IBaseRedisService;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.redis.core.HashOperations;
@@ -23,7 +24,11 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
 
     protected  HashOperations<String, String, Object> hashOperations;
 
-
+    @PostConstruct
+    public void init() {
+        // Khởi tạo HashOperations sau khi các đối tượng được inject
+        this.hashOperations = redisTemplate.opsForHash();
+    }
 
 
     @Override

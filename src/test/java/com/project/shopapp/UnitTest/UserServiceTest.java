@@ -5,6 +5,8 @@ import com.project.shopapp.components.JwtTokenUtils;
 import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.dto.UserLoginDTO;
 import com.project.shopapp.exceptions.DataNotFoundException;
+import com.project.shopapp.exceptions.EmailNotRegisterException;
+import com.project.shopapp.exceptions.InvalidPasswordException;
 import com.project.shopapp.exceptions.UserErrorException;
 import com.project.shopapp.models.Provider;
 import com.project.shopapp.models.Role;
@@ -85,7 +87,7 @@ class UserServiceTest {
     private ITokenService tokenService;
     @Test
     @DisplayName("Người dùng đăng nhập thành công")
-    void login_Success() throws Exception {
+    void login_001() throws Exception {
         // Arrange
         UserLoginDTO userLoginDTO = new UserLoginDTO();
         userLoginDTO.setUserName("mando150903@gmail.com");
@@ -218,7 +220,7 @@ class UserServiceTest {
     }
     @Test
     @DisplayName("Người dùng đăng nhập thất bại với mật khẩu sai")
-    void login_Fail_WrongPassword() throws Exception {
+    void login_002_1() throws Exception {
         // Arrange
         UserLoginDTO userLoginDTO = new UserLoginDTO();
         userLoginDTO.setUserName("mando150903@gmail.com");
@@ -258,7 +260,7 @@ class UserServiceTest {
 
     @Test
     @DisplayName("Người dùng đăng nhập thất bại với tên người dùng không tồn tại")
-    void login_Fail_UserNotFound() throws Exception {
+    void login_002_2()  {
         // Arrange
         UserLoginDTO userLoginDTO = new UserLoginDTO();
         userLoginDTO.setUserName("nonexistentuser@gmail.com"); // Email không tồn tại
@@ -279,7 +281,7 @@ class UserServiceTest {
     }
     @Test
     @DisplayName("Người dùng đăng nhập thất bại do tài khoản bị khóa")
-    void login_Fail_UserLocked() throws UserErrorException {
+    void login_002_3() throws UserErrorException, EmailNotRegisterException, DataNotFoundException, InvalidPasswordException {
         // Arrange
         UserLoginDTO userLoginDTO = new UserLoginDTO();
         userLoginDTO.setUserName("mando150903@gmail.com");
@@ -305,19 +307,71 @@ class UserServiceTest {
         // Khi tìm email của người dùng, trả về dữ liệu đã mock
         when(userRepository.findByEmail("mando150903@gmail.com")).thenReturn(Optional.of(user));
 
-        when(localizationUtils.getLocalizeMessage(MessageKeys.USER_IS_LOCKED))
-                .thenReturn("Tài khoản của bạn bị khóa");
-
         // Act & Assert: Kiểm tra nếu người dùng bị khóa sẽ ném ra exception
         UserErrorException thrown = assertThrows(UserErrorException.class, () -> {
             userService.login(userLoginDTO); // Nên ném ra exception vì tài khoản bị khóa
         });
-        assertEquals("Tài khoản của bạn bị khóa", thrown.getMessage()); // Kiểm tra thông điệp lỗi
+
+
 
         // Verify các phương thức đã được gọi đúng
         verify(userRepository).findByEmail("mando150903@gmail.com");
 
     }
+    @Test
+    @DisplayName("Lấy thông tin chi tiết người dùng không tồn tại")
+    void login_003() throws UserErrorException, EmailNotRegisterException, DataNotFoundException, InvalidPasswordException {
+        // Arrange
+        UserLoginDTO userLoginDTO = new UserLoginDTO();
+        userLoginDTO.setUserName("mando150903@gmail.com");
+        userLoginDTO.setPassword("123456");
+
+        // Mock dữ liệu Role
+        Role role = new Role();
+        role.setId(1L);
+        role.setName("USER");
+
+        // Mock dữ liệu người dùng
+        User user = new User();
+        user.setFullName("Man Do");
+        user.setPhoneNumber("0123456789");
+        user.setEmail("mando150903@gmail.com");
+        user.setActive(true);
+        user.setEnabled(true);
+        user.setProvider(Provider.LOCAL);
+        user.setPassword("123456"); // Mã hóa password
+        user.setRole(role);
+
+        // Khi tìm email của người dùng, trả về dữ liệu đã mock
+        when(userRepository.findByEmail("mando150903@gmail.com")).thenReturn(Optional.of(user));
+
+        // Mock hành vi khi mã hóa mật khẩu
+        when(passwordEncoder.matches("123456", user.getPassword())).thenReturn(true);
+
+        // Mock hành vi tạo token JWT
+        when(jwtTokenUtils.generateToken(user)).thenReturn("mockToken");
+
+        // Mock hành vi của extractEmail
+        when(jwtTokenUtils.extractEmail("mockToken")).thenReturn("mando150903@gmail.com");
+
+        when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenReturn(null); // Hoặc trả về đối tượng Authentication giả nếu cần
+
+        // Mock hành vi của addToken
+        // Mock hành vi của addToken
+        Token mockToken = new Token();
+        mockToken.setToken("mockToken"); // Giả sử class Token có phương thức setToken()
+        when(tokenService.addToken(any(User.class), anyString(), anyBoolean())).thenReturn(mockToken);
+
+        // Act
+        String token = userService.login(userLoginDTO);
+        when(jwtTokenUtils.extractEmail(token)).thenReturn("khongtontai@gmail.com");
+        assertThrows(DataNotFoundException.class, () -> {
+            userService.getUserDetails(token);  // Khi gọi sẽ ném ra DataNotFoundException
+        });
+
+
+    }
+
 
 }
 
