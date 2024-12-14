@@ -44,10 +44,10 @@ public class LoggingAspect {
         for (Object arg : objectArgs) {
             if (arg instanceof UserLoginDTO) {
                 UserLoginDTO userLoginDTO = (UserLoginDTO) arg;
-                argsString.append("UserLoginDTO(email=").append(userLoginDTO.getUser_name())
+                argsString.append("UserLoginDTO(email=").append(userLoginDTO.getUserName())
                         .append(", password=****")
-                        .append(", roleId=").append(userLoginDTO.getRoleId())
-                        .append(", rememberMe=").append(userLoginDTO.getRememberMe())
+//                        .append(", roleId=").append(userLoginDTO.getRoleId())
+//                        .append(", rememberMe=").append(userLoginDTO.getRememberMe())
                         .append(")");
             } else {
                 argsString.append(arg);

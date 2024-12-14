@@ -22,8 +22,8 @@ public class PurchaseRequest implements Serializable {
     private CustomerDTO customer;
     @JsonProperty("shipping_address")
     private Address shippingAddress;
-    @JsonProperty("billing_address")
-    private Address billingAddress;
+//    @JsonProperty("billing_address")
+//    private Address billingAddress;
     private String note;
 
     @JsonProperty("totalAmount")

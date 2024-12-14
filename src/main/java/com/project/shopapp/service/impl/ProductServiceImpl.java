@@ -17,6 +17,7 @@ import com.project.shopapp.repositories.CategoryRepository;
 import com.project.shopapp.repositories.ProductImageRepository;
 import com.project.shopapp.repositories.ProductRepository;
 import com.project.shopapp.request.ProductRequest;
+import com.project.shopapp.response.product.ProductMaxAndMinPriceResponse;
 import com.project.shopapp.service.IProductService;
 import com.project.shopapp.untils.MessageKeys;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collections;
 import java.util.List;
@@ -46,7 +48,6 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
     private final LocalizationUtils localizationUtils;
     @Autowired
     public ProductServiceImpl(RedisTemplate<String, Object> redisTemplate, ProductRepository productRepository, CategoryRepository categoryRepository, ProductImageRepository productImageRepository, LocalizationUtils localizationUtils) {
-        super(redisTemplate);
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.productImageRepository = productImageRepository;
@@ -55,15 +56,23 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
 
     @Override
     @Transactional
-    public Product createProduct(ProductDTO productDTO) throws DataNotFoundException {
+    public Product createProduct(ProductRequest productRequest) throws DataNotFoundException {
 
         Category existingCategory =
                 categoryRepository
-                        .findById(productDTO.getCategoryId()).orElseThrow(() -> new DataNotFoundException(
-                        localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_CATEGORY,productDTO.getCategoryId())));
+                        .findById(productRequest.getCategoryId()).orElseThrow(() -> new DataNotFoundException(
+                        localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_CATEGORY,productRequest.getCategoryId())));
 
-        Product newProduct = ProductMapper.MAPPER.mapToProduct(productDTO);
-        newProduct.setCategory(existingCategory);
+        Product newProduct = Product.builder()
+                .name(productRequest.getName())
+                .category(existingCategory)
+                .description(productRequest.getDescription())
+                .price(productRequest.getPrice())
+                .stock(productRequest.getStock())
+                .sumOfRating(Long.parseLong("0"))
+                .numberOfRating(Long.parseLong("0"))
+                .thumbnail("")
+                .build();
         return productRepository.save(newProduct);
     }
     @Override
@@ -72,6 +81,18 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
                 orElseThrow(()-> new DataNotFoundException(
                         localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_PRODUCT,productId)));
     }
+
+    @Override
+    public ProductMaxAndMinPriceResponse getMaxAndMinPrice() {
+        Double maxPrice = productRepository.findMaxPrice();
+        Double minPrice = productRepository.findMinPrice();
+        ProductMaxAndMinPriceResponse productMaxAndMinPriceResponse = ProductMaxAndMinPriceResponse.builder()
+                .maxPrice(maxPrice)
+                .minPrice(minPrice)
+                .build();
+        return productMaxAndMinPriceResponse;
+    }
+
     @Override
     public ProductDetailDTO getProductDetail(Long id) throws DataNotFoundException {
         Product product = productRepository.findById(id).orElseThrow(
@@ -104,6 +125,8 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
         return productRepository.findAll();
     }
 
+
+
     @Override
     public Page<ProductDTO> getAllProduct(
             String keyWord,
@@ -120,7 +143,7 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
             return productEntity;
         });
     }
-    private String getKeyFrom(String keyword, Long categoryId,Float minPrice, Float maxPrice, Pageable pageable) {
+    private String getKeyFrom(String keyword, Long categoryId,Float minPrice, Float maxPrice,int rateStar, Pageable pageable) {
         int pageNumber = pageable.getPageNumber();
         int pageSize = pageable.getPageSize();
         Sort sort = pageable.getSort();
@@ -133,13 +156,15 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
 
         // Thêm categoryId vào key nếu tồn tại, nếu không thì mặc định là "all"
         String categoryPart = categoryId != null ? categoryId.toString() : "all";
+        String rateStarPart = rateStar != 0 ? String.valueOf(rateStar) : "all";
 
         // Tạo chuỗi key với keyword, categoryId, pageNumber, pageSize và sortDirection
-        String key = String.format("ALL_PRODUCTS:%s:%s:%f:%f:%d:%d:%s",
+        String key = String.format("ALL_PRODUCTS:%s:%s:%f:%f:%s:%d:%d:%s",
                 normalizedKeyword,
                 categoryPart,
                 minPrice,
                 maxPrice,
+                rateStarPart,
                 pageNumber,
                 pageSize,
                 sortDirection);
@@ -149,7 +174,7 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
 
     @Override
     public List<?> getAllProduct(String keyword, Long categoryId, Float minPrice, Float maxPrice,int rateStar ,Pageable pageable, Class<?> clazz) throws JsonProcessingException {
-        String key = this.getKeyFrom(keyword,categoryId,minPrice,maxPrice,pageable);
+        String key = getKeyFrom(keyword,categoryId,minPrice,maxPrice,rateStar,pageable);
         String json = (String) redisTemplate.opsForValue().get(key);
         if (json != null) {
             ObjectMapper redisObjectMapper = new ObjectMapper();
@@ -162,12 +187,10 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
     @Transactional
     public Product updateProduct(Long id, ProductRequest productRequest) throws Exception {
 
-        Category existingCategory =
-                categoryRepository.
-                        findById(productRequest.getCategoryId()).orElseThrow(() ->
-                                new DataNotFoundException(
-                                        localizationUtils.getLocalizeMessage
-                                                (MessageKeys.NOT_FOUND_CATEGORY,productRequest.getCategoryId())));
+        Category existingCategory = categoryRepository.findById(productRequest.getCategoryId()).orElseThrow(() ->
+                new DataNotFoundException(
+                        localizationUtils.getLocalizeMessage(
+                                MessageKeys.NOT_FOUND_CATEGORY,productRequest.getCategoryId())));
         Product existingProduct = getProductById(id);
         if (existingProduct != null) {
             // Update only the fields from the request
@@ -183,6 +206,9 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
             if (productRequest.getCategoryId() > 0) {
 
                 existingProduct.setCategory(existingCategory);
+            }
+            if (productRequest.getStock() > 0) {
+                existingProduct.setStock(productRequest.getStock());
             }
             // Save the updated product
 
@@ -210,6 +236,8 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
                                                 MessageKeys.NOT_FOUND_PRODUCT,productId)));
         ProductImage newProductImage = ProductImageMapper.MAPPER.mapToProductImage(productImageDTO);
         newProductImage.setProduct(existingProduct);
+        if(existingProduct.getThumbnail() == "")
+            existingProduct.setThumbnail(productImageDTO.getImageUrl());
 
         //khong cho insert qua 5 anh cho 1 san pham
         int size = productImageRepository.findByProductId(productId).size();
@@ -218,6 +246,12 @@ public class ProductServiceImpl extends BaseRedisServiceImpl implements IProduct
         }
         return productImageRepository.save(newProductImage);
     }
+
+    @Override
+    public void saveProduct(Product product) {
+        productRepository.save(product);
+    }
+
     @Override
     public ProductImage getProductImageById(Long id){
         return productImageRepository.findById(id).orElseThrow(() ->

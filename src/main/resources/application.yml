@@ -14,18 +14,48 @@ cloud:
 application:
   bucket:
     name: shopappimages
-google:
-  app:
-    id: 368175433889-feredabg3d7orcvdokr6nsm841fpv9ro.apps.googleusercontent.com
-    secret: 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
-  redirect:
-    uri: http://localhost:4200
-  link:
-    get:
-      token: https://accounts.google.com/o/oauth2/token
-      user_info: https://www.googleapis.com/oauth2/v1/userinfo?access_token=
+#google:
+#  app:
+#    id: 368175433889-feredabg3d7orcvdokr6nsm841fpv9ro.apps.googleusercontent.com
+#    secret: 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
+#  redirect:
+#    uri: http://localhost:4200/auth/callback/google
+#  link:
+#    get:
+#      token: https://accounts.google.com/o/oauth2/token
+#      user_info: https://www.googleapis.com/oauth2/v1/userinfo?access_token=
 spring:
+  profiles:
+    active: default
+  application:
+    name: gateway
 
+    cloud:
+      gateway:
+        global-cors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins: "*"
+              allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - PATCH
+              allowedHeaders:
+                - "Origin"
+                - "Content-Type"
+                - "Accept"
+                - "Authorization"
+                - "User-Key"
+                - "Request-Tracker"
+                - "Session-Tracker"
+                - "X-XSRF-TOKEN"
+                - "X-IBM-CLIENT-ID"
+                - "Message-ID"
+                - "X-IBM-CLIENT-SECRET"
+        default-filters:
+          - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_FIRST
   security:
     oauth2:
       client:
@@ -34,7 +64,13 @@ spring:
             client-id: 368175433889-feredabg3d7orcvdokr6nsm841fpv9ro.apps.googleusercontent.com
             client-secret: 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
             scope: email,phone,profile
-            redirect-uri: http://localhost:4200
+            redirect-uri: http://localhost:4200/auth/callback/google
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v1/userinfo?access_token=
+            user-name-attribute: sub
 
   data:
     redis:
@@ -48,17 +84,19 @@ spring:
     baseline-version: 15
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
 #    url: jdbc:mysql://localhost:3306/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: ${MYSQL_ROOT_PASSWORD:}
+    password: ${MYSQL_ROOT_PASSWORD:tinbalon2}
 #      ${MYSQL_ROOT_PASSWORD:}
   kafka:
     client:
       dns:
         lookup: use_dns_cache
-      bootstrap-servers: ${KAFKA_BROKER_SERVER:localhost}:${KAFKA_BROKER_PORT:9092}
+    bootstrap-servers: ${KAFKA_BROKER_SERVER:localhost}:${KAFKA_BROKER_PORT:9092}
+#        bootstrap-servers: kafka-broker-01:19092
+
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
@@ -80,7 +118,7 @@ spring:
     servlet:
       multipart:
         max-file-size: 10MB
-        max-request-size: 10MB
+        max-request-size: 20MB
     messages:
       basename: i18n/messages
       encoding: UTF-8
@@ -111,7 +149,7 @@ spring:
 api:
   prefix: /api/v1
 jwt:
-  shortExpiration: 600 #5 phút
+  shortExpiration: 600
   longExpiration: 2592000 #30days = 30 * 24 * 60 * 60
   expiration-refresh-token: 5184000 #60days = 60 * 24 * 60 * 60
   secretKey: U6v+iCW7VBBAG+UjzNjFxI7yB5mkRb6MRUiwxxPz6kE=

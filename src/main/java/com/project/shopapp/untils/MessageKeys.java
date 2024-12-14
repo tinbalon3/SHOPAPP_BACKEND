@@ -2,12 +2,15 @@ package com.project.shopapp.untils;
 
 public class MessageKeys {
     public static final String LOGIN_SUCCESSFULLY =  "user.login.login_successfully";
+    public static final String LOGIN_NULL_DATA =  "user.login.login_null_data";
+
     public static final String REGISTER_SUCCESSFULLY =  "user.login.register_successfully";
     public static final String LOGIN_FAILED =  "user.login.login_failed";
     public static final String PASSWORD_NOT_MATCH =  "user.register.password_not_match";
     public static final String WRONG_DATA_REGISTER  = "user.register.wrong_data_register";
     public static final String REGISTER_FAILED = "user.register.register_failed";
     public static final String USER_IS_LOCKED = "user.login.user_is_locked";
+    public static final String USER_IS_NOT_ACTIVE = "user.login.user_is_not_active";
     public static final String NOT_FOUND_USER = "user.get_user.not_found";
     public static final String PHONE_NUMBER_EXIST = "user.update.update_phone_number";
     public static final String PASSWORD_RETYPE_PASSWORD = "user.update.password_retype_password";
@@ -43,6 +46,7 @@ public class MessageKeys {
     public static final String DELETE_IMAGES_SUCCESSFULLY = "product.delete_images_delete_successfully";
     public static final String DELETE_PRODUCT_SUCCESSFULLY = "product.delete_product.delete_successfully";
     public static final String NOT_FOUND_PRODUCT = "product.get_product.not_found";
+
     public static final String UPLOAD_IMAGES_FILE_NO_IMAGES = "product.upload_images.no_images";
     public static final String INSERT_PRODUCT_SUCCESSFULLY = "product.insert_product.insert_product_successfully";
 

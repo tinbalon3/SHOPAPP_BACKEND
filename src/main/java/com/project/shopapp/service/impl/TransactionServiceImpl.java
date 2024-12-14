@@ -1,6 +1,7 @@
 package com.project.shopapp.service.impl;
 
 import com.project.shopapp.models.Transactions;
+import com.project.shopapp.repositories.TransactionRepository;
 import com.project.shopapp.repositories.UserRepository;
 import com.project.shopapp.service.ITransactionService;
 import com.project.shopapp.service.IVNPayService;
@@ -15,9 +16,8 @@ import java.time.ZoneId;
 @RequiredArgsConstructor
 @Service
 public class TransactionServiceImpl implements ITransactionService {
-    private final IVNPayService vnPayService;
-
     private final UserRepository userRepository;
+    private final TransactionRepository transactionRepository;
     @Override
     @Transactional
     public Transactions createTransaction(HttpServletRequest request) {
@@ -38,5 +38,17 @@ public class TransactionServiceImpl implements ITransactionService {
         transaction.setUser(userRepository.getById(userID));
         transaction.setReason(reason);
         return transaction;
+    }
+
+    @Override
+    @Transactional
+    public void saveTransaction(Transactions transactions) {
+        transactionRepository.save(transactions);
+    }
+
+    @Override
+    @Transactional
+    public void deleteTransaction(Transactions transactions) {
+        transactionRepository.delete(transactions);
     }
 }

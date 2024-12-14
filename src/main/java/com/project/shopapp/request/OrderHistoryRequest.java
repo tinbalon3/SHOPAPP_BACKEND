@@ -17,16 +17,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderDetailHistoryRequest {
-    private Long id;
+public class OrderHistoryRequest {
 
+    private Long id;
 
     private Float price;
 
-    @Column(name = "number_of_products",nullable = false)
+    @JsonProperty( "number_of_products")
     private int numberOfProduct;
 
-    @Column(name = "total_money",nullable = false)
+    @JsonProperty("total_money")
     private Float totalMoney;
 
     private String status;
@@ -34,6 +34,7 @@ public class OrderDetailHistoryRequest {
     private String thumbnail;
 
     private String name;
+
     private Date orderDate;
 
 }

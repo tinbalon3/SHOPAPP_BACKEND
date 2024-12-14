@@ -1,0 +1,143 @@
+@startuml
+class com.project.shopapp.controller.VNPayController {
+- IVNPayService vnPayService
+- TransactionRepository transactionRepository
+- ITransactionService iTransactionService
+- IOrderService iOrderService
+- OrderRepository orderRepository
+- KafkaTemplate<String,Object> kafkaTemplate
+- String api_prefix
+- {static} Logger logger
++ String submitOrder(PurchaseRequest,HttpServletRequest)
++ void getPaymentInfo(HttpServletRequest,HttpServletResponse)
+}
+
+
+class com.project.shopapp.controller.RefreshTokenController {
+- ITokenService tokenService
+- IUserService userService
++ ResponseEntity<?> getRefreshExpirationDate(String)
++ ResponseEntity<ResponseObject> revokeToken(RefreshTokenDTO)
++ ResponseEntity<ResponseObject> refreshToken(RefreshTokenDTO)
+}
+
+
+class com.project.shopapp.controller.CartController {
+- CartRedisServiceImpl cartRedisService
+- LocalizationUtils localizationUtils
++ ResponseEntity<?> addProductToCart(List<CartItemRequest>,Long)
++ ResponseEntity<ResponseObject> getCart(Long)
++ ResponseEntity<ResponseObject> removeProductFromCart(Long,Long)
++ ResponseEntity<?> clearCart(Long)
++ ResponseEntity<ResponseObject> updateCart(Long,Long,Integer)
+}
+
+
+class com.project.shopapp.controller.OrderController {
+- IOrderService iOrderService
+- LocalizationUtils localizationUtils
+- {static} Logger logger
++ ResponseEntity<ResponseObject> createOrder(PurchaseRequest,BindingResult)
++ ResponseEntity<ResponseObject> getOrders(Long)
++ ResponseEntity<ResponseObject> getOrder(Long)
++ ResponseEntity<ResponseObject> updateOrder(Long,OrderUpdateRequest)
++ ResponseEntity<ResponseObject> deleteOrders(Long)
++ ResponseEntity<ResponseObject> getOrderDetailHistory(Long,String,int,int)
++ ResponseEntity<ResponseObject> getAllOrder(int,int)
+}
+
+
+class com.project.shopapp.controller.ProductController {
+- IProductService productService
+- LocalizationUtils localizationUtils
+- IStorageService storageService
+- {static} Logger logger
++ ResponseEntity<?> createProduct(ProductDTO,BindingResult)
++ ResponseEntity<ResponseObject> getAllProducts(String,Long,Float,Float,int,int,int)
++ ResponseEntity<ResponseObject> getProductDetail(Long)
++ ResponseEntity<ResponseObject> deleteProduct(Long)
+- String checkImage(MultipartFile)
+- List<ProductImage> storeToDB(String,Product,List<ProductImage>)
++ ResponseEntity<?> updateImages(Long,List<MultipartFile>,List<Long>,List<String>)
+- Product checkMaximumImages(Long,List<MultipartFile>)
++ ResponseEntity<ResponseObject> uploadImages(List<MultipartFile>,Long)
++ ResponseEntity<ResponseObject> deleteFile(String)
++ ResponseEntity<?> viewImage(String)
++ ResponseEntity<ResponseObject> updateProduct(Long,ProductRequest)
+}
+
+
+class com.project.shopapp.controller.UserController {
+- IUserService userService
+- LocalizationUtils localizationUtils
+- ITokenService tokenService
+- ClientRegistrationRepository clientRegistrationRepository
+- {static} Logger logger
+- GoogleUtils googleUtils
+- JwtTokenUtils jwtTokenUtils
++ ResponseEntity<ResponseObject> getAllUser(String,int,int)
++ ResponseEntity<ResponseObject> createUser(UserDTO,BindingResult)
++ ResponseEntity<ResponseObject> verifyUser(String,String)
+- boolean isMobileDevice(String)
++ ResponseEntity<ResponseObject> loginGoogle()
++ ResponseEntity<ResponseObject> callback(String,HttpServletRequest)
++ ResponseEntity<ResponseObject> login(UserLoginDTO,HttpServletRequest)
++ ResponseEntity<ResponseObject> sendVerificationCode(Long)
++ ResponseEntity<ResponseObject> sendChangeEmailCode(Long,EmailDTO)
++ ResponseEntity<ResponseObject> getUserDetails(String)
++ ResponseEntity<ResponseObject> updateUser(Long,UpdateUserDTO,String)
++ ResponseEntity<?> updateEmail(Long,String,EmailDTO)
++ ResponseEntity<?> updatePassword(Long,String,PasswordDTO)
++ ResponseEntity<ResponseObject> resetPassword(Long)
++ ResponseEntity<ResponseObject> blockOrEnable(Long,boolean)
++ ResponseEntity<ResponseObject> forgotPassword(String)
+}
+
+
+class com.project.shopapp.controller.OrderDetailsController {
+- IOrderDetailService iOrderDetailService
+- LocalizationUtils localizationUtils
++ ResponseEntity<ResponseObject> createOrderDetails(OrderDetailDTO)
++ ResponseEntity<ResponseObject> getOrderDetail(Long)
++ ResponseEntity<ResponseObject> getOrderDetails(Long)
++ ResponseEntity<ResponseObject> updateOrderDetail(Long,OrderDetailDTO)
++ ResponseEntity<ResponseObject> deleteOrderDetail(Long)
+}
+
+
+class com.project.shopapp.controller.RoleController {
+- IRoleService roleService
++ ResponseEntity<ResponseObject> getAllRoles()
+}
+
+
+class com.project.shopapp.controller.RatingController {
+- IRatingService iRatingService
++ ResponseEntity<ResponseObject> getAllRating(Long,Long)
++ ResponseEntity<ResponseObject> updateRating(Long,RatingDTO)
++ ResponseEntity<?> insertRating(RatingDTO)
++ ResponseEntity<ResponseObject> getRatingStats(Long)
+}
+
+
+class com.project.shopapp.controller.CategoryController {
+- ICategoryService iCategoryService
+- LocalizationUtils localizationUtils
+- KafkaTemplate<String,Object> kafkaTemplate
++ ResponseEntity<ResponseObject> createCategory(CategoryDTO,BindingResult)
++ ResponseEntity<ResponseObject> getAllCategories()
++ ResponseEntity<ResponseObject> updateCategory(Long,CategoryDTO)
++ ResponseEntity<ResponseObject> deleteCategory(Long)
+}
+
+
+class com.project.shopapp.controller.CouponController {
+- ICouponService iCouponService
++ ResponseEntity<ResponseObject> calculateCouponValue(String,double)
+}
+
+
+
+
+com.project.shopapp.service.impl.BaseRedisServiceImpl <|-- com.project.shopapp.controller.VNPayController
+@enduml

@@ -12,7 +12,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import java.util.Locale;
 
 @RequiredArgsConstructor
-@Component
+@Configuration
 public class LocalizationUtils {
     private final MessageSource messageSource;
     private final LocaleResolver localeResolver;

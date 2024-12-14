@@ -9,14 +9,16 @@ import com.project.shopapp.exceptions.InvalidParamException;
 import com.project.shopapp.models.Product;
 import com.project.shopapp.models.ProductImage;
 import com.project.shopapp.request.ProductRequest;
+import com.project.shopapp.response.product.ProductMaxAndMinPriceResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface IProductService extends IBaseRedisService {
-    public Product createProduct(ProductDTO productDTO) throws DataNotFoundException;
+    Product createProduct(ProductRequest productRequest) throws DataNotFoundException;
 
     Page<ProductDTO> getAllProduct(String keyWord,Long categoryId,Float minPrice,Float maxPrice,int rateStar,PageRequest pageRequest);
     List<?> getAllProduct(String keyword, Long categoryId,Float minPrice, Float maxPrice,int rateStar, Pageable pageable, Class<?> clazz) throws JsonProcessingException;
@@ -24,17 +26,17 @@ public interface IProductService extends IBaseRedisService {
     Product updateProduct(Long id, ProductRequest productRequest) throws Exception;
 
     Product getProductById(long productId) throws DataNotFoundException;
-
-    public ProductDetailDTO getProductDetail(Long id) throws DataNotFoundException;
+    ProductMaxAndMinPriceResponse getMaxAndMinPrice();
+    ProductDetailDTO getProductDetail(Long id) throws DataNotFoundException;
     void deleteProduct(Long id);
 
-    public ProductImage getProductImageById(Long id);
-    public ProductImage createProductImages(Long productId, ProductImageDTO productImageDTO) throws InvalidParamException, DataNotFoundException;
+    ProductImage getProductImageById(Long id);
+    ProductImage createProductImages(Long productId, ProductImageDTO productImageDTO) throws InvalidParamException, DataNotFoundException;
 
+    void saveProduct(Product product);
+    void deleteProductImage(Long id);
+    List<Product> getAllProduct();
 
-    public void deleteProductImage(Long id);
-
-    public List<Product> getAllProduct();
 
 
 }

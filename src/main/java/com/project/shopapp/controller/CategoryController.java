@@ -37,18 +37,13 @@ public class CategoryController {
                     .map(fieldError -> fieldError.getDefaultMessage()).toList();
             return ResponseEntity.badRequest().body(ResponseObject.builder()
                             .message(String.join(";", errorMessage))
-                            .status(HttpStatus.BAD_REQUEST)
+                            .status(HttpStatus.BAD_REQUEST.value())
                     .build());
         }
         Category category = iCategoryService.createCategory(categoryDTO);
-//        this.kafkaTemplate.send("insert-a-category",category);//producer
-//        this.kafkaTemplate.setMessageConverter(new CategoryMessageConverter());
-
-
-
         return ResponseEntity.ok(ResponseObject.builder()
                         .message(localizationUtils.getLocalizeMessage(MessageKeys.INSERT_CATEGORY_SUCCESSFULLY))
-                        .status(HttpStatus.OK)
+                        .status(HttpStatus.OK.value())
                         .data(category)
                 .build());
     }
@@ -56,9 +51,9 @@ public class CategoryController {
     @GetMapping("")
     public ResponseEntity<ResponseObject> getAllCategories() throws Exception{
         List<Category> categories = iCategoryService.getAllCategory();
-        this.kafkaTemplate.send("get-all-categories",categories);
+
         return ResponseEntity.ok(ResponseObject.builder()
-                        .status(HttpStatus.OK)
+                        .status(HttpStatus.OK.value())
                         .message("Lấy danh sách danh mục thành công")
                         .data(categories)
                 .build());
@@ -69,7 +64,7 @@ public class CategoryController {
     public ResponseEntity<ResponseObject> updateCategory(@PathVariable Long id,@Valid @RequestBody CategoryDTO categoryDTO) throws Exception{
         return ResponseEntity.ok(ResponseObject.builder()
                 .data(iCategoryService.updateCategory(id,categoryDTO))
-                .status(HttpStatus.OK)
+                .status(HttpStatus.OK.value())
                 .message(localizationUtils.getLocalizeMessage(MessageKeys.UPDATE_CATEGORY_SUCCESSFULLY))
                 .build());
 
@@ -82,7 +77,7 @@ public class CategoryController {
             iCategoryService.deleteCategory(id);
             return ResponseEntity.ok(ResponseObject.builder()
                     .message(localizationUtils.getLocalizeMessage(MessageKeys.DELETE_CATEGORY_SUCCESSFULLY,id))
-                    .status(HttpStatus.OK)
+                    .status(HttpStatus.OK.value())
                     .build());
     }
 }

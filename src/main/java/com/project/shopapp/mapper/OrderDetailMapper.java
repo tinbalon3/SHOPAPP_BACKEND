@@ -1,9 +1,9 @@
 package com.project.shopapp.mapper;
 
 import com.project.shopapp.dto.OrderDetailDTO;
-import com.project.shopapp.dto.OrderDetailHistoryDTO;
+import com.project.shopapp.dto.OrderHistoryDTO;
 import com.project.shopapp.models.OrderDetail;
-import com.project.shopapp.request.OrderDetailHistoryRequest;
+import com.project.shopapp.request.OrderHistoryRequest;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
@@ -16,7 +16,7 @@ public interface OrderDetailMapper {
     OrderDetailMapper MAPPER = Mappers.getMapper(OrderDetailMapper.class);
    OrderDetailDTO mapToOrderDetailDTO(OrderDetail orderDetail);
 
-   OrderDetailHistoryRequest mapToOrderDetailHistoryRequest(OrderDetailHistoryDTO orderDetailHistoryDTO);
+   OrderHistoryRequest mapToOrderHistoryRequest(OrderHistoryDTO orderDetailHistoryDTO);
 
     List<OrderDetailDTO> mapToOrderDetailDTOList(List<OrderDetail> orderDetails);
 

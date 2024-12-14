@@ -6,12 +6,14 @@ import com.project.shopapp.models.User;
 import com.project.shopapp.response.ResponseObject;
 import com.project.shopapp.response.rate.RatingResponse;
 import com.project.shopapp.service.IRatingService;
+import com.project.shopapp.untils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,7 +40,7 @@ public class RatingController {
         return ResponseEntity.ok().body(ResponseObject.builder()
                         .data(ratingRespons)
                         .message("Lấy danh sách đánh giá thành công")
-                        .status(HttpStatus.OK)
+                        .status(HttpStatus.OK.value())
                 .build());
     }
 
@@ -49,28 +51,40 @@ public class RatingController {
             iRatingService.updateRating(id,ratingDTO);
             return ResponseEntity.ok(ResponseObject.builder()
                     .message("Update comment successfully")
-                    .status(HttpStatus.OK)
+                    .status(HttpStatus.OK.value())
                     .build());
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-    @PostMapping("")
-    public ResponseEntity<?> insertRating(@Valid @RequestBody RatingDTO ratingDTO) throws DataNotFoundException {
 
-            User loginUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            if(loginUser.getId() != ratingDTO.getUserId()){
-                return ResponseEntity.badRequest().body("Bạn không thể đánh giá khi khác user");
-            }
+    @PostMapping("")
+    public ResponseEntity<ResponseObject> insertRating(@Valid @RequestBody RatingDTO ratingDTO, BindingResult result) throws DataNotFoundException {
+
+        if(result.hasErrors()) {
+            List<String> errorMessage = result.getFieldErrors()
+                    .stream()
+                    .map(fieldError -> fieldError.getDefaultMessage()).toList();
+
+            return ResponseEntity.badRequest().body(ResponseObject.builder()
+                    .message(errorMessage.get(0))
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .build());
+        }
+
             iRatingService.insertRating(ratingDTO);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(
+                    ResponseObject.builder().
+                          status(HttpStatus.OK.value())
+                            .message("Bạn đã đánh giá sản phẩm.")
+                            .build());
 
     }
+    @PreAuthorize("true")
     @GetMapping("/stats/{productId}")
-    public ResponseEntity<ResponseObject> getRatingStats(@PathVariable Long productId) throws Exception{
+    public ResponseEntity<ResponseObject> getRatingStats(@PathVariable Long productId){
 
             List<RatingDTO> ratingDTOS = iRatingService.getStatRatingProduct(productId);
             return ResponseEntity.ok().body(ResponseObject.builder()
-                            .status(HttpStatus.OK)
+                            .status(HttpStatus.OK.value())
                             .data(ratingDTOS)
                             .message("Lấy đánh giá của sản phẩm thành công")
                     .build()

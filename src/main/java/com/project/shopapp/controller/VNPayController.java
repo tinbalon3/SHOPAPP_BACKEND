@@ -37,74 +37,33 @@ import java.util.Optional;
 @RestController
 
 @RequestMapping("${api.prefix}/vnpay")
-public class VNPayController extends BaseRedisServiceImpl {
+public class VNPayController  {
 
     @Autowired
     private  IVNPayService vnPayService;
+
     @Autowired
-    private  TransactionRepository transactionRepository;
-    @Autowired
-    private  ITransactionService iTransactionService;
-    @Autowired
-    private   IOrderService iOrderService;
-    @Autowired
-    private  OrderRepository orderRepository;
-    @Autowired
-    private  KafkaTemplate<String, Object> kafkaTemplate;
+    private  IOrderService orderService;
+
 
     @Value("${api.prefix}")
     private String api_prefix;
 
-    private static final Logger logger = LoggerFactory.getLogger(VNPayController.class);
-
-    public VNPayController(RedisTemplate<String, Object> redisTemplate) {
-        super(redisTemplate);
-    }
 
     @PostMapping(value = "/submitOrder", produces = "application/json;charset=UTF-8")
     public String submitOrder(@RequestBody PurchaseRequest purchaseRequest,
                               HttpServletRequest request) throws Exception {
         String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + api_prefix;
-        Order order = iOrderService.createOrder(purchaseRequest);
-        String paymentUrl = vnPayService.createOrder(order.getId(),purchaseRequest.getTotalMoney(), purchaseRequest.getReason(), baseUrl, request.getRemoteAddr());
+        orderService.createOrder(purchaseRequest);
+        String paymentUrl = vnPayService.createOrder(purchaseRequest.getTotalMoney(), purchaseRequest.getReason(), baseUrl, request.getRemoteAddr());
         return paymentUrl;
     }
 
 
     @GetMapping("/getPaymentInfo")
     public void getPaymentInfo(HttpServletRequest request, HttpServletResponse response) throws IOException, DataNotFoundException {
-
-            int paymentStatus = vnPayService.orderReturn(request);
-            Transactions transaction = iTransactionService.createTransaction(request);
-            String billNo = transaction.getBillNo();
-            Optional<Order> order = orderRepository.findById(Long.parseLong(billNo));
-            Long userID = order.get().getUser().getId();
-            Long orderID = order.get().getId();
-            String orderKeyUser = "order:user:" + userID;
-            setLong(orderKeyUser,orderID);
-            if (paymentStatus == 1) {
-                transaction.setStatus(Status.SUCCESS);
-                transaction.setOrder(order.get());
-                transactionRepository.save(transaction);
-                order.get().setTransaction(transaction);
-                orderRepository.save(order.get());
-                String orderTrackingNumber = order.get().getTrackingNumber();
-                kafkaTemplate.send("order-payments-success",String.valueOf(order.get().getId()),userID);
-                // Redirect về frontend khi thanh toán thành công
-                String redirectUrl = VnPayConfig.vnp_RedictFE + "/" + orderTrackingNumber ;
-                response.sendRedirect(redirectUrl);
-            } else if (paymentStatus == 0) {
-                //
-                transaction.setStatus(Status.FAIL);
-                transactionRepository.save(transaction);
-                kafkaTemplate.setMessageConverter(new OrderMessageConverter());
-                kafkaTemplate.send("order-payments-fail",String.valueOf(order.get().getId()),userID);
-                // Redirect về trang thông báo thất bại trên FE
-                logger.info("Thất bại khi thanh toán đơn hàng.");
-                response.sendRedirect("http://localhost:4200");
-            } else {
-                response.getWriter().write("Lỗi !!! Mã Secure Hash không hợp lệ.");
-            }
+        String redirectUrl = vnPayService.processInfoOrder(request);
+        response.sendRedirect(redirectUrl);
     }
 
 }

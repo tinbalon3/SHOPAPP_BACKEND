@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 
 import static org.springframework.http.HttpMethod.*;
@@ -36,6 +37,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+
                 .csrf(csrf -> csrf
                         .disable() // Disable CSRF for simplicity, enable if needed
                 )
@@ -48,13 +50,13 @@ public class WebSecurityConfig {
                         authorizeRequests
                                 .requestMatchers(
                                         String.format("%s/users/register", apiPrefix),
-                                        String.format("%s/users/login", apiPrefix)
+                                        String.format("%s/users/auth/login", apiPrefix)
 
                                 ).permitAll()
                                 .requestMatchers(POST,
-                                        String.format("%s/users/refreshToken", apiPrefix),
-                                        String.format("%s/users/revoke-token", apiPrefix)
+                                        String.format("%s/token/refreshToken", apiPrefix),
 
+                                        String.format("%s/users/reset-password/send-verification-code", apiPrefix)
                                 ).permitAll()
                                 .requestMatchers(GET,
                                         String.format("%s/actuator/health", apiPrefix),
@@ -76,32 +78,51 @@ public class WebSecurityConfig {
                                         String.format("%s/orders/**", apiPrefix),
                                         String.format("%s/order_details/**", apiPrefix),
                                         String.format("%s/refreshToken/**", apiPrefix),
-                                        String.format("%s/users/verify", apiPrefix),
+                                        String.format("%s/users/reset-password/check-email-exist", apiPrefix),
                                         String.format("%s/rating", apiPrefix),
                                         String.format("%s/coupons/calculate", apiPrefix),
                                         String.format("%s/vnpay/getPaymentInfo", apiPrefix),
                                         String.format("%s/rating/stats/*", apiPrefix),
-                                        String.format("%s/users/auth/callback", apiPrefix)
+                                        String.format("%s/users/auth/callback", apiPrefix),
+                                        String.format("%s/users/auth/googleLogin", apiPrefix),
+                                        String.format("%s/token/refreshExpirationDate/*", apiPrefix),
+                                        String.format("%s/products/getPrice", apiPrefix)
+
+
                                 ).permitAll()
+                                .requestMatchers(PUT,
+                                        String.format("%s/users/logout", apiPrefix),
+                                        String.format("%s/users/reset-password/send-verification-code", apiPrefix),
+                                        String.format("%s/users/reset-password/change-pass", apiPrefix),
+                                        String.format("%s/users/register/verify", apiPrefix),
+                                        String.format("%s/users/email/verify", apiPrefix)
+                                )
+                                .permitAll()
                                 .requestMatchers(POST,
                                         String.format("%s/orders", apiPrefix),
                                         String.format("%s/cart/add/*", apiPrefix),
-                                        String.format("%s/vnpay/submitOrder", apiPrefix)
+                                        String.format("%s/vnpay/submitOrder", apiPrefix),
+                                        String.format("%s/rating", apiPrefix)
                                 ).hasRole("USER")
 
                                 .requestMatchers(PUT,
-                                        String.format("%s/users/update_password/*", apiPrefix)
+                                        String.format("%s/users/update-password/*", apiPrefix),
+//                                        String.format("%s/users/reset-password/send-verification-code", apiPrefix),
+                                        String.format("%s/users/update-email", apiPrefix)
+
                                 ).hasRole("USER")
                                 .requestMatchers(PUT,
                                         String.format("%s/orders/**", apiPrefix),
                                         String.format("%s/cart/update/*", apiPrefix),
-                                        String.format("%s/users/reset-password/*", apiPrefix),
-                                        String.format("%s/users/blockOrEnable/**", apiPrefix)
+                                        String.format("%s/users/blockOrEnable/**", apiPrefix),
+                                        String.format("%s/coupons/active/**", apiPrefix)
                                 ).hasRole("ADMIN")
 
                                 .requestMatchers(GET,
-                                        String.format("%s/cart/get/*", apiPrefix)
+                                        String.format("%s/cart/get/*", apiPrefix),
 
+                                        String.format("%s/orders/order-history/*", apiPrefix),
+                                        String.format("%s/orders/*", apiPrefix)
                                 ).hasRole("USER")
 
                                 .requestMatchers(GET,
@@ -110,7 +131,7 @@ public class WebSecurityConfig {
                                 ).hasRole("ADMIN")
 
                                 .requestMatchers(DELETE,
-                                        String.format("%s/cart/remove/*", apiPrefix)
+                                        String.format("%s/cart/remove/**", apiPrefix)
                                 ).hasRole("USER")
 
                                 .anyRequest().authenticated()

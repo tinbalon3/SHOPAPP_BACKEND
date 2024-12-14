@@ -1,7 +1,9 @@
 package com.project.shopapp.components;
 
 import com.project.shopapp.dto.OrderDTO;
-import com.project.shopapp.service.IUserService;
+import com.project.shopapp.service.ISendEmailService;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -10,13 +12,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Component
+@RequiredArgsConstructor
 public class KafkaRetryEmailConsumer {
 
-    @Autowired
-    private IUserService iUserService;
+    private final ISendEmailService emailService;
 
-    @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
     // Executor service để quản lý các luồng xử lý song song
     private final ExecutorService executorService = Executors.newCachedThreadPool();
@@ -63,7 +64,7 @@ public class KafkaRetryEmailConsumer {
 
             // Thử gửi email
             try {
-                iUserService.sendMailOrderSuccessfully(order);
+                emailService.sendMailOrderSuccessfully(order);
             } catch (Exception e) {
                 if (retryCount < 6) {
                     retryMessage(order, nextTopic, retryCount, delay); // Nếu lỗi, tiếp tục retry với topic và delay mới

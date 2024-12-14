@@ -6,13 +6,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-
+@Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
-    boolean existsByName(String name);
+
 
     Page<Product> findAll(Pageable pageable); //phan trang
+    @Query("SELECT MAX(p.price) FROM Product p")
+    Double findMaxPrice();
 
+    @Query("SELECT MIN(p.price) FROM Product p")
+    Double findMinPrice();
 
     @Query("SELECT p FROM Product p WHERE " +
             "(:categoryId IS NULL OR :categoryId = 0 OR p.category.id = :categoryId) AND " +
