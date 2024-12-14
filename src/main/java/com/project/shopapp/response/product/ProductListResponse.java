@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductListResponse {
     private List<ProductDTO> products;
+
     private Long totalElements;
     private int totalPages;
 }

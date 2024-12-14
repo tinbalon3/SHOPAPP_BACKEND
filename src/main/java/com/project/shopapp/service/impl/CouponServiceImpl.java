@@ -20,13 +20,24 @@ public class CouponServiceImpl implements ICouponService {
     @Override
     public double calculateCouponValue(String couponCode, double totalAmount) {
         Coupon coupon = couponRepository.findByCode(couponCode)
-                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy coupon."));
+                .orElseThrow(() -> new IllegalArgumentException("Mã giảm giá không hợp lệ."));
         if(!coupon.isActive()) {
-            throw new IllegalArgumentException("Coupon không còn hiệu lực.");
+            throw new IllegalArgumentException("Mã giảm giá đã hết hạn.");
         }
         double discount = calculateDiscount(coupon,totalAmount);
-        double finalAmount = totalAmount - discount;
-        return finalAmount;
+        if(discount == 0) {
+            throw new IllegalArgumentException("Bạn không thõa điều kiện để được giảm giá.");
+        }
+        return discount;
+    }
+
+    @Override
+    public void activeCoupon(Long couponId, boolean active) {
+        Coupon coupon = couponRepository.findById(couponId)
+                .orElseThrow(() -> new IllegalArgumentException("Mã giảm giá không hợp lệ."));
+        coupon.setActive(false);
+        couponRepository.save(coupon);
+
     }
 
     private double calculateDiscount(Coupon coupon, double totalAmount) {
@@ -45,13 +56,26 @@ public class CouponServiceImpl implements ICouponService {
                     discount += totalAmount * percentDiscount / 100;
                 }
             } else if (attribute.equals("applicable_date")) {
-                LocalDate applicableDate = LocalDate.parse(value);
-                LocalDate currentDate = LocalDate.now();
-                if(operator.equalsIgnoreCase("BETWEEN")
-                && currentDate.isEqual(applicableDate)) {
-                    discount += totalAmount * percentDiscount / 100;
+                if(operator.equalsIgnoreCase("BETWEEN")) {
+                    String[] dateBetween = value.split(",");
+                    LocalDate startDate = LocalDate.parse(dateBetween[0]);
+                    LocalDate endDate  = LocalDate.parse(dateBetween[1]);
+                    LocalDate currentDate = LocalDate.now();
+                    if(currentDate.isAfter(startDate) && currentDate.isBefore(endDate)) {
+                        discount += totalAmount * percentDiscount / 100;
+                    }
                 }
+                else if(operator.equalsIgnoreCase("=")) {
+                    LocalDate currentDate = LocalDate.now();
+                    LocalDate applicableDate = LocalDate.parse(value);
+                    if(currentDate.isEqual(applicableDate)) {
+                        discount += totalAmount * percentDiscount / 100;
+                    }
+                }
+
+
             }
+
 
         }
         return discount;

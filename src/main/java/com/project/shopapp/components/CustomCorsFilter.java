@@ -18,18 +18,25 @@ public class CustomCorsFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");  // Use specific domain if needed
+        String allowedOrigin = "http://localhost:4200"; // Frontend domain
+        response.setHeader("Access-Control-Allow-Origin", allowedOrigin);
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
         response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "authorization, content-type, xsrf-token, x-requested-with");
+        response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, xsrf-token, x-requested-with,Origin");
         response.addHeader("Access-Control-Expose-Headers", "xsrf-token");
 
-        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-            response.setStatus(HttpServletResponse.SC_OK);
-            return;  // Short-circuit the request for preflight
+        try {
+            if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+                response.setStatus(HttpServletResponse.SC_OK);
+                return;
+            }
+            filterChain.doFilter(request, response);
+        } catch (Exception e) {
+            // Đảm bảo header vẫn được gửi kèm khi có lỗi
+            response.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
         }
-
-        filterChain.doFilter(request, response);
     }
 }
+
 

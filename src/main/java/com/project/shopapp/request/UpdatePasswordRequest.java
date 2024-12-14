@@ -1,4 +1,4 @@
-package com.project.shopapp.dto;
+package com.project.shopapp.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -8,7 +8,8 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PasswordDTO {
+public class UpdatePasswordRequest {
+    private String email;
     private String password;
     @JsonProperty("retype_password")
     private String retypePassword;

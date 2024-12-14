@@ -10,9 +10,7 @@ import java.util.Optional;
 
 @Service
 public class StockServiceImpl extends BaseRedisServiceImpl implements IStockService {
-    public StockServiceImpl(RedisTemplate<String, Object> redisTemplate) {
-        super(redisTemplate);
-    }
+
     @Override
     public boolean processOrder(Long productId, int quantity) throws InterruptedException {
         String lockKey = "lock:" + productId;

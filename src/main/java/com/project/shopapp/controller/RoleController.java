@@ -27,7 +27,7 @@ public class RoleController {
         return ResponseEntity.ok(ResponseObject.builder()
                         .message("Lấy danh sách role thành công")
                         .data(roles)
-                        .status(HttpStatus.OK)
+                        .status(HttpStatus.OK.value())
                 .build());
 
     }

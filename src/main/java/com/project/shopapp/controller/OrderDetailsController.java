@@ -37,24 +37,21 @@ public class OrderDetailsController {
             return ResponseEntity.ok().body(ResponseObject.builder()
                             .message(localizationUtils.getLocalizeMessage(MessageKeys.INSERT_ORDER_DETAIL_SUCCESSFULLY))
                             .data(orderDetailDTO1)
-                            .status(HttpStatus.OK)
+                            .status(HttpStatus.OK.value())
                     .build());
 
 
 
     }
-    @PreAuthorize("true")
+
     @GetMapping("/{id}")
     public ResponseEntity<ResponseObject> getOrderDetail(@Valid @PathVariable("id") Long id) throws DataNotFoundException {
 
-            OrderDetail newOrderDetail = iOrderDetailService.getOrderDetail(id);
-            OrderDetailDTO orderDetailDTO = OrderDetailMapper.MAPPER.mapToOrderDetailDTO(newOrderDetail);
-            orderDetailDTO.setOrderId(newOrderDetail.getOrder().getId());
-            orderDetailDTO.setProductId(newOrderDetail.getProduct().getId());
+            OrderDetailDTO newOrderDetail = iOrderDetailService.getOrderDetail(id);
             return ResponseEntity.ok(ResponseObject.builder()
                             .message(localizationUtils.getLocalizeMessage(MessageKeys.FIND_ORDER_DETAIL_SUCCESSFULLY))
-                            .data(orderDetailDTO)
-                            .status(HttpStatus.OK)
+                            .data(newOrderDetail)
+                            .status(HttpStatus.OK.value())
                     .build());
     }
     //lay ra danh sach cac order_details cua 1 order nao do
@@ -66,7 +63,7 @@ public class OrderDetailsController {
         return ResponseEntity.ok(ResponseObject.builder()
                         .message(localizationUtils.getLocalizeMessage(MessageKeys.FIND_ORDER_DETAIL_SUCCESSFULLY))
                         .data(orderDetailDTOs)
-                        .status(HttpStatus.OK)
+                        .status(HttpStatus.OK.value())
                 .build());
     }
 
@@ -81,7 +78,7 @@ public class OrderDetailsController {
             return ResponseEntity.ok(ResponseObject.builder()
                             .message(localizationUtils.getLocalizeMessage(MessageKeys.UPDATE_ORDER_DETAIL_SUCCESSFULLY,id))
                             .data(orderDetailDTO1)
-                            .status(HttpStatus.OK)
+                            .status(HttpStatus.OK.value())
                     .build());
 
 
@@ -93,7 +90,7 @@ public class OrderDetailsController {
         iOrderDetailService.deleteOrderDetail(id);
         return ResponseEntity.ok().body(ResponseObject.builder()
                 .message(localizationUtils.getLocalizeMessage(MessageKeys.DELETE_ORDER_DETAIL_SUCCESSFULLY))
-                .status(HttpStatus.OK)
+                .status(HttpStatus.OK.value())
                 .build()
         );
     }

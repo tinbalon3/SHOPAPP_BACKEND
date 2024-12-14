@@ -1,15 +1,29 @@
 package com.project.shopapp.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.project.shopapp.components.converters.OrderMessageConverter;
 import com.project.shopapp.config.VnPayConfig;
+import com.project.shopapp.controller.VNPayController;
+import com.project.shopapp.dto.ItemPurchaseDTO;
+import com.project.shopapp.enums.Status;
+import com.project.shopapp.exceptions.DataNotFoundException;
 import com.project.shopapp.models.Order;
+import com.project.shopapp.models.OrderDetail;
 import com.project.shopapp.models.OrderStatus;
+import com.project.shopapp.models.Transactions;
 import com.project.shopapp.repositories.OrderRepository;
 import com.project.shopapp.repositories.TransactionRepository;
 import com.project.shopapp.request.PurchaseRequest;
+import com.project.shopapp.service.IOrderDetailService;
+import com.project.shopapp.service.ITransactionService;
 import com.project.shopapp.service.IVNPayService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,20 +36,27 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
-@RequiredArgsConstructor
-public class VNPayServiceImpl  implements IVNPayService {
 
-    private final TransactionRepository transactionRepository;
-    private final OrderServiceImpl orderService;
-    private final OrderRepository orderRepository;
+public class VNPayServiceImpl extends BaseRedisServiceImpl  implements IVNPayService  {
+
+    @Autowired
+    private  ITransactionService transactionService;
+    @Autowired
+    private  OrderServiceImpl orderService;
+    @Autowired
+    private IOrderDetailService orderDetailService;
+
+    @Autowired
+    private KafkaTemplate<String, Object> kafkaTemplate;
+    private static final Logger logger = LoggerFactory.getLogger(VNPayServiceImpl.class);
+
+
+
     @Transactional
-    public String createOrder(Long orderId,float total, String orderInfor, String urlReturn, String ipAddr) throws Exception {
+    public String createOrder(float total, String orderInfor, String urlReturn, String ipAddr) throws Exception {
         String vnp_Version = "2.1.0";
         String vnp_Command = "pay";
-        String vnp_TxnRef = orderId.toString();
-
-
-
+        String vnp_TxnRef = generateTxnRef("vnp");
 //        String vnp_IpAddr = "127.0.0.1";
         String vnp_TmnCode = VnPayConfig.vnp_TmnCode;
         String orderType = "order-type";
@@ -102,7 +123,62 @@ public class VNPayServiceImpl  implements IVNPayService {
 
         return paymentUrl;
     }
+    private String generateTxnRef(String prefix) {
+        // Lấy thời gian hiện tại dưới dạng chuỗi
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        String timestamp = now.format(formatter);
 
+        // Tạo một mã UUID để đảm bảo tính duy nhất
+        String uniqueId = UUID.randomUUID().toString().replace("-", "").substring(0, 8); // lấy 8 ký tự đầu
+
+        // Kết hợp tiền tố, thời gian và UUID để tạo mã giao dịch duy nhất
+        return prefix + "_" + timestamp + "_" + uniqueId;
+    }
+    @Transactional
+    public String processInfoOrder(HttpServletRequest request) throws  JsonProcessingException {
+        int paymentStatus = orderReturn(request);
+
+
+        Transactions transaction = transactionService.createTransaction(request);
+        String hashKey = "orderPayment:user:" + transaction.getUser().getId();
+
+        List<OrderDetail> orderDetailGetFromRedis = (List<OrderDetail>) getList(hashKey, "orderDetails",OrderDetail.class); // lấy giá trị từ Redis
+        Order orderGetFromRedis = (Order) hashGetObject(hashKey,"order",Order.class); // lấy giá trị từ Redis
+        Long userID = orderGetFromRedis.getUser().getId();
+
+        if (paymentStatus == 1) {
+
+
+            transaction.setStatus(Status.SUCCESS);
+            orderGetFromRedis.setTransaction(transaction);
+            orderGetFromRedis.setStatus(OrderStatus.PROCESSING);
+            Order order = orderService.saveOrder(orderGetFromRedis);
+            orderDetailGetFromRedis.forEach(orderDetail -> {
+                orderDetail.setOrder(order);
+
+            });
+            orderDetailService.saveAllOrderDetail(orderDetailGetFromRedis);
+
+            transaction.setOrder(order);
+            transactionService.saveTransaction(transaction);
+
+            kafkaTemplate.send("order-payments-success",order.getId());
+            // Redirect về frontend khi thanh toán thành công
+            String redirectUrl = VnPayConfig.vnp_RedictFE + "?" + "status=success";
+            return redirectUrl;
+        } else if (paymentStatus == 0) {
+
+            kafkaTemplate.send("order-payments-fail",userID);
+            // Redirect về trang thông báo thất bại trên FE
+            logger.info("Thất bại khi thanh toán đơn hàng.");
+            String redirectUrl = VnPayConfig.vnp_RedictFE + "?" +  "status=failed" ;
+            return redirectUrl;
+        } else {
+            String redirectUrl = "http://localhost:4200/notfound";
+            return redirectUrl;
+        }
+    }
     public int orderReturn(HttpServletRequest request) {
         Map fields = new HashMap();
         for(Enumeration params = request.getParameterNames(); params.hasMoreElements(); ) {

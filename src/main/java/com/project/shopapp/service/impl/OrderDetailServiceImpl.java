@@ -49,9 +49,13 @@ public class OrderDetailServiceImpl implements IOrderDetailService {
 
 
     @Override
-    public OrderDetail getOrderDetail(Long id) throws DataNotFoundException {
-        return orderDetailRepository.findById(id).orElseThrow(
+    public OrderDetailDTO getOrderDetail(Long id) throws DataNotFoundException {
+        OrderDetail orderDetail =  orderDetailRepository.findById(id).orElseThrow(
                 ()->new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.NOT_FOUND_ORDER_DETAIL,id)));
+        OrderDetailDTO orderDetailDTO = OrderDetailMapper.MAPPER.mapToOrderDetailDTO(orderDetail);
+        orderDetailDTO.setOrderId(orderDetail.getOrder().getId());
+        orderDetailDTO.setProductId(orderDetail.getProduct().getId());
+        return orderDetailDTO;
     }
 
     @Override
@@ -85,4 +89,13 @@ public class OrderDetailServiceImpl implements IOrderDetailService {
         List<OrderDetail> orderDetails = orderDetailRepository.findByOrderId(orderId);
         return orderDetails;
     }
+
+    @Override
+    public void saveAllOrderDetail(List<OrderDetail> orderDetails) {
+        orderDetailRepository.saveAll(orderDetails);
+    }
+
+
+
+
 }

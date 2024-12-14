@@ -1,5 +1,6 @@
 package com.project.shopapp.components;
 
+import com.project.shopapp.exceptions.*;
 import com.project.shopapp.models.Token;
 import com.project.shopapp.models.User;
 import com.project.shopapp.repositories.TokenRepository;
@@ -24,7 +25,6 @@ import java.util.function.Function;
 @Component
 @RequiredArgsConstructor
 public class JwtTokenUtils {
-
 
 
     @Value("${jwt.shortExpiration}")
@@ -88,13 +88,36 @@ public class JwtTokenUtils {
         Date expirationDate = this.extractClaims(token,Claims::getExpiration);
         return expirationDate.before(new Date());
     }
+    public boolean validateTokenWithUser(String email, User userDetails) throws  UserErrorException {
 
-    public boolean validateToken(String token, User userDetails){
-        String email = extractEmail(token);
-        Token existingToken = tokenRepository.findByToken(token);
-        if(existingToken == null || existingToken.isRevoked() == true || !userDetails.isActive()){
-            return false;
+          if(!userDetails.isActive()){
+            throw new UserErrorException("User đã bị chặn");
         }
-        return (email.equals(userDetails.getEmail()) && !isTokenExpired(token));
+        return (email.equals(userDetails.getEmail()));
+    }
+    public String validateToken(String token) throws ExpiredTokenException, InvalidTokenException {
+        String email = null;
+        if(isTokenExpired(token)){
+            throw new ExpiredTokenException("Token đã hết hạn");
+        }
+        try {
+             email = extractEmail(token);
+
+        }
+        catch (Exception e) {
+            throw new InvalidTokenException("Không tồn tại email với token");
+        }
+
+        Token existingToken  = tokenRepository.findByToken(token);
+
+        if(existingToken == null ){
+            throw new ExpiredTokenException("Không tồn tại token");
+        }
+        else if(existingToken.isRevoked() == true ) {
+            throw new ExpiredTokenException("Token đã bị chặn");
+        }
+
+
+        return email;
     }
 }

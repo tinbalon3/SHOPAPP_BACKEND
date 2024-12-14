@@ -14,7 +14,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 public class UserDetailResponse {
-    private Long id;
+
 
     @JsonProperty("fullname")
     private String fullName;
@@ -34,6 +34,5 @@ public class UserDetailResponse {
 
     private boolean active;
 
-    @JsonProperty("role_id")
-    private Role role;
+
 }

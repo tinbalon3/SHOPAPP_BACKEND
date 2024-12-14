@@ -2,7 +2,7 @@ package com.project.shopapp.service;
 
 
 import com.project.shopapp.dto.OrderDTO;
-import com.project.shopapp.dto.OrderDetailHistoryDTO;
+import com.project.shopapp.dto.OrderHistoryDTO;
 import com.project.shopapp.dto.OrderResponseDTO;
 import com.project.shopapp.dto.PaymentObject;
 import com.project.shopapp.exceptions.DataNotFoundException;
@@ -16,20 +16,19 @@ import java.util.List;
 
 public interface IOrderService {
 
-    Order createOrder(PurchaseRequest purchaseRequest) throws Exception;
+    void createOrder(PurchaseRequest purchaseRequest) throws Exception;
 
     OrderResponseDTO getOrder(Long id) throws DataNotFoundException;
 
-    Order updateOrder(Long id, OrderUpdateRequest orderUpdateRequest) throws DataNotFoundException;
+    void updateOrder(Long id, OrderUpdateRequest orderUpdateRequest) throws DataNotFoundException;
 
     void deleteOrder(Long id) throws DataNotFoundException;
     List<Order> findByUserId(Long userID) throws DataNotFoundException;
 
-    Order findByTransactionId(String transactionId) throws DataNotFoundException;
-
+    Order saveOrder(Order order);
     Page<Order> getOrderByKeyword(Pageable pageable);
-    Page<OrderDetailHistoryDTO> getOrderDetailHistory(String status,Long userID,Pageable pageable) throws DataNotFoundException;
-    void updateStockAndOrder(Order order) throws Exception;
+    Page<OrderHistoryDTO> getOrderHistory(String status, Long userID, Pageable pageable) throws DataNotFoundException;
+    void updateStockAndOrder(Long orderId) throws Exception;
     void revertStockAndOrder(PaymentObject paymentObject) throws DataNotFoundException;
     Order findByOrderId(Long orderId) throws DataNotFoundException;
 }

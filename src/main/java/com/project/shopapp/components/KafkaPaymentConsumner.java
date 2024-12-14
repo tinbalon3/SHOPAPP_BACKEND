@@ -13,10 +13,7 @@ import com.project.shopapp.models.User;
 import com.project.shopapp.repositories.OrderRepository;
 import com.project.shopapp.repositories.ProductRepository;
 import com.project.shopapp.request.PurchaseRequest;
-import com.project.shopapp.service.IOrderService;
-import com.project.shopapp.service.IProductService;
-import com.project.shopapp.service.IStockService;
-import com.project.shopapp.service.IUserService;
+import com.project.shopapp.service.*;
 import com.project.shopapp.service.impl.BaseRedisServiceImpl;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,44 +31,34 @@ public class KafkaPaymentConsumner extends BaseRedisServiceImpl{
     @Autowired
     private IOrderService orderService;
     @Autowired
-    private IUserService iUserService;
+    private IUserService userService;
     @Autowired
     private IStockService stockService;
     @Autowired
+    private  ISendEmailService emailService;
+    @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
-    public KafkaPaymentConsumner(RedisTemplate<String, Object> redisTemplate) {
-        super(redisTemplate);
-    }
-
-
-
-
-
-
 
     @KafkaListener(id = "notifyEmail",topics = "failed_topic",concurrency = "3")
     public void notifyEmailFailToUser(Order order) throws DataNotFoundException {
-        Optional<User> user = iUserService.getUserById(order.getUser().getId());
+        Optional<User> user = userService.getUserById(order.getUser().getId());
         if(user.isPresent()){
             String emailOfUserOrigin = user.get().getEmail();
             OrderDTO orderDTO = OrderMapper.MAPPER.mapToOrderDTO(order);
             orderDTO.setUser_id(order.getUser().getId());
             orderDTO.setEmail(emailOfUserOrigin);
-            iUserService.sendErrorMailOnInvalidEmail(orderDTO);
+            emailService.sendErrorMailOnInvalidEmail(orderDTO);
         }
 
     }
     @KafkaListener(topics = "order-payments-success", id = "orderPaymentsSuccess")
-    public void orderPaymentsSuccess(Long userID) throws Exception {
-        String orderKeyUser = "order:user:" + userID;
-        Object value = get(orderKeyUser); // lấy giá trị từ Redis
-        Long orderId = (value instanceof Integer) ? ((Integer) value).longValue() : (Long) value;
+    public void orderPaymentsSuccess(Long orderID) throws Exception {
 
-        Order order = orderService.findByOrderId(orderId);
-        orderService.updateStockAndOrder(order);
+        Order order = orderService.findByOrderId(orderID);
+        orderService.updateStockAndOrder(order.getUser().getId());
 
         // Sau khi cập nhật đơn hàng thành công, gửi message tới topic gửi email
-        kafkaTemplate.send("order-updated-success", orderId);
+        kafkaTemplate.send("order-updated-success", order.getId());
     }
     @KafkaListener(topics = "order-updated-success", id = "sendOrderEmail")
     public void sendOrderEmail(Long orderId) throws DataNotFoundException {
@@ -80,7 +67,7 @@ public class KafkaPaymentConsumner extends BaseRedisServiceImpl{
         orderDTO.setUser_id(order.getUser().getId());
 
         try {
-            iUserService.sendMailOrderSuccessfully(orderDTO);
+            emailService.sendMailOrderSuccessfully(orderDTO);
         } catch (Exception e) {
             retryMessage(orderDTO, "retry_5m_topic", 1, 5 * 60 * 1000);  // Retry sau 5 phút nếu gửi email thất bại
         }
@@ -89,17 +76,9 @@ public class KafkaPaymentConsumner extends BaseRedisServiceImpl{
 
     @KafkaListener(topics = "order-payments-fail",id = "orderPaymentsFail")
     public void orderPaymentsFail(Long userID) throws JsonProcessingException, DataNotFoundException {
+        String hashKey = "orderPayment:user:" + userID;
 
-        String keyPurchase = "purchase:userID:" + userID;
-        PurchaseRequest purchaseRequest = getObject(keyPurchase,PurchaseRequest.class);
-
-        String orderKeyUser = "order:user:" + userID;
-        Long orderId = (Long) get(orderKeyUser);
-        Order order = orderService.findByOrderId(orderId);
-
-        order.setStatus(OrderStatus.CANCELED);
-        orderRepository.save(order);
-
+        PurchaseRequest purchaseRequest = (PurchaseRequest) hashGetObject(hashKey,"purchaseRequest",PurchaseRequest.class);
         for (ItemPurchaseDTO item : purchaseRequest.getCartItems()) {
             stockService.releaseReservedStock(item.getId(), item.getQuantity());
         }

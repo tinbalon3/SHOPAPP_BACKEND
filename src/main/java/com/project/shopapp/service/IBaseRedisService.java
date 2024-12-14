@@ -1,6 +1,7 @@
 package com.project.shopapp.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.project.shopapp.request.PurchaseRequest;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,12 @@ public interface IBaseRedisService {
     void setLong(String key, Long value);
     void setTimeToLive(String key, long timeoutInDays);
 
-    void hashSet(String key, String field, Object value);
+    List<?> getList(String key, String field, Class<?> clazz) throws JsonProcessingException;
+
+    <T> List<T> getListAllValue(String key, Class<T> valueClass) throws JsonProcessingException;
+    void hashSet(String key, String field, Object value) throws JsonProcessingException;
+
+
 
     boolean hashExists(String key, String field);
 
@@ -27,10 +33,12 @@ public interface IBaseRedisService {
 
     public Map<String, Object> getField(String key);
 
-    Object hashGet(String key, String field);
+
 
      void hashSet(String key, String field, Integer value);
 
+
+    <T> T hashGetObject(String key, String field, Class<T> clazz);
 
     List<Object> hashGetByFieldPrefix(String key, String filedPrefix);
 
@@ -47,6 +55,6 @@ public interface IBaseRedisService {
     public void saveObject(String key, Object object) throws JsonProcessingException;
     public <T> T getObject(String key, Class<T> clazz) throws JsonProcessingException;
      void saveList(String key, List<?> list) throws JsonProcessingException;
-     List<?> getList(String key,  Class<?> clazz) throws JsonProcessingException;
+//     List<?> getList(String key,  Class<?> clazz) throws JsonProcessingException;
 
 }

@@ -19,9 +19,7 @@ public class InventoryInitializer extends BaseRedisServiceImpl {
     @Autowired
     private IProductService productService;
 
-    public InventoryInitializer(RedisTemplate<String, Object> redisTemplate) {
-        super(redisTemplate);
-    }
+
 
     @EventListener(ApplicationReadyEvent.class)
     public void initializeInventory() {

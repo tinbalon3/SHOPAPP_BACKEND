@@ -13,7 +13,9 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Table(name="orders")
@@ -30,7 +32,7 @@ public class Order  implements Serializable{
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="user_id",referencedColumnName = "id")
     private User user;
 
     @Column(name = "fullname",length = 100)
@@ -60,9 +62,9 @@ public class Order  implements Serializable{
     @JoinColumn(name = "shipping_address_id",referencedColumnName = "id")
     private Address shippingAddress;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "billing_address_id",referencedColumnName = "id")
-    private Address billingAddress;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "billing_address_id",referencedColumnName = "id")
+//    private Address billingAddress;
 
 
     @Column(name = "shipping_date")
@@ -82,13 +84,17 @@ public class Order  implements Serializable{
 
     @ManyToOne
     @JoinColumn(name="coupon_id")
-    @JsonBackReference
+    @JsonBackReference("order-coupon")
     private Coupon coupon;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference("order-transaction")
     @JoinColumn(name = "transaction_id", referencedColumnName = "id")
     private Transactions transaction;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference("order-order_detail")
+    private List<OrderDetail> orderDetails = new ArrayList<>();
+
 }
 

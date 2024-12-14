@@ -10,17 +10,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserLoginDTO {
-
-
-
     @JsonProperty("user_name")
-    private String user_name;
-
-    @NotBlank(message = "Password cannot be blank")
+    private String userName;
     private String password;
 
-    @JsonProperty("role_id")
-    private Long roleId;
-    @JsonProperty("remember_me")
-    private Boolean rememberMe;
 }

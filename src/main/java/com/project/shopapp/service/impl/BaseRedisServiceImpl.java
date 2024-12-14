@@ -2,9 +2,7 @@ package com.project.shopapp.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.shopapp.request.PurchaseRequest;
 import com.project.shopapp.service.IBaseRedisService;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.redis.core.HashOperations;
@@ -17,15 +15,16 @@ import java.util.concurrent.TimeUnit;
 @Service
 
 public class BaseRedisServiceImpl implements IBaseRedisService {
-    protected final RedisTemplate<String, Object> redisTemplate;
-    protected final HashOperations<String, String, Object> hashOperations;
-
+    @Autowired
+    protected RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    public BaseRedisServiceImpl(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-        this.hashOperations = redisTemplate.opsForHash();
-    }
+    protected  ObjectMapper redisObjectMapper;
+
+    protected  HashOperations<String, String, Object> hashOperations;
+
+
+
 
     @Override
     public void saveList(String key, List<?> list) throws JsonProcessingException {
@@ -42,7 +41,7 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
     @Override
     public void saveObject(String key, Object aClass) throws JsonProcessingException {
         // Tạo một ObjectMapper để chuyển đổi đối tượng thành JSON
-        ObjectMapper redisObjectMapper = new ObjectMapper();
+//        ObjectMapper redisObjectMapper = new ObjectMapper();
         String json = redisObjectMapper.writeValueAsString(aClass);
 
         // Lưu vào Redis bằng phương thức set
@@ -58,22 +57,42 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
         }
 
         // Chuyển đổi chuỗi JSON thành đối tượng
-        ObjectMapper redisObjectMapper = new ObjectMapper();
+
         return redisObjectMapper.readValue(json, clazz);
     }
 
     @Override
-    public List<?> getList(String key, Class<?> clazz) throws JsonProcessingException {
-        String json = (String) redisTemplate.opsForValue().get(key);
-        if (json != null) {
-            ObjectMapper redisObjectMapper = new ObjectMapper();
-            return redisObjectMapper.readValue(json, redisObjectMapper.getTypeFactory().constructCollectionType(List.class, clazz));
+    public List<?> getList(String key, String field, Class<?> clazz) throws JsonProcessingException {
+        String jsonString = (String) hashOperations.get(key, field);
+
+        if (jsonString != null) {
+
+            return redisObjectMapper.readValue(jsonString, redisObjectMapper.getTypeFactory().constructCollectionType(List.class, clazz));
         }
         return  Collections.emptyList();
     }
+    @Override
+    public <T> List<T> getListAllValue(String key, Class<T> valueClass) throws JsonProcessingException {
+        // Lấy dữ liệu từ Redis dưới dạng danh sách các đối tượng (Object)
+        List<Object> redisList = redisTemplate.opsForList().range(key, 0, -1);
 
+        // Kiểm tra nếu danh sách không null
+        if (redisList != null) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            List<T> resultList = new ArrayList<>();
 
+            for (Object obj : redisList) {
+                // Chuyển đổi mỗi đối tượng trong danh sách thành kiểu T
+                String json = objectMapper.writeValueAsString(obj);  // Chuyển Object thành String JSON
+                T entity = objectMapper.readValue(json, valueClass); // Chuyển String JSON thành kiểu T
+                resultList.add(entity);  // Thêm vào danh sách kết quả
+            }
 
+            return resultList;
+        }
+
+        return Collections.emptyList(); // Trả về danh sách rỗng nếu không có dữ liệu
+    }
 
     @Override
     public Map<?, ?> getMap(String key, Class<?> keyClass, Class<?> valueClass) throws JsonProcessingException {
@@ -109,6 +128,7 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
     public void hashSet(String key, String field, Integer value) {
         hashOperations.put(key, field, value);
     }
+
     @Override
     public boolean hashExists(String key, String field) {
 
@@ -144,15 +164,31 @@ public class BaseRedisServiceImpl implements IBaseRedisService {
     public Map<String, Object> getField(String key) {
         return hashOperations.entries(key);
     }
-    @Override
-    public void hashSet(String key, String field, Object value) {
-        hashOperations.put(key, field, value);
-    }
-    @Override
-    public Object hashGet(String key, String field) {
-        return  hashOperations.get(key, field);
-    }
 
+
+
+
+    @Override
+    public void hashSet(String key, String field, Object value) throws JsonProcessingException {
+        String jsonString = redisObjectMapper.writeValueAsString(value);
+        hashOperations.put(key, field, jsonString);
+
+    }
+    @Override
+    public <T> T hashGetObject(String key, String field, Class<T> clazz) {
+        String jsonString = (String) hashOperations.get(key, field);
+        if (jsonString != null) {
+            try {
+                return redisObjectMapper.readValue(jsonString, clazz);
+            } catch (JsonProcessingException e) {
+
+                // Handle the error, e.g., return a default value or throw an exception
+                return null; // Or throw a custom exception
+            }
+        } else {
+            return null;
+        }
+    }
     @Override
     public List<Object> hashGetByFieldPrefix(String key, String filedPrefix) {
         List<Object> objects = new ArrayList<>();

@@ -5,4 +5,6 @@ import jakarta.servlet.http.HttpServletRequest;
 
 public interface ITransactionService {
     Transactions createTransaction(HttpServletRequest request);
+    void saveTransaction(Transactions transactions);
+    void deleteTransaction(Transactions transactions);
 }

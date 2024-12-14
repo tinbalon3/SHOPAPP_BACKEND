@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Builder
 public class ResponseObject {
     private String message;
-    private HttpStatus status;
+    private int status;
     private Object data;
 }

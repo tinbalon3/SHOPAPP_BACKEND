@@ -15,7 +15,7 @@ import java.util.*;
 public class VnPayConfig {
     public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"; // ko thay đổi
     public static String vnp_ReturnURL = "/vnpay/getPaymentInfo";
-    public static String vnp_RedictFE = "http://localhost:4200/checkout-successfull";
+    public static String vnp_RedictFE = "http://localhost:4200/checkout-status";
     public static String vnp_TmnCode = "S84FRQ82"; // terminal code trong mail
     public static String vnp_HashSecret = "2VWDV7G1CXDBZM9AIESO9SVDPPO93NLB"; // secret key trong mail
     public static String vnp_apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction"; // ko thay đổi

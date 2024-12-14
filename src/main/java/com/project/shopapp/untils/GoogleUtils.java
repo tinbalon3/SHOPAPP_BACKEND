@@ -24,19 +24,19 @@ import org.apache.http.client.fluent.Form;
 
 @Component
 public class GoogleUtils {
-    @Value("${google.app.id}")
+    @Value("${spring.security.oauth2.client.registration.google.client-id}")
     private String clientId;
 
-    @Value("${google.app.secret}")
+    @Value("${spring.security.oauth2.client.registration.google.client-secret}")
     private String clientSecret;
 
-    @Value("${google.redirect.uri}")
+    @Value("${spring.security.oauth2.client.registration.google.redirect-uri}")
     private String redirectUri;
 
-    @Value("${google.link.get.token}")
+    @Value("${spring.security.oauth2.client.provider.google.token-uri}")
     private String tokenUrl;
 
-    @Value("${google.link.get.user_info}")
+    @Value("${spring.security.oauth2.client.provider.google.user-info-uri}")
     private String userInfoUrl;
 
     @Autowired
@@ -66,7 +66,7 @@ public class GoogleUtils {
         String response = Request.Get(link).execute().returnContent().asString();
         ObjectMapper mapper = new ObjectMapper();
         GooglePojo googlePojo = mapper.readValue(response, GooglePojo.class);
-        System.out.println(googlePojo);
+
         return googlePojo;
     }
 
@@ -76,12 +76,10 @@ public class GoogleUtils {
         if(!userDetail.isPresent()) {
             UserDTO userDTO = UserDTO.builder()
                     .fullName(googlePojo.getName())
-                    .googleAccountId(0)
                     .authProvider(String.valueOf(Provider.GOOGLE))
                     .address("")
                     .email(googlePojo.getEmail())
                     .role(Long.parseLong("1"))
-                    .facebookAccountId(0)
                     .dateOfBirth(calculateDefaultDateOfBirth())
                     .phoneNumber("")
                     .retypePassword("")

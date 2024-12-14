@@ -27,9 +27,7 @@ public class CartRedisServiceImpl extends BaseRedisServiceImpl implements ICartR
     private static final long TTL = 60 * 60; // 1 hour in seconds
 
     private String CART_KEY_PREFIX = "CART_";
-    public CartRedisServiceImpl(RedisTemplate<String, Object> redisTemplate) {
-        super(redisTemplate);
-    }
+
 
     @Override
     public void addProductToCart(Long customerId, List<CartItemRequest> items) throws JsonProcessingException {
@@ -66,15 +64,7 @@ public class CartRedisServiceImpl extends BaseRedisServiceImpl implements ICartR
         return existingCartItems != null ? new ArrayList<>(existingCartItems.values()) : new ArrayList<>();
     }
 
-    @Override
-    public void removeProductFromCart(Long customerId, Long productId) {
-        logger.info("(removeProductToCart): customerId: " + customerId + " productID: " + productId);
-        String cartKey = CART_KEY_PREFIX + customerId;
-        String fieldKey = productId.toString();
 
-        // Xóa sản phẩm khỏi giỏ hàng
-        delete(cartKey, fieldKey);
-    }
     @Override
     public void clearCart(Long customerId) {
         logger.info("(clearProductToCart): customerId: " + customerId);
@@ -86,7 +76,7 @@ public class CartRedisServiceImpl extends BaseRedisServiceImpl implements ICartR
     }
 
     @Override
-    public CartItemRequest updateItems(Long customerId, Long productId, int quantity) throws JsonProcessingException {
+    public void removeProductFromCart(Long customerId, Long productId) throws JsonProcessingException {
         String cartKey = CART_KEY_PREFIX + customerId;
 
         // Lấy giỏ hàng hiện tại từ Redis
@@ -95,22 +85,11 @@ public class CartRedisServiceImpl extends BaseRedisServiceImpl implements ICartR
         // Tìm sản phẩm cần cập nhật trong giỏ hàng
         CartItemRequest cartItemRequest = existingCartItems.get(productId);
         if (cartItemRequest != null) {
-            // Cập nhật số lượng sản phẩm
-            cartItemRequest.setQuantity(cartItemRequest.getQuantity() - quantity);
-
-            // Kiểm tra nếu số lượng sản phẩm <= 0 thì xóa khỏi giỏ hàng
-            if (cartItemRequest.getQuantity() <= 0) {
-                existingCartItems.remove(productId);
-            } else {
-                // Cập nhật lại sản phẩm trong giỏ hàng
-                existingCartItems.put(productId, cartItemRequest);
-            }
-
-            // Lưu giỏ hàng đã cập nhật lại vào Redis
+            existingCartItems.remove(productId);
             saveMap(cartKey, existingCartItems);
         }
 
-        return cartItemRequest;
+
     }
 
 

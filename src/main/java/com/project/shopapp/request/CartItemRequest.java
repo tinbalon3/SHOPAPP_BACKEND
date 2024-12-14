@@ -15,5 +15,5 @@ public class CartItemRequest {
     private int quantity;
     private int number_of_rating;
     private int sum_of_rating;
-
+    private int stock;
 }

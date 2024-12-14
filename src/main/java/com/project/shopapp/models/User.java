@@ -1,5 +1,7 @@
 package com.project.shopapp.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.project.shopapp.untils.GrantedAuthorityDeserializer;
@@ -43,8 +45,8 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "password",length = 200, nullable = false)
     private String password;
 
-   @Column(name="is_active")
-   private boolean active;
+    @Column(name="is_active")
+    private boolean active;
 
     @Column(name="date_of_birth")
     private Date dateOfBirth;
@@ -62,6 +64,11 @@ public class User extends BaseEntity implements UserDetails {
 
     private boolean enabled;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonBackReference("user-tokens")
+    private List<Token> tokens = new ArrayList<>();
+
+
     @Override
     @JsonDeserialize(contentUsing = GrantedAuthorityDeserializer.class)
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -72,7 +79,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @Override
     public String getUsername() {
-        return getPhoneNumber();
+        return email;
     }
 
     @Override
@@ -90,8 +97,5 @@ public class User extends BaseEntity implements UserDetails {
         return true;
     }
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+
 }
