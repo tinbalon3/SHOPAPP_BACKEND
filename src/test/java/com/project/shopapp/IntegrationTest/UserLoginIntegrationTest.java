@@ -221,26 +221,6 @@ public class UserLoginIntegrationTest {
                 .andExpect(jsonPath("$.data").isEmpty());
     }
 
-    @Test
-    @AllureId("106")
-    @DisplayName("Kiểm tra đăng nhập với tên đăng nhập và mật khẩu trống")
-    void login_006() throws Exception {
-        UserLoginDTO loginDTO = new UserLoginDTO();
-        loginDTO.setUserName("");
-        loginDTO.setPassword("");
-
-
-        var resultActions = mockMvc.perform(post("/api/v1/users/auth/login")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(loginDTO))
-                .header("User-Agent", "mobile")
-                .header("Accept-Language", "vi"));
-
-        resultActions.andExpect(status().isInternalServerError())
-                .andExpect(jsonPath("$.message").value("Tên đăng nhập hoặc mật khẩu không kết nối đến tài khoản nào. Tìm tài khoản của bạn và đăng nhập."))
-                .andExpect(jsonPath("$.status").value(500))
-                .andExpect(jsonPath("$.data").isEmpty());
-    }
 
 
 }

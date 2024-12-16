@@ -122,7 +122,7 @@ public class UserController {
         }
     }
     @PutMapping("/register/verify")
-    public ResponseEntity<ResponseObject> verifyUser(@RequestBody VerifyCodeDTO verifyCodeDTO) throws DataNotFoundException, JsonProcessingException {
+    public ResponseEntity<ResponseObject> verifyRegisterUser(@RequestBody VerifyCodeDTO verifyCodeDTO) throws DataNotFoundException, JsonProcessingException {
         if (verifyService.verifyRegisterCode(verifyCodeDTO.getCode(),verifyCodeDTO.getEmail())) {
             return ResponseEntity.ok(ResponseObject.builder()
                     .status(HttpStatus.OK.value())
@@ -130,7 +130,7 @@ public class UserController {
                     .build());
         }else {
             return ResponseEntity.ok(ResponseObject.builder()
-                    .status(HttpStatus.BAD_REQUEST.value())
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
                     .message("Xác thực mã OTP không thành công.")
                     .build());
         }
@@ -338,15 +338,10 @@ public class UserController {
     }
 
     @PutMapping("/update-password")
-    public ResponseEntity<?> updatePassword(@RequestHeader("Authorization") String authorizationHeader,
-                                            @RequestBody UpdatePasswordRequest updatePasswordRequest) throws Exception {
+    public ResponseEntity<?> updatePassword(@RequestBody UpdatePasswordRequest updatePasswordRequest) throws Exception {
 
-            String extractToken = authorizationHeader.substring(7);
-            User userDetails = userService.getUserDetails(extractToken);
-            if(!userDetails.getId().equals(updatePasswordRequest.getEmail())){
-                return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-            }
-             userService.updatePassword(updatePasswordRequest.getEmail(),updatePasswordRequest);
+
+            userService.updatePassword(updatePasswordRequest.getEmail(),updatePasswordRequest);
             return ResponseEntity.ok().build();
 
     }

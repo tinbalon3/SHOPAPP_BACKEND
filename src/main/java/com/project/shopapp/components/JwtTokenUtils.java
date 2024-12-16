@@ -95,10 +95,10 @@ public class JwtTokenUtils {
         }
         return (email.equals(userDetails.getEmail()));
     }
-    public String validateToken(String token) throws ExpiredTokenException, InvalidTokenException {
+    public String validateToken(String token) throws  InvalidTokenException {
         String email = null;
         if(isTokenExpired(token)){
-            throw new ExpiredTokenException("Token đã hết hạn");
+            throw new InvalidTokenException("Token đã hết hạn");
         }
         try {
              email = extractEmail(token);
@@ -111,10 +111,10 @@ public class JwtTokenUtils {
         Token existingToken  = tokenRepository.findByToken(token);
 
         if(existingToken == null ){
-            throw new ExpiredTokenException("Không tồn tại token");
+            throw new InvalidTokenException("Không tồn tại token");
         }
         else if(existingToken.isRevoked() == true ) {
-            throw new ExpiredTokenException("Token đã bị chặn");
+            throw new InvalidTokenException("Token đã bị chặn");
         }
 
 

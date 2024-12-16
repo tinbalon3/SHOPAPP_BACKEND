@@ -64,8 +64,9 @@ public class UserServiceImpl extends BaseRedisServiceImpl implements IUserServic
 
     @Override
     @Transactional
-    public User createUser(UserDTO userDTO) throws DataAlreadyExistsException, DataNotFoundException, JsonProcessingException, InvalidDataRegisterException {
+    public User createUser(UserDTO userDTO) throws  JsonProcessingException, InvalidDataRegisterException {
 
+        Optional<Role> role = roleRepository.findById(userDTO.getRole());
         if(userDTO.getAuthProvider().equals("LOCAL")) {
             if(!ValidationUtils.isValidName(userDTO.getFullName())) {
                 throw new InvalidDataRegisterException("Họ và tên không hợp lệ.");
@@ -83,17 +84,20 @@ public class UserServiceImpl extends BaseRedisServiceImpl implements IUserServic
                 throw new InvalidDataRegisterException("Bạn phải đủ 18 tuổi để đăng ký.");
             }
             if(userRepository.existsUserWithPhoneNumberAndRoleNotAdmin(userDTO.getPhoneNumber())){
-                throw new DataAlreadyExistsException("Số điện thoại đã được đăng kí.");
+                throw new InvalidDataRegisterException("Số điện thoại đã được đăng kí.");
+            };
+            if(userRepository.existsByEmail(userDTO.getEmail())){
+                throw new InvalidDataRegisterException("Email đã được đăng kí.");
             };
             if(!userDTO.getPassword().equals(userDTO.getRetypePassword())){
                 throw new InvalidDataRegisterException(localizationUtils.getLocalizeMessage(MessageKeys.PASSWORD_NOT_MATCH));
             }
+            if(role.isEmpty()){
+                throw new InvalidDataRegisterException(localizationUtils.getLocalizeMessage(MessageKeys.ROLE_DOES_NOT_EXISTS));
+            }
         }
 
-        String email = userDTO.getEmail();
-        if(userRepository.existsByEmail(email)){
-            throw new DataAlreadyExistsException("Email đã được đăng kí.");
-        };
+
 
         User newUser = User.builder()
                 .fullName(userDTO.getFullName())
@@ -103,20 +107,15 @@ public class UserServiceImpl extends BaseRedisServiceImpl implements IUserServic
                 .email(userDTO.getEmail())
                 .provider(Provider.valueOf(userDTO.getAuthProvider()))
                 .dateOfBirth(userDTO.getDateOfBirth())
-                .enabled(true)
+                .enabled(false)
                 .active(true)
                 .build();
 
-        Optional<Role> role = roleRepository.findById(userDTO.getRole());
-        if(role.isEmpty()){
-            throw new DataNotFoundException(localizationUtils.getLocalizeMessage(MessageKeys.ROLE_DOES_NOT_EXISTS));
-        }
         newUser.setRole(role.get());
 
         if (newUser.getProvider() == Provider.LOCAL) {
 
-            String password = userDTO.getPassword();
-            String encodedPassword = passwordEncoder.encode(password);
+            String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
             newUser.setPassword(encodedPassword);
 
             String verificationCode = generateVerificationCode(6);
@@ -124,6 +123,7 @@ public class UserServiceImpl extends BaseRedisServiceImpl implements IUserServic
                     .email(newUser.getEmail())
                     .verificationCode(verificationCode)
                     .build();
+
             this.kafkaTemplate.setMessageConverter(new RegisterObjectMessageConverter());
             this.kafkaTemplate.send("user_register_otp_email_topic", registerObject);
 
@@ -141,7 +141,9 @@ public class UserServiceImpl extends BaseRedisServiceImpl implements IUserServic
             saveMap(user_INFO_Key,userINFO);
             setTimeToLive(user_INFO_Key,60);
 
-            newUser.setEnabled(false);
+        }
+        else {
+            newUser.setEnabled(true);
         }
 
         return newUser;

@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.Optional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -91,6 +92,23 @@ public class UserRegisterIntegrationTest {
         resultActions.andExpect(status().isOk())
                 .andExpect(jsonPath("$.message").value("Tạm thời tạo User thành công."))
                 .andExpect(jsonPath("$.status").value(200))
+                .andExpect(jsonPath("$.data").isEmpty());
+    }
+    @Test
+    @AllureId("114")
+    @DisplayName("Nhập mã OTP không đúng")
+    public void testRegister_004() throws Exception {
+        String requestBody = "{\n" +
+                "  \"email\": \"dangngandong2603@gmail.com\",\n" +
+                "  \"code\": \"123456\"" + "}";
+        var resultActions = mockMvc.perform(put("/api/v1/users/register/verify")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody)
+                .header("Accept-Language", "vi"));
+
+        resultActions.andExpect(status().isOk())
+                .andExpect(jsonPath("$.message").value("Xác thực mã OTP không thành công."))
+                .andExpect(jsonPath("$.status").value(500))
                 .andExpect(jsonPath("$.data").isEmpty());
     }
     @Test

@@ -66,9 +66,9 @@ public class GlobalExceptionHandler {
         );
 
     }
-    @ExceptionHandler(value = ExpiredTokenException.class)
+    @ExceptionHandler(value = InvalidTokenException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public ResponseEntity<ResponseObject> handleTokenRefreshException(ExpiredTokenException ex) {
+    public ResponseEntity<ResponseObject> handleTokenRefreshException(InvalidTokenException ex) {
         return ResponseEntity.badRequest().body(
                 ResponseObject.builder()
                         .message(ex.getMessage())
