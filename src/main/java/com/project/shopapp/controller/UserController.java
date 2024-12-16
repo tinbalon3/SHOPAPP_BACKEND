@@ -338,11 +338,15 @@ public class UserController {
     }
 
     @PutMapping("/update-password")
-    public ResponseEntity<?> updatePassword(@RequestBody UpdatePasswordRequest updatePasswordRequest) throws Exception {
+    public ResponseEntity<ResponseObject> updatePassword(@RequestBody UpdatePasswordRequest updatePasswordRequest) throws Exception {
 
 
             userService.updatePassword(updatePasswordRequest.getEmail(),updatePasswordRequest);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(ResponseObject
+                    .builder()
+                    .status(HttpStatus.OK.value())
+                    .message("Đổi mật khẩu thành công. Vui lòng đăng nhập lại")
+                    .build());
 
     }
     @PutMapping("/reset-password/change-pass")
