@@ -68,7 +68,51 @@ public class UserRegisterIntegrationTest {
         userRepository.save(user);
     }
     @Test
-    @AllureId("113")
+
+    @DisplayName("Email không tồn tại nhưng vẫn pass và tiến hành gửi otp ")
+    public void testRegister_001() throws Exception {
+        String requestBody = "{\n" +
+                "  \"fullname\": \"Dang Ngan Dong\",\n" +
+                "  \"phone_number\": \"0258963155\",\n" +
+                "  \"address\": \"Nha A ngo~ B\",\n" +
+                "  \"password\": \"123456\",\n" +
+                "  \"email\": \"example123@gmail.com\",\n" +
+                "  \"retype_password\": \"123456\",\n" +
+                "  \"date_of_birth\": \"2003-05-13\",\n" +
+                "  \"role_id\": 1,\n" +
+                "  \"auth_provider\": \"LOCAL\",\n" +
+                "  \"isAccepted\": true\n" +
+                "}";
+        var resultActions = mockMvc.perform(post("/api/v1/users/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody)
+                .header("User-Agent", "mobile")
+                .header("Accept-Language", "vi"));
+
+        resultActions.andExpect(status().isOk())
+                .andExpect(jsonPath("$.message").value("Tạm thời tạo User thành công."))
+                .andExpect(jsonPath("$.status").value(200))
+                .andExpect(jsonPath("$.data").isEmpty());
+    }
+    @Test
+    @DisplayName("Xác nhận mã OTP được gửi về testcase 003")
+    public void testRegister_002() throws Exception {
+        
+        String requestBody = "{\n" +
+                "  \"email\": \"dangngandong2603@gmail.com\",\n" +
+                "  \"code\": \"123456\"" + "}";
+        var resultActions = mockMvc.perform(put("/api/v1/users/register/verify")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody)
+                .header("Accept-Language", "vi"));
+
+        resultActions.andExpect(status().isOk())
+                .andExpect(jsonPath("$.message").value("Xác thực mã OTP thành công."))
+                .andExpect(jsonPath("$.status").value(200))
+                .andExpect(jsonPath("$.data").isEmpty());
+    }
+    @Test
+
     @DisplayName("Người dùng nhập thông tin đăng kí hợp lệ")
     public void testRegister_003() throws Exception {
         String requestBody = "{\n" +
@@ -95,7 +139,6 @@ public class UserRegisterIntegrationTest {
                 .andExpect(jsonPath("$.data").isEmpty());
     }
     @Test
-    @AllureId("114")
     @DisplayName("Nhập mã OTP không đúng")
     public void testRegister_004() throws Exception {
         String requestBody = "{\n" +
@@ -112,7 +155,6 @@ public class UserRegisterIntegrationTest {
                 .andExpect(jsonPath("$.data").isEmpty());
     }
     @Test
-    @AllureId("115")
     @DisplayName("Đăng kí không thành công vì ngày sinh dưới 18 tuổi")
     public void testRegister_005() throws Exception {
         String requestBody = "{\n" +
@@ -139,7 +181,6 @@ public class UserRegisterIntegrationTest {
                 .andExpect(jsonPath("$.data").isEmpty());
     }
     @Test
-    @AllureId("116")
     @DisplayName("Đăng kí không thành công vì mật khẩu ít hơn 6 kí tự")
     public void testRegister_006() throws Exception {
         String requestBody = "{\n" +
@@ -167,7 +208,6 @@ public class UserRegisterIntegrationTest {
     }
 
     @Test
-    @AllureId("117")
     @DisplayName("Đăng kí không thành công vì mật khẩu dài hơn 50 kí tự")
     public void testRegister_007() throws Exception {
         String requestBody = "{\n" +
@@ -195,7 +235,6 @@ public class UserRegisterIntegrationTest {
     }
 
     @Test
-    @AllureId("118")
     @DisplayName("Đăng ký không thành công vì mật khẩu nhập lại không trùng khớp")
     public void testRegister_008() throws Exception {
         String requestBody = "{\n" +
@@ -223,7 +262,6 @@ public class UserRegisterIntegrationTest {
     }
 
     @Test
-    @AllureId("119")
     @DisplayName("Đăng ký không thành công vì điều khoản chưa được chấp nhận")
     public void testRegister_009() throws Exception {
         String requestBody = "{\n" +
@@ -251,7 +289,6 @@ public class UserRegisterIntegrationTest {
     }
 
     @Test
-    @AllureId("120")
     @DisplayName("Đăng ký không thành công vì họ và tên không hợp lệ")
     public void testRegister_010() throws Exception {
         String requestBody = "{\n" +
@@ -280,7 +317,6 @@ public class UserRegisterIntegrationTest {
 
 
     @Test
-    @AllureId("121")
     @DisplayName("Đăng ký không thành công vì số điện thoại ngắn hơn 10 kí tự")
     public void testRegister_011() throws Exception {
         String requestBody = "{\n" +
@@ -308,7 +344,6 @@ public class UserRegisterIntegrationTest {
     }
 
     @Test
-    @AllureId("122")
     @DisplayName("Đăng ký không thành công vì email không hợp lệ")
     public void testRegister_012() throws Exception {
         String requestBody = "{\n" +
@@ -336,7 +371,6 @@ public class UserRegisterIntegrationTest {
     }
 
     @Test
-    @AllureId("123")
     @DisplayName("Đăng ký không thành công vì email đã đăng kí trong hệ thống")
     public void testRegister_013() throws Exception {
         String requestBody = "{\n" +
@@ -363,7 +397,6 @@ public class UserRegisterIntegrationTest {
                 .andExpect(jsonPath("$.data").isEmpty());
     }
 
-    @AllureId("124")
     @Test
     @DisplayName("Đăng ký không thành công vì số điện thoại đã đăng kí trong hệ thống")
     public void testRegister_014() throws Exception {
