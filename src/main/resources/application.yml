@@ -4,8 +4,8 @@ server:
 cloud:
   aws:
     credentials:
-      access-key: AKIAQLSIVZXOK4QIEDFE
-      secret-key: CI72Sww6r2fViJBXB6xWy2cZAKAYqWwgrWGRZY1+
+      access-key: {your_key}
+      secret-key: {your_key}
     region:
       static: ap-southeast-2
     stack:
@@ -14,16 +14,7 @@ cloud:
 application:
   bucket:
     name: shopappimages
-#google:
-#  app:
-#    id: 368175433889-feredabg3d7orcvdokr6nsm841fpv9ro.apps.googleusercontent.com
-#    secret: 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
-#  redirect:
-#    uri: http://localhost:4200/auth/callback/google
-#  link:
-#    get:
-#      token: https://accounts.google.com/o/oauth2/token
-#      user_info: https://www.googleapis.com/oauth2/v1/userinfo?access_token=
+
 spring:
   profiles:
     active: default
@@ -61,8 +52,8 @@ spring:
       client:
         registration:
           google:
-            client-id: 368175433889-feredabg3d7orcvdokr6nsm841fpv9ro.apps.googleusercontent.com
-            client-secret: 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
+            client-id: {your_id}
+            client-secret:  {your_secrect}
             scope: email,phone,profile
             redirect-uri: http://localhost:4200/auth/callback/google
         provider:
