@@ -1,0 +1,128 @@
+version: '3.8'
+services: 
+  mysql8-container:
+    container_name: mysql8-container
+    image: mysql:8.2.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: tinbalon2  
+      MYSQL_DATABASE: ShopApp
+    ports:
+      - 3307:3306
+    networks:
+      - shopapp-network
+    
+  phpmyadmin8-container:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin8-container
+    restart: always
+    depends_on:
+      - mysql8-container
+    ports:
+      - "8100:80"
+    environment:
+      PMA_HOST: mysql8-container
+    networks:
+      - shopapp-network
+
+  redis-container:
+    image: docker.io/redis:7.2.3
+    container_name: redis-container
+    restart: always
+    ports:
+     - "6379:6379" 
+    volumes:
+     - ./redis-data:/data
+    networks:
+     - shopapp-network
+     
+  redis-stack-container:
+    image: redis/redis-stack-server:latest
+    container_name: redis-stack-server
+    restart: always
+    ports:
+      - "6380:6379"
+    volumes:
+      - ./redis-stack-data:/data
+    networks:
+     - shopapp-network
+
+  shopapp-spring-container:
+    container_name: shopapp-spring-container
+    # build:
+    #   context: .
+    #   dockerfile: DockerfileJavaSpring
+    image: vansinl/shopapp-spring:1.1.6
+    ports:
+      - 8099:8088
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql8-container:3306/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      MYSQL_ROOT_PASSWORD: tinbalon2
+      REDIS_HOST: redis-container
+      REDIS-PORT: 6379
+      KAFKA_BROKER_SERVER: kafka-broker-01
+      KAFKA_BROKER_PORT: 19092
+    depends_on:
+      - mysql8-container
+    networks:
+      - shopapp-network
+    healthcheck:
+      test: ["CMD-SHELL","curl --fail http://localhost:8088/api/v1/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  shopapp-angular-container:
+    container_name: shopapp-angular-container
+    image: vansinl/shopapp-angular:1.1.0
+    # build:
+    #   context: .
+      # dockerfile: DockerfileAngular
+    ports:
+      - "4301:80"
+    restart: always
+    networks:
+      - shopapp-network
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+ 
+networks:
+  shopapp-network:
+    name: shopapp-network
+    driver: bridge
+    
+# Dưới đây là hướng dẫn ngắn gọn để chạy từng container và import dữ liệu vào MySQL:
+# 1. Chạy từng container:
+# Chạy MySQL container:
+# docker-compose up -d mysql8-container
+
+# Chạy phpMyAdmin container (để quản lý MySQL qua giao diện web):
+# docker-compose up -d phpmyadmin8-container
+
+# Chạy Redis container:
+# docker-compose up -d redis-container
+
+# Chạy Spring Boot container:
+# docker-compose up -d shopapp-spring-container
+
+# Chạy Angular container: (không khả dụng hiện tại do lỗi deployment)
+# docker-compose up -d shopapp-angular-container
+
+# 2. Import dữ liệu vào MySQL:
+# Mở trình duyệt và truy cập vào phpMyAdmin qua địa chỉ:
+# http://localhost:8100
+# Đăng nhập vào phpMyAdmin:
+  # Tài khoản: root
+  # Mật khẩu: tinbalon2
+# Sau khi đăng nhập, chọn vào SQL ở giữa màn hình, gõ lệnh DROP DATABASE ShopApp 
+# Sau đó tạo 1 cơ sở dữ liệu mới tên ShopApp
+# Chọn cơ sở dữ liệu ShopApp và sử dụng tab Import để tải file SQL (ShopApp.sql) vào.
+
+# 3. Kiểm tra:
+# Vì vấn đề kỹ thuật,không thể chạy cả FE và BE cùng lúc trên docker, nên chỉ có truy cập qua BE bằng các url như http://localhost:8099/api/v1/ 
+# với các path như : products
+# …
