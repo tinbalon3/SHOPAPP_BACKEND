@@ -148,7 +148,7 @@ public class OrderServiceImpl extends BaseRedisServiceImpl implements IOrderServ
 //            saveObject(keyOrderDetail,orderDetails);
 //            setTimeToLive(keyPurchase,900);
 //            saveObject(keyPurchase,purchaseRequest);
-//            setTimeToLive(keyPurchase,900);
+           setTimeToLive(hashKey,900);
         }
         catch (Exception e) {
             for (ItemPurchaseDTO item : purchaseRequest.getCartItems()) {
